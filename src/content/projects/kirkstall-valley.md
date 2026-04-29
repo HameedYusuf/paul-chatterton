@@ -1,8 +1,11 @@
 ---
-title: "Kirkstall Valley Development Trust"
-role: "Co-founder"
-description: "A community development trust working to protect and enhance the Kirkstall Valley area of Leeds, including managing Kirkstall Valley Park as a community green space."
-url: "https://www.kvdt.org.uk/"
+title: Kirkstall Valley Development Trust
+role: Co-founder
+description: A community development trust working to protect and enhance the
+  Kirkstall Valley area of Leeds, including managing Kirkstall Valley Park as a
+  community green space.
+url: https://www.kvdt.org.uk/
+image: /images/kirkstall-valley.png
 order: 3
 ---
 
