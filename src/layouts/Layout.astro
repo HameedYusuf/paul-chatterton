@@ -37,8 +37,18 @@ const currentPath = Astro.url.pathname;
       <div class="flex items-center justify-between h-16">
 
         <!-- Logo / name -->
-        <a href="/" class="text-white font-semibold text-base whitespace-nowrap hover:text-accent transition-colors" style="color:#fff;">
-          {site.siteName}
+        <a href="/" class="flex items-center gap-3 group whitespace-nowrap">
+          {site.heroImage && (
+            <img
+              src={site.heroImage}
+              alt={site.siteName}
+              class="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white/10 group-hover:ring-[#22c55e] transition-all"
+            />
+          )}
+          <div class="flex flex-col leading-tight">
+            <span class="text-white font-bold text-lg tracking-tight group-hover:text-[#22c55e] transition-colors">{site.siteName}</span>
+            <span class="text-[#a3a3a3] text-xs tracking-wide">Academic · Activist · Author</span>
+          </div>
         </a>
 
         <!-- Desktop nav -->
