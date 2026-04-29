@@ -9,7 +9,7 @@ impact: Pioneered the Mutual Home Ownership Society (MHOS) model, making eco
   co-housing financially accessible to low-income households. Featured in
   national media and government housing policy discussions.
 url: https://www.lilac.coop/
-image: /images/kirkstall-valley.png
+image: /images/lilac.jpg
 order: 1
 ---
 
