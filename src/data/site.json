@@ -1,26 +1,64 @@
 {
-  "siteName": "Paul Chatterton",
-  "siteDescription": "Professor Paul Chatterton — academic, activist, author working at the intersection of research and action.",
-  "email": "p.chatterton@leeds.ac.uk",
-  "googleScholarUrl": "https://scholar.google.co.uk/citations?user=IPrGZy8AAAAJ&hl=en",
   "universityUrl": "https://environment.leeds.ac.uk/geography/staff/1015/professor-paul-chatterton",
   "heroImage": "/paul_chatteron.jpg",
+  "googleScholarUrl": "https://scholar.google.co.uk/citations?user=IPrGZy8AAAAJ&hl=en",
   "aboutImage": "/paul.jpeg",
+  "siteName": "Paul Chatterton",
   "footerTagline": "Demanding the Impossible",
-  "footerBody": "Professor Paul Chatterton works at the intersection of academia and activism, helping communities build sustainable, just, and resilient futures.",
+  "siteDescription": "Professor Paul Chatterton: academic, activist, author working at the intersection of research and action.",
   "navLinks": [
-    { "label": "Home",         "href": "/" },
-    { "label": "Projects",     "href": "/projects" },
-    { "label": "Publications", "href": "/publications" },
-    { "label": "Media",        "href": "/media" },
-    { "label": "Blog",         "href": "/blog" },
-    { "label": "Collaborate",  "href": "/collaborate" }
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Projects",
+      "href": "/projects"
+    },
+    {
+      "label": "Publications",
+      "href": "/publications"
+    },
+    {
+      "label": "Media",
+      "href": "/media"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "Collaborate",
+      "href": "/collaborate"
+    }
   ],
   "aboutDropdownLinks": [
-    { "label": "About Paul",                "href": "/about",                              "external": false },
-    { "label": "How to Save the City",      "href": "https://www.agendapubl.co.uk/",       "external": true  },
-    { "label": "Unlocking Sustainable Cities", "href": "https://unlockingsustainablecities.org", "external": true },
-    { "label": "LILAC Co-Housing",          "href": "https://www.lilac.coop/",             "external": true  },
-    { "label": "Climate Action Leeds",      "href": "https://www.climateactionleeds.org.uk/", "external": true }
-  ]
+    {
+      "label": "About Paul",
+      "href": "/about",
+      "external": false
+    },
+    {
+      "label": "How to Save the City",
+      "href": "https://www.agendapubl.co.uk/",
+      "external": true
+    },
+    {
+      "label": "Unlocking Sustainable Cities",
+      "href": "https://unlockingsustainablecities.org",
+      "external": true
+    },
+    {
+      "label": "LILAC Co-Housing",
+      "href": "https://www.lilac.coop/",
+      "external": true
+    },
+    {
+      "label": "Climate Action Leeds",
+      "href": "https://www.climateactionleeds.org.uk/",
+      "external": true
+    }
+  ],
+  "email": "p.chatterton@leeds.ac.uk",
+  "footerBody": "Professor Paul Chatterton works at the intersection of academia and activism, helping communities build sustainable, just, and resilient futures."
 }
