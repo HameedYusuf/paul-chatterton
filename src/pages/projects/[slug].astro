@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, role, description, impact, url } = entry.data;
+---
+
+<Layout title={title} description={description}>
+
+  <section class="section" style="background:#0d0d0d;">
+    <div class="container max-w-3xl">
+      <p class="label mb-4">{role}</p>
+      <h1 class="mb-6">{title}</h1>
+      {impact && (
+        <div class="p-4 rounded-lg mb-6" style="background:#1a1a1a;border-left:3px solid #22c55e;">
+          <p class="text-white font-medium">{impact}</p>
+        </div>
+      )}
+      <p class="text-lg">{description}</p>
+      {url && (
+        <div class="mt-8">
+          <a href={url} target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Visit Project ↗
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container max-w-3xl prose prose-invert prose-lg max-w-none">
+      <Content />
+    </div>
+  </section>
+
+  <div class="container mb-8">
+    <a href="/projects" class="text-link font-medium">← Back to Projects</a>
+  </div>
+
+  <CTABanner />
+</Layout>

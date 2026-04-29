@@ -1,0 +1,22 @@
+{
+  "items": [
+    { "title": "The Social City",                  "type": "Podcast", "platform": "Spotify",               "url": "https://open.spotify.com/episode/1dtDG8jbtbUq1wm8AWoZuI",                                                           "date": "2023" },
+    { "title": "The 15 Minute Neighbourhood",      "type": "Podcast", "platform": "SoundCloud",            "url": "https://soundcloud.com/richard-robinson-148052712/the-15-minute-neighbourhood",                                      "date": "2023" },
+    { "title": "The Lady Talks Podcast",           "type": "Podcast", "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=QH1Bs4Ls-gU",                                                                      "date": "2023" },
+    { "title": "How to Save the City — GeoPod",   "type": "Podcast", "platform": "GeoPod",                "url": "https://geogpod.podbean.com/e/episode-72-paul-chatterton-how-to-save-the-city/",                                     "date": "2023" },
+    { "title": "Community Voices on Climate Change","type": "Podcast", "platform": "Local Trust",          "url": "https://localtrust.org.uk/news-and-stories/podcast/community-voices-on-climate-change/",                            "date": "2022" },
+    { "title": "Moral Maze — BBC Radio 4",         "type": "Podcast", "platform": "BBC Sounds",            "url": "https://www.bbc.co.uk/sounds/play/m000l80x",                                                                        "date": "2021" },
+    { "title": "How to Save the City",             "type": "Video",   "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=QQMf-VeJzrA",                                                                      "date": "2023" },
+    { "title": "What is LILAC Housing?",           "type": "Video",   "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=-9nfq0oeBqI",                                                                      "date": "2022" },
+    { "title": "Housing for Radicals",             "type": "Video",   "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=QXQPRsZkQ-k",                                                                      "date": "2022" },
+    { "title": "TEDx: The Story of LILAC",         "type": "Video",   "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=WUpRHUDcqLI",                                                                      "date": "2021" },
+    { "title": "Amsterdam Lecture",                "type": "Talk",    "platform": "Vimeo",                 "url": "https://vimeo.com/983026073",                                                                                       "date": "2024" },
+    { "title": "Designing Climate Resilient Cities","type": "Video",  "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=Y-OIXVjId5Q",                                                                      "date": "2023" },
+    { "title": "How Do We Make Change?",           "type": "Video",   "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=2X623H9CsvE",                                                                      "date": "2023" },
+    { "title": "What is Sustainable Housing?",     "type": "Video",   "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=AZ4DCGM3nZQ",                                                                      "date": "2022" },
+    { "title": "4x4 Lecture",                      "type": "Video",   "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=zo0Rvgh1RNI",                                                                      "date": "2022" },
+    { "title": "Everyday Action Matters",          "type": "Video",   "platform": "YouTube",               "url": "https://www.youtube.com/watch?v=v-fuuso5MXVPk",                                                                    "date": "2021" },
+    { "title": "BBC Look North — Decline of Goldthorpe", "type": "Press", "platform": "BBC Look North",   "url": "",                                                                                                                    "date": "2025" },
+    { "title": "Eyesore Flourishes as Self-Sufficiency Garden", "type": "Press", "platform": "University of Leeds Spotlight", "url": "https://spotlight.leeds.ac.uk/eyesore-flourishes-as-self-sufficiency-garden/",               "date": "2024" }
+  ]
+}

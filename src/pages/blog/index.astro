@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import { getSubstackPosts } from '../../lib/substack';
+
+const posts = await getSubstackPosts();
+---
+
+<Layout title="Blog & Comment" description="Writing beyond the journal — comment pieces, essays, and opinion.">
+
+  <section class="section" style="background:#0d0d0d;">
+    <div class="container">
+      <h1 class="mb-4">Blog & Comment</h1>
+      <p class="text-lg max-w-xl">Writing beyond the journal.</p>
+      <p class="mt-2 text-sm">{posts.length} pieces</p>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-6">
+        {posts.map(post => (
+          <div class="card p-6 flex flex-col">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="pill pill-green">{post.date}</span>
+              <span class="text-xs" style="color:#a3a3a3;">Urban Futures Now</span>
+            </div>
+            <h3 class="text-base mb-3 flex-1">{post.title}</h3>
+            <p class="text-sm mb-4" style="color:#a3a3a3;">{post.excerpt}</p>
+            <a
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-medium"
+              style="color:#22c55e;"
+            >
+              Read on Substack →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>

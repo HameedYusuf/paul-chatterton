@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import StatCounter from '../components/StatCounter.astro';
+import PhilosophyCard from '../components/PhilosophyCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import about from '../data/about.json';
+import site from '../data/site.json';
+---
+
+<Layout title="About" description={`Professor ${site.siteName} — academic, activist and author working at the University of Leeds.`}>
+
+  <!-- Full-width hero photo -->
+  <div class="w-full overflow-hidden" style="max-height:480px;">
+    <img
+      src={site.aboutImage}
+      alt={`Professor ${site.siteName}`}
+      class="w-full object-cover object-top"
+      style="max-height:480px;"
+      onerror="this.parentElement.style.background='#1a1a1a';this.style.display='none';"
+    />
+  </div>
+
+  <!-- Quick links -->
+  <div style="background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,0.08);">
+    <div class="container py-4 flex flex-wrap gap-3">
+      {[
+        { label: 'Impact',        href: '/impact' },
+        { label: 'Publications',  href: '/publications' },
+        { label: 'Projects',      href: '/projects' },
+        { label: 'Collaborate',   href: '/collaborate' },
+      ].map(l => (
+        <a href={l.href} class="btn-secondary" style="padding:0.5rem 1rem;font-size:0.875rem;">{l.label}</a>
+      ))}
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="container">
+    <StatCounter stats={about.stats} />
+  </div>
+
+  <!-- About -->
+  <section class="section">
+    <div class="container max-w-3xl">
+      <h1 class="mb-4">{about.heroTitle}</h1>
+      <p class="text-lg mb-8" style="color:#d4d4d4;">{about.heroSubtitle}</p>
+
+      <h2 class="mb-6">{about.sectionTitle}</h2>
+      <div class="space-y-5 text-base leading-relaxed">
+        {about.bio.map((para: string) => (
+          <p>{para}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <SectionHeading heading="Philosophy" />
+      <div class="grid md:grid-cols-3 gap-6">
+        {about.philosophy.map(p => (
+          <PhilosophyCard emoji={p.emoji} heading={p.heading} body={p.body} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Roles -->
+  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container max-w-3xl">
+      <SectionHeading heading="Roles & Affiliations" />
+      <ul class="space-y-3 mb-8">
+        {about.roles.map((r: string) => (
+          <li class="flex items-start gap-3 py-3" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <span style="color:#22c55e;" class="mt-1">▸</span>
+            <span class="text-white">{r}</span>
+          </li>
+        ))}
+      </ul>
+      <a href="/roles" class="text-link font-medium">View All 7 Roles →</a>
+    </div>
+  </section>
+
+  <!-- Academic Profiles -->
+  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container max-w-3xl">
+      <SectionHeading heading="Academic Profiles" />
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href={site.googleScholarUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary">Google Scholar ↗</a>
+        <a href={site.universityUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary">University of Leeds Profile ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading={about.ctaHeading}
+    body={about.ctaBody}
+    cta={about.ctaLabel}
+    href={about.ctaHref}
+  />
+</Layout>

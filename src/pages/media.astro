@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import mediaData from '../data/media.json';
+
+const allMedia = mediaData.items;
+
+const typeColors: Record<string, string> = {
+  Podcast: 'rgba(34,197,94,0.15)',
+  Video:   'rgba(59,130,246,0.12)',
+  Talk:    'rgba(168,85,247,0.12)',
+  Press:   'rgba(251,146,60,0.12)',
+};
+const typeText: Record<string, string> = {
+  Podcast: '#22c55e',
+  Video:   '#60a5fa',
+  Talk:    '#c084fc',
+  Press:   '#fb923c',
+};
+---
+
+<Layout title="Media & Talks" description="Podcasts, videos, talks, and press appearances.">
+
+  <section class="section" style="background:#0d0d0d;">
+    <div class="container">
+      <h1 class="mb-4">Media & Talks</h1>
+      <p class="text-lg max-w-xl">Sharing ideas beyond the academy.</p>
+      <p class="mt-2 text-sm">{allMedia.length} items</p>
+
+      <div class="flex flex-wrap gap-3 mt-6" id="filter-tabs">
+        {['All', 'Podcast', 'Video', 'Talk', 'Press'].map(f => (
+          <button
+            data-filter={f}
+            class={`pill cursor-pointer transition-all ${f === 'All' ? 'pill-green' : 'pill-outline'}`}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <div class="grid md:grid-cols-3 gap-6" id="media-grid">
+        {allMedia.map(m => (
+          <div class="card p-6 flex flex-col" data-type={m.type}>
+            <div class="flex items-center justify-between mb-4">
+              <span
+                class="pill text-xs"
+                style={`background:${typeColors[m.type] ?? 'rgba(255,255,255,0.08)'};color:${typeText[m.type] ?? '#a3a3a3'};`}
+              >
+                {m.type}
+              </span>
+              <span class="text-xs" style="color:#a3a3a3;">{m.date}</span>
+            </div>
+            <p class="label mb-1">{m.platform}</p>
+            <h3 class="text-base flex-1 mb-4">{m.title}</h3>
+            {m.url ? (
+              <a href={m.url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium" style="color:#22c55e;">
+                Watch / Listen →
+              </a>
+            ) : (
+              <span class="text-sm" style="color:#a3a3a3;">Clip unavailable</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>
+
+<script>
+  const tabs = document.querySelectorAll('#filter-tabs button');
+  const cards = document.querySelectorAll('#media-grid [data-type]');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = (tab as HTMLElement).dataset.filter;
+
+      tabs.forEach(t => {
+        t.classList.remove('pill-green');
+        t.classList.add('pill-outline');
+      });
+      tab.classList.add('pill-green');
+      tab.classList.remove('pill-outline');
+
+      cards.forEach(card => {
+        const el = card as HTMLElement;
+        if (filter === 'All' || el.dataset.type === filter) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

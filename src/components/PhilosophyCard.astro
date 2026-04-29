@@ -1,0 +1,14 @@
+---
+interface Props {
+  emoji: string;
+  heading: string;
+  body: string;
+}
+const { emoji, heading, body } = Astro.props;
+---
+
+<div class="p-6 rounded-xl flex flex-col gap-3" style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.08);">
+  <span class="text-3xl">{emoji}</span>
+  <h3 class="text-base">{heading}</h3>
+  <p class="text-sm leading-relaxed">{body}</p>
+</div>

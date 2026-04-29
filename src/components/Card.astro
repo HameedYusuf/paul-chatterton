@@ -1,0 +1,49 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  role?: string;
+  impact?: string;
+  href?: string;
+  image?: string;
+  tag?: string;
+  external?: boolean;
+}
+const { title, description, role, impact, href, image, tag, external = false } = Astro.props;
+---
+
+<div class="card flex flex-col">
+  {image && (
+    <div class="relative overflow-hidden" style="aspect-ratio:16/9;">
+      <img src={image} alt={title} class="w-full h-full object-cover" loading="lazy" />
+    </div>
+  )}
+  {!image && (
+    <div class="flex items-center justify-center text-4xl" style="aspect-ratio:16/9;background:#111;">
+      🌱
+    </div>
+  )}
+
+  <div class="p-6 flex flex-col flex-1">
+    {role && <p class="label mb-2">{role}</p>}
+    {tag && <span class="pill pill-outline mb-2 self-start">{tag}</span>}
+    <h3 class="mb-3 text-lg leading-snug">{title}</h3>
+    {description && <p class="text-sm mb-4 flex-1">{description}</p>}
+    {impact && (
+      <p class="text-sm mb-4">
+        <span class="font-semibold text-white">Impact: </span>{impact}
+      </p>
+    )}
+    {href && (
+      <a
+        href={href}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noopener noreferrer' : undefined}
+        class="text-sm font-medium mt-auto"
+        style="color:#22c55e;"
+      >
+        Learn more →
+      </a>
+    )}
+  </div>
+</div>

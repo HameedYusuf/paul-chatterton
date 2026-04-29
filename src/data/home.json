@@ -1,0 +1,78 @@
+{
+  "hero": {
+    "label": "Academic · Activist · Author",
+    "title": "Demand the Impossible",
+    "body": "After three decades of working at the intersection of research and action, I'm seeking collaborators for high-impact projects that can help communities build sustainable, just, and resilient futures.",
+    "ctaPrimary": "Let's Collaborate →",
+    "ctaPrimaryHref": "/collaborate",
+    "ctaSecondary": "View My Work",
+    "ctaSecondaryHref": "/impact"
+  },
+  "stats": [
+    { "number": "30+",  "label": "Years Research" },
+    { "number": "124+", "label": "Publications" },
+    { "number": "9",    "label": "Major Projects" }
+  ],
+  "projectsSectionLabel": "Real-world initiatives demonstrating another way is possible",
+  "featuredProjects": [
+    {
+      "title": "LILAC Co-Housing",
+      "role": "Co-founder",
+      "description": "The UK's first affordable ecological co-housing community — 20 households in Leeds using straw-bale construction and a Mutual Home Ownership Society model.",
+      "impact": "Pioneered the MHOS model, making eco housing financially accessible.",
+      "href": "/projects/lilac",
+      "image": "/images/lilac.jpg"
+    },
+    {
+      "title": "Climate Action Leeds",
+      "role": "Lead",
+      "description": "City-wide climate mobilisation through a 'hub and spoke' model, connecting grassroots communities around a shared goal of zero carbon by the 2030s.",
+      "impact": "Engaged 8,700+ people. Produced the Leeds Doughnut Economics Portrait.",
+      "href": "/projects/climate-action-leeds",
+      "image": "/images/cal.jpg"
+    },
+    {
+      "title": "Kirkstall Valley Development Trust",
+      "role": "Co-founder",
+      "description": "A community development trust working to protect and enhance the Kirkstall Valley area of Leeds, including managing Kirkstall Valley Park.",
+      "impact": "",
+      "href": "/projects/kirkstall-valley",
+      "image": "/images/kirkstall.jpg"
+    }
+  ],
+  "publicationsSectionLabel": "Research that bridges academia and activism",
+  "latestPublications": [
+    { "year": 2026, "citation": "Chatterton et al. 'Doughnut economics, degrowth and decoloniality.' Local Environment.", "type": "Journal Article", "url": "https://www.tandfonline.com/doi/full/10.1080/13549839.2026.2613377" },
+    { "year": 2025, "citation": "Chatterton P, Darby S. The climate emergency and place-based transformation. Sustainability. 17(14), 6274.", "type": "Journal Article", "url": "https://www.mdpi.com/2071-1050/17/14/6274" },
+    { "year": 2025, "citation": "Chatterton P & Birksted-Breen. Transitions to low carbon social futures: Achieving net zero aviation in UK Higher Education (preprint).", "type": "Preprint", "url": "https://osf.io/preprints/socarxiv/qrspx_v1" },
+    { "year": 2024, "citation": "McKenna N, Chatterton P, & Wallace A. It is 'more than just about building houses': collaborating towards a housing commons in Leeds. City, 28(5-6), 611-636.", "type": "Journal Article", "url": "https://www.tandfonline.com/doi/full/10.1080/13604813.2024.2430059" },
+    { "year": 2023, "citation": "Chatterton, P. How to Save the City: A Guide for Emergency Action. Agenda, London.", "type": "Book", "url": "" }
+  ],
+  "featuredBooks": [
+    { "title": "How to Save the City", "description": "A Guide for Emergency Action. Agenda, 2023.", "url": "https://www.agendapubl.co.uk/" },
+    { "title": "Unlocking Sustainable Cities", "description": "A Manifesto for Real Change. Pluto Press, 2019.", "url": "https://unlockingsustainablecities.org" }
+  ],
+  "upcomingTalks": [
+    { "venue": "Reset Reconnect Leeds", "date": "March 2026" },
+    { "venue": "Horizons Home Event", "date": "Feb 2026" },
+    { "venue": "Amsterdam Post Growth", "date": "June 2026" },
+    { "venue": "Ghent Ecological Economics", "date": "June 2026" }
+  ],
+  "mostRead": [
+    { "title": "What Will Leeds Look Like in 2030?", "url": "https://wearechildfriendlyleeds.com/2025/05/19/what-will-leeds-look-like-in-2030/" },
+    { "title": "Coronavirus: We're in a Real-Time Laboratory of a More Sustainable Urban Future", "url": "https://theconversation.com/coronavirus-were-in-a-real-time-laboratory-of-a-more-sustainable-urban-future-135712" },
+    { "title": "From Motorway City to Active Travel City", "url": "https://urbadnfuturesnow.substack.com/p/from-motorway-city-to-active-travel" },
+    { "title": "Community Led Housing", "url": "https://www.lowimpact.org/posts/mutual-home-ownership-lilac/" },
+    { "title": "The Rocky Road to a Real Transition", "url": "https://thecommoner.org/wp-content/uploads/2020/06/TRAPESE-Collective-The-Rocky-Road-to-a-Real-Transition.pd" }
+  ],
+  "mediaSectionLabel": "Sharing ideas beyond the academy",
+  "featuredMedia": [
+    { "title": "The Social City", "platform": "Spotify Podcast", "url": "https://open.spotify.com/episode/1dtDG8jbtbUq1wm8AWoZuI" },
+    { "title": "Housing for Radicals", "platform": "YouTube", "url": "https://www.youtube.com/watch?v=QXQPRsZkQ-k" },
+    { "title": "TEDx: The Story of LILAC", "platform": "YouTube", "url": "https://www.youtube.com/watch?v=WUpRHUDcqLI" }
+  ],
+  "ctaHeading": "Ready to Make Change?",
+  "ctaBody": "Let's collaborate on research, community projects, or public engagement.",
+  "ctaLabel": "Get in Touch →",
+  "ctaHref": "/collaborate"
+}

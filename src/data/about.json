@@ -1,0 +1,42 @@
+{
+  "heroTitle": "About Paul",
+  "heroSubtitle": "Professor of Urban Futures at the University of Leeds, working at the intersection of academia and activism to help communities build sustainable, just, and resilient futures.",
+  "sectionTitle": "Demanding the Impossible",
+  "bio": [
+    "My work bridges the gap between academic research and real-world change. I believe that another world is not only possible — it's necessary. Through my research, writing, and community engagement, I help communities envision and create alternatives to business as usual.",
+    "From co-founding LILAC, the UK's first affordable eco co-housing community, to leading Climate Action Leeds, I've spent my career turning radical ideas into practical reality. My books 'Unlocking Sustainable Cities' and 'How to Save the City' offer guides for the transformations we urgently need.",
+    "I work with communities, policy makers, and fellow researchers to develop actionable pathways towards zero-carbon, socially just futures."
+  ],
+  "stats": [
+    { "number": "30+",  "label": "Years Research" },
+    { "number": "124+", "label": "Publications" },
+    { "number": "9",    "label": "Major Projects" }
+  ],
+  "philosophy": [
+    {
+      "emoji": "🌱",
+      "heading": "Systems Change",
+      "body": "Individual actions matter, but we need systemic transformation. I work on the structures that shape our cities and communities."
+    },
+    {
+      "emoji": "🤝",
+      "heading": "Community Agency",
+      "body": "Real change comes from empowered communities. My role is to support, not lead — providing tools and knowledge for collective action."
+    },
+    {
+      "emoji": "🔬",
+      "heading": "Activist Research",
+      "body": "Academia should serve society. I practise engaged scholarship that generates knowledge through action and returns findings to communities."
+    }
+  ],
+  "roles": [
+    "Co-founder, LILAC Grove Housing",
+    "Co-founder, Leeds Community Homes",
+    "Chair, Kirkstall Valley Park",
+    "Co-founder, Remaking Places Interdisciplinary Research Network"
+  ],
+  "ctaHeading": "Let's Work Together",
+  "ctaBody": "Interested in research collaboration, media appearances, or community engagement? Get in touch.",
+  "ctaLabel": "Start a Conversation →",
+  "ctaHref": "/collaborate"
+}

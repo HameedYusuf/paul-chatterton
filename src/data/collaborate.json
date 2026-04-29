@@ -1,0 +1,18 @@
+{
+  "heroTitle": "Let's Collaborate",
+  "heroBody": "After three decades of research and activism, I'm seeking partners for high-impact projects that can help communities build sustainable, just, and resilient futures.",
+  "whoShouldReach": [
+    { "emoji": "🔬", "heading": "Researchers & Academics", "body": "Joint research · Co-authored publications · PhD supervision · Research networks" },
+    { "emoji": "🏛️", "heading": "Policy Makers",           "body": "Policy consultation · Strategic advice · Evidence reviews · Briefings" },
+    { "emoji": "📺", "heading": "Journalists & Media",     "body": "Expert interviews · Op-eds · Podcast appearances · Documentary input" },
+    { "emoji": "✊", "heading": "Activists & Communities", "body": "Action research · Workshops · Strategic support · Knowledge sharing" }
+  ],
+  "currentInterests": [
+    { "emoji": "🏠", "heading": "Housing Justice",    "body": "Community-led housing, mutual home ownership, alternatives to extractive landlordism." },
+    { "emoji": "🌡️", "heading": "Climate Action",    "body": "Grassroots climate mobilisation, just transitions, community-scale net zero." },
+    { "emoji": "🌆", "heading": "Urban Futures",      "body": "15-minute neighbourhoods, car-free cities, reimagining urban space." },
+    { "emoji": "🌍", "heading": "Global Solidarity",  "body": "International connections particularly Africa, Asia and South America." }
+  ],
+  "quote": "Be realistic: demand the impossible.",
+  "quoteAttribution": "Graffiti, Paris, May 1968"
+}

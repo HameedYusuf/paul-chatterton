@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import { getSubstackPosts } from '../../lib/substack';
+
+export async function getStaticPaths() {
+  const posts = await getSubstackPosts();
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={post.title} description={post.excerpt}>
+
+  <section class="section" style="background:#0d0d0d;">
+    <div class="container max-w-3xl">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="pill pill-green">{post.date}</span>
+        <span class="pill pill-outline">Urban Futures Now</span>
+      </div>
+      <h1 class="mb-6">{post.title}</h1>
+      <p class="text-lg">{post.excerpt}</p>
+      <div class="mt-6">
+        <a href={post.url} target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Read on Substack ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container max-w-3xl">
+      <div class="prose prose-invert prose-lg max-w-none" set:html={post.content} />
+    </div>
+  </section>
+
+  <div class="container mb-8">
+    <a href="/blog" class="text-link font-medium">← Back to Blog</a>
+  </div>
+
+  <CTABanner />
+</Layout>

@@ -1,0 +1,54 @@
+{
+  "books": [
+    { "year": 2023, "citation": "Chatterton, P 2023. How to Save the City: A Guide for Emergency Action. Agenda, London.", "type": "Book", "url": "" },
+    { "year": 2019, "citation": "Chatterton, P 2019. Unlocking Sustainable Cities: A Manifesto for Real Change. Pluto Press, London.", "type": "Book", "url": "https://unlockingsustainablecities.org" },
+    { "year": 2015, "citation": "Chatterton P 2015. Low Impact Living: A Field Guide to Ecological Affordable Community Building. Routledge, London.", "type": "Book", "url": "" },
+    { "year": 2012, "citation": "Castree N; Chatterton P; Heynen N; Larner W; Wright MW (2012) The Point is to Change it: Geographies of Hope and Survival in an Age of Crisis. Blackwell, London.", "type": "Book", "url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9781444397352" },
+    { "year": 2007, "citation": "Chatterton P, Cutler A and Bryan K eds 2007. Do it yourself: A Handbook for Changing our World. Pluto, London.", "type": "Book", "url": "" },
+    { "year": 2004, "citation": "Chatterton and Gordon 2004. Taking Back Control. University of Leeds.", "type": "Book", "url": "https://www.amazon.co.uk/Taking-Back-Control-Argentinas-Uprising/dp/085316247​6" },
+    { "year": 2003, "citation": "Chatterton P and Hollands R 2003. Urban Nightscapes: Youth Cultures, Pleasure Spaces and Corporate Power. Routledge, London.", "type": "Book", "url": "" },
+    { "year": 2001, "citation": "Chatterton P and Hollands R 2001. Changing our Toon. University of Newcastle.", "type": "Book", "url": "https://research.ncl.ac.uk/youthnightlife/toonbook.htm" }
+  ],
+  "journalArticles": [
+    { "year": 2026, "citation": "Chatterton, P. et al. (2026) 'Doughnut economics, degrowth and decoloniality. New directions for the Doughnut Portrait method.' Local Environment, pp. 1-21.", "type": "Journal Article", "url": "https://www.tandfonline.com/doi/full/10.1080/13549839.2026.2613377" },
+    { "year": 2025, "citation": "Chatterton, P and Birksted-Breen (2025) Transitions to low carbon social futures: Achieving net zero aviation in UK Higher Education (preprint).", "type": "Preprint", "url": "https://osf.io/preprints/socarxiv/qrspx_v1" },
+    { "year": 2025, "citation": "Chatterton P, Darby S. 2025. The climate emergency and place-based transformation. The case of Climate Action Leeds, UK. Sustainability. 17(14), 6274.", "type": "Journal Article", "url": "https://www.mdpi.com/2071-1050/17/14/6274" },
+    { "year": 2024, "citation": "McKenna, N., Chatterton, P., & Wallace, A. (2024). It is 'more than just about building houses': collaborating towards a housing commons in Leeds. City, 28(5-6), 611-636.", "type": "Journal Article", "url": "https://www.tandfonline.com/doi/full/10.1080/13604813.2024.2430059" },
+    { "year": 2022, "citation": "Chambers JM et al., (inc Chatterton) 2022. Co-productive agility and four collaborative pathways to sustainability transformations. Global Environmental Change. 72.", "type": "Journal Article", "url": "https://www.sciencedirect.com/science/article/pii/S0959378021002016" },
+    { "year": 2021, "citation": "Chambers JM et al., (inc Chatterton) 2021. Six modes of co-production for sustainability. Nature Sustainability. 4, pp. 983-996.", "type": "Journal Article", "url": "https://www.nature.com/articles/s41893-021-00755-x" },
+    { "year": 2020, "citation": "Arbell Y, Middlemiss L, Chatterton P. 2020. Contested Subjectivities in a UK Housing Cooperative: Old Hippies and Thatcher's Children negotiating the commons. Geoforum. 58-66, 110.", "type": "Journal Article", "url": "https://www.sciencedirect.com/science/article/abs/pii/S001671852030019" },
+    { "year": 2020, "citation": "Lang R, Chatterton P, Mullins D. 2020. Grassroots innovations in community led housing in England: the role of peer networks in co-producing learning for social innovation.", "type": "Journal Article", "url": "" },
+    { "year": 2013, "citation": "Chatterton P; Towards an Agenda for Post-Carbon Cities: Lessons from Lilac, the UK's First Ecological, Affordable Cohousing Community. International Journal of Urban and Regional Research. Volume 37, Issue 5, pages 1654-1674.", "type": "Journal Article", "url": "https://onlinelibrary.wiley.com/doi/10.1111/1468-2427.12009" },
+    { "year": 2013, "citation": "Chari, S., Chatterton, P., et al. (2013). What Does it Mean to Win? On Keeping Antipode's Radical Spirit Alive. Antipode, 45(2), 243-247.", "type": "Journal Article", "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1467-8330.2012.01058.x" },
+    { "year": 2012, "citation": "Chatterton P, Featherstone D, Routledge P 2012. Articulating Climate Justice in Copenhagen: Antagonism, the Commons and Solidarity. Antipode, 45, 3, 602-620.", "type": "Journal Article", "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/j.1467-8330.2012.01025.x" },
+    { "year": 2011, "citation": "Chatterton P; Gidwani V; Heynen N; Kent A; Larner W; Pain R (2011) Antipode in an Antithetical Era. Antipode, 43, (2), pp. 181-189.", "type": "Journal Article", "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1467-8330.2010.00874.x" },
+    { "year": 2010, "citation": "Chatterton P and Pickerill J 2010. Everyday activism and transitions towards post-capitalist worlds. Transactions of the Institute of British Geographers NS 35 475-490.", "type": "Journal Article", "url": "" },
+    { "year": 2008, "citation": "Chatterton P; Ryan R (2008) Ya Basta! The Zapatista struggle for autonomy revisited. City, 12, (1), pp. 115-125.", "type": "Journal Article", "url": "https://www.tandfonline.com/doi/full/10.1080/13604810801933800" },
+    { "year": 2007, "citation": "Chatterton P 2007. Banlieues, the hyperghetto and advanced marginality: A symposium on Loic Wacquant's urban outcasts: Introduction. City, 11, (3), pp. 357-363.", "type": "Journal Article", "url": "https://www.tandfonline.com/doi/full/10.1080/13604810701668993" },
+    { "year": 2006, "citation": "Pickerill J and Chatterton P 2006. Notes towards autonomous geographies: Creation, resistance and self management as survival tactics. Progress in Human Geography, 30 6 1-17.", "type": "Journal Article", "url": "https://journals.sagepub.com/doi/10.1177/0309132506071516" },
+    { "year": 2006, "citation": "Chatterton P 2006. 'Give up activism' and change the world in unknown ways: Or learning to walk with others on uncommon ground. Antipode, 38 2 259-282.", "type": "Journal Article", "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1467-8330.2006.00579.x" },
+    { "year": 2006, "citation": "Hodkinson S; Chatterton P (2006) Autonomy in the city? City, 10, (3), pp. 305-315.", "type": "Journal Article", "url": "https://www.tandfonline.com/doi/abs/10.1080/13604810600982222" },
+    { "year": 2005, "citation": "Chatterton P 2005. How to live when the war comes home. City, 9, (3), pp. 351-356.", "type": "Journal Article", "url": "" }
+  ],
+  "reports": [
+    { "year": 2023, "citation": "Climate Action Leeds Mid Point Review 2023.", "type": "Report", "url": "https://www.climateactionleeds.org.uk/post/climate-action-leeds-mid-point-review-published" },
+    { "year": 2023, "citation": "Leeds Doughnut Economics Portrait.", "type": "Report", "url": "https://www.climateactionleeds.org.uk/_files/ugd/6c95b1_9d4dec776a724feabdc443a84527c45f.pdf" },
+    { "year": 2022, "citation": "Public Common Partnerships.", "type": "Report", "url": "" },
+    { "year": 2008, "citation": "2006 Autonomy in the City? Reflections on the UK Social Centres Movement.", "type": "Report", "url": "https://socialcentrestories.wordpress.com/wp-content/uploads/2008/06/whats-this-place_lo-res.pdf" },
+    { "year": 2000, "citation": "The Responsive Higher Education Institutions to Regional Needs. OECD.", "type": "Report", "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/1999/11/the-response-of-higher-education-institutions-to-regional-needs_g1gh227e/9789264180550-en.pdf" }
+  ],
+  "commentPieces": [
+    { "year": 2025, "citation": "What Will Leeds Look Like in 2030? We Are Child Friendly Leeds.", "type": "Comment Piece", "url": "https://wearechildfriendlyleeds.com/2025/05/19/what-will-leeds-look-like-in-2030/" },
+    { "year": 2025, "citation": "Beyond Emergency: Lessons from Grassroots Climate Action in Leeds for COP30 in Belem. Urbad Futures Now (Substack).", "type": "Comment Piece", "url": "https://urbadnfuturesnow.substack.com/p/beyond-emergency-mode-lessons-from" },
+    { "year": 2024, "citation": "What's the Solution to Broken Britain? Ideas for the Autumn Budget and Beyond. Urbad Futures Now (Substack).", "type": "Comment Piece", "url": "https://urbadnfuturesnow.substack.com/p/so-how-do-we-understand-broken-britain" },
+    { "year": 2024, "citation": "From Motorway City to Active Travel City. Urbad Futures Now (Substack).", "type": "Comment Piece", "url": "https://urbadnfuturesnow.substack.com/p/from-motorway-city-to-active-travel" },
+    { "year": 2024, "citation": "No More #Punchgates. We Need a Safe Country for the Many Not Just the Few. Urbad Futures Now (Substack).", "type": "Comment Piece", "url": "https://urbadnfuturesnow.substack.com/p/no-more-punchgates-we-need-a-safe" },
+    { "year": 2023, "citation": "How to Save the City: A Guide for Emergency Action. Stir to Action Magazine.", "type": "Comment Piece", "url": "https://www.stirtoaction.com/magazine-issues/issue-43" },
+    { "year": 2022, "citation": "Community Led Housing. Low Impact.", "type": "Comment Piece", "url": "https://www.lowimpact.org/posts/mutual-home-ownership-lilac/" },
+    { "year": 2020, "citation": "Coronavirus: We're in a Real-Time Laboratory of a More Sustainable Urban Future. The Conversation.", "type": "Comment Piece", "url": "https://theconversation.com/coronavirus-were-in-a-real-time-laboratory-of-a-more-sustainable-urban-future-135712" },
+    { "year": 2020, "citation": "The Rocky Road to a Real Transition. The Commoner.", "type": "Comment Piece", "url": "https://thecommoner.org/wp-content/uploads/2020/06/TRAPESE-Collective-The-Rocky-Road-to-a-Real-Transition.pd" },
+    { "year": 2008, "citation": "Autonomous Spaces and Social Centres. Shift, pp. 7-11.", "type": "Comment Piece", "url": "https://libcom.org/library/autonomous-spaces-social-centres-so-what-does-it-mean-be-anti-capitalist" },
+    { "year": 2007, "citation": "Chatterton P; Hodkinson S. Leeds: An Affordable, Viable, Sustainable, Democratic City? The Yorkshire and Humber Regional Review, 17, (2), pp. 24-26.", "type": "Comment Piece", "url": "https://www.researchgate.net/publication/285126717_Leeds_An_affordable_viable_sustainable_democratic_city" },
+    { "year": 2003, "citation": "Chatterton P. Warning: Your Holiday May Seriously Affect the Anti-Globalisation Struggle. The Big Issue, pp. 22-24.", "type": "Comment Piece", "url": "" }
+  ]
+}

@@ -1,0 +1,310 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+
+media_folder: "public/images"
+public_folder: "/images"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PAGE SETTINGS
+# ─────────────────────────────────────────────────────────────────────────────
+collections:
+  - name: "page-settings"
+    label: "⚙️ Page Settings"
+    files:
+
+      - name: "site"
+        label: "🌐 Global Settings"
+        file: "src/data/site.json"
+        fields:
+          - { name: siteName,         label: "Site Name",              widget: string }
+          - { name: siteDescription,  label: "Site Description",       widget: text }
+          - { name: email,            label: "Contact Email",          widget: string }
+          - { name: googleScholarUrl, label: "Google Scholar URL",     widget: string }
+          - { name: universityUrl,    label: "University Profile URL", widget: string }
+          - { name: heroImage,        label: "Hero Image (Home Page)", widget: image, required: false }
+          - { name: aboutImage,       label: "About Page Image",       widget: image, required: false }
+          - { name: footerTagline,    label: "Footer Tagline",         widget: string }
+          - { name: footerBody,       label: "Footer Body Text",       widget: text }
+          - name: navLinks
+            label: "Navigation Links"
+            widget: list
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: href,  label: "URL",   widget: string }
+          - name: aboutDropdownLinks
+            label: "About Dropdown Links"
+            widget: list
+            fields:
+              - { name: label,    label: "Label",           widget: string }
+              - { name: href,     label: "URL",             widget: string }
+              - { name: external, label: "External Link?",  widget: boolean, default: false }
+
+      - name: "home"
+        label: "🏠 Home Page"
+        file: "src/data/home.json"
+        fields:
+          - name: hero
+            label: "Hero Section"
+            widget: object
+            fields:
+              - { name: label,            label: "Label Text (above title)",  widget: string }
+              - { name: title,            label: "Title",                      widget: string }
+              - { name: body,             label: "Body Text",                  widget: text }
+              - { name: ctaPrimary,       label: "Primary Button Label",       widget: string }
+              - { name: ctaPrimaryHref,   label: "Primary Button URL",         widget: string }
+              - { name: ctaSecondary,     label: "Secondary Button Label",     widget: string }
+              - { name: ctaSecondaryHref, label: "Secondary Button URL",       widget: string }
+          - name: stats
+            label: "Statistics"
+            widget: list
+            fields:
+              - { name: number, label: "Number (e.g. 30+)", widget: string }
+              - { name: label,  label: "Label",              widget: string }
+          - { name: projectsSectionLabel, label: "Projects Section Subtitle", widget: string }
+          - name: featuredProjects
+            label: "Featured Projects (shown on home page)"
+            widget: list
+            fields:
+              - { name: title,       label: "Title",       widget: string }
+              - { name: role,        label: "Role",        widget: string }
+              - { name: description, label: "Description", widget: text }
+              - { name: impact,      label: "Impact",      widget: string, required: false }
+              - { name: href,        label: "Page Link",   widget: string }
+              - { name: image,       label: "Image",       widget: image,  required: false }
+          - { name: publicationsSectionLabel, label: "Publications Section Subtitle", widget: string }
+          - name: latestPublications
+            label: "Latest Publications (shown on home page)"
+            widget: list
+            fields:
+              - { name: year,     label: "Year",     widget: number }
+              - { name: citation, label: "Citation", widget: text }
+              - name: type
+                label: "Type"
+                widget: select
+                options: ["Journal Article", "Book", "Report", "Comment Piece", "Book Chapter", "Preprint"]
+              - { name: url, label: "URL", widget: string, required: false }
+          - name: featuredBooks
+            label: "Featured Books (sidebar)"
+            widget: list
+            fields:
+              - { name: title,       label: "Title",       widget: string }
+              - { name: description, label: "Description", widget: string }
+              - { name: url,         label: "URL",         widget: string }
+          - name: upcomingTalks
+            label: "Upcoming Talks"
+            widget: list
+            fields:
+              - { name: venue, label: "Venue", widget: string }
+              - { name: date,  label: "Date",  widget: string }
+          - name: mostRead
+            label: "Most Read Articles"
+            widget: list
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: url,   label: "URL",   widget: string }
+          - { name: mediaSectionLabel, label: "Media Section Subtitle", widget: string }
+          - name: featuredMedia
+            label: "Featured Media (shown on home page)"
+            widget: list
+            fields:
+              - { name: title,    label: "Title",    widget: string }
+              - { name: platform, label: "Platform", widget: string }
+              - { name: url,      label: "URL",      widget: string }
+          - { name: ctaHeading, label: "CTA Heading",      widget: string }
+          - { name: ctaBody,    label: "CTA Body Text",    widget: text }
+          - { name: ctaLabel,   label: "CTA Button Label", widget: string }
+          - { name: ctaHref,    label: "CTA Button URL",   widget: string }
+
+      - name: "about"
+        label: "👤 About Page"
+        file: "src/data/about.json"
+        fields:
+          - { name: heroTitle,    label: "Page Title",  widget: string }
+          - { name: heroSubtitle, label: "Subtitle",    widget: text }
+          - { name: sectionTitle, label: "Section Title (e.g. Demanding the Impossible)", widget: string }
+          - name: bio
+            label: "Bio Paragraphs"
+            widget: list
+            field:
+              name: paragraph
+              label: "Paragraph"
+              widget: text
+          - name: stats
+            label: "Statistics"
+            widget: list
+            fields:
+              - { name: number, label: "Number (e.g. 30+)", widget: string }
+              - { name: label,  label: "Label",              widget: string }
+          - name: philosophy
+            label: "Philosophy Cards"
+            widget: list
+            fields:
+              - { name: emoji,   label: "Emoji",   widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body,    label: "Body",    widget: text }
+          - name: roles
+            label: "Roles (summary list on About page)"
+            widget: list
+            field:
+              name: role
+              label: "Role"
+              widget: string
+          - { name: ctaHeading, label: "CTA Heading",      widget: string }
+          - { name: ctaBody,    label: "CTA Body",         widget: text }
+          - { name: ctaLabel,   label: "CTA Button Label", widget: string }
+          - { name: ctaHref,    label: "CTA Button URL",   widget: string }
+
+      - name: "impact"
+        label: "📊 Impact Page"
+        file: "src/data/impact.json"
+        fields:
+          - { name: heroTitle,        label: "Page Title",             widget: string }
+          - { name: heroSubtitle,     label: "Subtitle",               widget: text }
+          - { name: projectCount,     label: "Project Count Display",  widget: string }
+          - { name: publicationCount, label: "Publication Count Display", widget: string }
+          - { name: mediaCount,       label: "Media Count Display",    widget: string }
+
+      - name: "roles"
+        label: "🎭 Roles Page"
+        file: "src/data/roles.json"
+        fields:
+          - { name: heroTitle,    label: "Page Title", widget: string }
+          - { name: heroSubtitle, label: "Subtitle",   widget: text }
+          - name: roles
+            label: "Community Roles"
+            widget: list
+            fields:
+              - { name: title, label: "Role Title",        widget: string }
+              - { name: url,   label: "URL (leave blank if none)", widget: string, required: false }
+          - { name: ctaHeading, label: "CTA Heading",      widget: string }
+          - { name: ctaBody,    label: "CTA Body",         widget: text }
+          - { name: ctaLabel,   label: "CTA Button Label", widget: string }
+          - { name: ctaHref,    label: "CTA Button URL",   widget: string }
+
+      - name: "collaborate"
+        label: "🤝 Collaborate Page"
+        file: "src/data/collaborate.json"
+        fields:
+          - { name: heroTitle, label: "Page Title",  widget: string }
+          - { name: heroBody,  label: "Intro Text",  widget: text }
+          - name: whoShouldReach
+            label: "Who Should Reach Out"
+            widget: list
+            fields:
+              - { name: emoji,   label: "Emoji",   widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body,    label: "Body",    widget: text }
+          - name: currentInterests
+            label: "Current Interests"
+            widget: list
+            fields:
+              - { name: emoji,   label: "Emoji",   widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body,    label: "Body",    widget: text }
+          - { name: quote,             label: "Quote",             widget: text }
+          - { name: quoteAttribution,  label: "Quote Attribution", widget: string }
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONTENT DATA (Publications & Media)
+# ─────────────────────────────────────────────────────────────────────────────
+  - name: "content-data"
+    label: "📋 Content Data"
+    files:
+
+      - name: "publications"
+        label: "📚 Publications"
+        file: "src/data/publications.json"
+        fields:
+          - name: books
+            label: "Books"
+            widget: list
+            fields:
+              - { name: year,     label: "Year",     widget: number }
+              - { name: citation, label: "Citation", widget: text }
+              - { name: type,     label: "Type",     widget: hidden, default: "Book" }
+              - { name: url,      label: "URL",      widget: string, required: false }
+          - name: journalArticles
+            label: "Journal Articles"
+            widget: list
+            fields:
+              - { name: year,     label: "Year",     widget: number }
+              - { name: citation, label: "Citation", widget: text }
+              - name: type
+                label: "Type"
+                widget: select
+                options: ["Journal Article", "Preprint"]
+                default: "Journal Article"
+              - { name: url, label: "URL", widget: string, required: false }
+          - name: reports
+            label: "Reports"
+            widget: list
+            fields:
+              - { name: year,     label: "Year",     widget: number }
+              - { name: citation, label: "Citation", widget: text }
+              - { name: type,     label: "Type",     widget: hidden, default: "Report" }
+              - { name: url,      label: "URL",      widget: string, required: false }
+          - name: commentPieces
+            label: "Comment Pieces"
+            widget: list
+            fields:
+              - { name: year,     label: "Year",     widget: number }
+              - { name: citation, label: "Citation", widget: text }
+              - { name: type,     label: "Type",     widget: hidden, default: "Comment Piece" }
+              - { name: url,      label: "URL",      widget: string, required: false }
+
+      - name: "media"
+        label: "🎥 Media & Talks"
+        file: "src/data/media.json"
+        fields:
+          - name: items
+            label: "Media Items"
+            widget: list
+            fields:
+              - { name: title,    label: "Title",    widget: string }
+              - name: type
+                label: "Type"
+                widget: select
+                options: ["Podcast", "Video", "Talk", "Press"]
+              - { name: platform, label: "Platform", widget: string, required: false }
+              - { name: url,      label: "URL",      widget: string, required: false }
+              - { name: date,     label: "Year",     widget: string, required: false }
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BLOG POSTS
+# ─────────────────────────────────────────────────────────────────────────────
+  - name: "blog"
+    label: "📝 Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { name: title,   label: "Title",                      widget: string }
+      - { name: date,    label: "Date (e.g. 2025)",           widget: string }
+      - { name: excerpt, label: "Excerpt",                    widget: text }
+      - { name: outlet,  label: "Outlet / Publication",       widget: string, required: false }
+      - { name: url,     label: "Original Article URL",       widget: string, required: false }
+      - { name: body,    label: "Content",                    widget: markdown }
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PROJECTS
+# ─────────────────────────────────────────────────────────────────────────────
+  - name: "projects"
+    label: "🏗️ Projects"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { name: title,       label: "Title",           widget: string }
+      - { name: role,        label: "Role",            widget: string }
+      - { name: description, label: "Short Description", widget: text }
+      - { name: impact,      label: "Impact Statement", widget: string, required: false }
+      - { name: url,         label: "External URL",     widget: string, required: false }
+      - { name: image,       label: "Image",            widget: image,  required: false }
+      - { name: order,       label: "Sort Order",       widget: number, required: false, default: 99 }
+      - { name: body,        label: "Full Content",     widget: markdown }

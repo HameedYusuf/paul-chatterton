@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import Card from '../../components/Card.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<Layout title="Projects" description="Real-world initiatives demonstrating another way is possible.">
+
+  <section class="section" style="background:#0d0d0d;">
+    <div class="container">
+      <h1 class="mb-4">Projects</h1>
+      <p class="max-w-xl text-lg">Real-world initiatives demonstrating another way is possible.</p>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <div class="grid md:grid-cols-3 gap-6">
+        {projects.map(p => (
+          <Card
+            title={p.data.title}
+            role={p.data.role}
+            description={p.data.description}
+            impact={p.data.impact}
+            href={`/projects/${p.slug}`}
+            image={p.data.image}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>

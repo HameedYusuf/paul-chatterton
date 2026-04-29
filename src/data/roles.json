@@ -1,0 +1,17 @@
+{
+  "heroTitle": "Roles",
+  "heroSubtitle": "My work spans academia, activism, and community leadership. Here's an overview of my current and past positions.",
+  "roles": [
+    { "title": "Co-founder, LILAC Grove Housing",                          "url": "https://www.lilac.coop/" },
+    { "title": "Co-founder, Leeds Community Homes",                        "url": "" },
+    { "title": "Chair, Kirkstall Valley Park",                             "url": "" },
+    { "title": "Co-founder, Leeds Love It Share It Community Interest Company", "url": "" },
+    { "title": "Co-founder, Remaking Places Interdisciplinary Research Network", "url": "" },
+    { "title": "Co-founder, The Common Place Social Centre",               "url": "" },
+    { "title": "Co-founder, Kirkstall Valley Development Trust",           "url": "https://www.kvdt.org.uk/" }
+  ],
+  "ctaHeading": "Interested in Collaboration?",
+  "ctaBody": "Whether for research, community projects, or public engagement, I'm always open to conversations about working together.",
+  "ctaLabel": "Get in Touch →",
+  "ctaHref": "/collaborate"
+}

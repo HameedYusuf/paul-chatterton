@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import PublicationRow from '../components/PublicationRow.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import pubs from '../data/publications.json';
+
+const totalCount = pubs.books.length + pubs.journalArticles.length + pubs.reports.length + pubs.commentPieces.length;
+---
+
+<Layout title="Publications" description={`${totalCount}+ publications spanning journal articles, books, reports, and comment pieces.`}>
+
+  <!-- Hero -->
+  <section class="section" style="background:#0d0d0d;">
+    <div class="container">
+      <h1 class="mb-4">Publications</h1>
+      <p class="max-w-2xl text-lg">
+        {totalCount}+ publications spanning journal articles, books, reports, and comment pieces.
+      </p>
+      <div class="flex flex-wrap gap-6 mt-8">
+        {[
+          { label: 'Books',           href: '#books' },
+          { label: 'Journal Articles',href: '#journal-articles' },
+          { label: 'Reports',         href: '#reports' },
+          { label: 'Comment Pieces',  href: '#comment-pieces' },
+        ].map(l => (
+          <a href={l.href} class="text-sm font-medium hover:text-[#22c55e] transition-colors" style="color:#a3a3a3;">{l.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Books -->
+  <section id="books" class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <SectionHeading heading="Books" />
+      {pubs.books.map(p => <PublicationRow year={p.year} citation={p.citation} type={p.type} url={p.url || undefined} />)}
+    </div>
+  </section>
+
+  <!-- Journal Articles -->
+  <section id="journal-articles" class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <SectionHeading heading="Journal Articles" />
+      {pubs.journalArticles.map(p => <PublicationRow year={p.year} citation={p.citation} type={p.type} url={p.url || undefined} />)}
+    </div>
+  </section>
+
+  <!-- Reports -->
+  <section id="reports" class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <SectionHeading heading="Reports" />
+      {pubs.reports.map(p => <PublicationRow year={p.year} citation={p.citation} type={p.type} url={p.url || undefined} />)}
+    </div>
+  </section>
+
+  <!-- Comment Pieces -->
+  <section id="comment-pieces" class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <SectionHeading heading="Comment Pieces" />
+      {pubs.commentPieces.map(p => <PublicationRow year={p.year} citation={p.citation} type={p.type} url={p.url || undefined} />)}
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>
