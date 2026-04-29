@@ -182,13 +182,17 @@ const currentPath = Astro.url.pathname;
   </script>
   <script>
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', (user: any) => {
+      window.netlifyIdentity.on('init', function(user) {
         if (!user) {
-          window.netlifyIdentity.on('login', () => {
+          window.netlifyIdentity.on('login', function() {
             document.location.href = '/admin/index.html';
           });
         }
       });
+    }
+    // Auto-open widget when invite/recovery token is in the URL
+    if (window.location.hash && (window.location.hash.includes('invite_token') || window.location.hash.includes('recovery_token'))) {
+      window.netlifyIdentity && window.netlifyIdentity.open();
     }
   </script>
 </body>
