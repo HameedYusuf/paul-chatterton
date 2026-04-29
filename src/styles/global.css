@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* ── Dark theme (default) ───────────────────────────── */
 :root {
   --color-bg:        #0d0d0d;
   --color-surface:   #1a1a1a;
@@ -12,6 +13,23 @@
   --color-muted:     #a3a3a3;
   --color-accent:    #22c55e;
   --color-accent-dk: #15803d;
+  --color-nav-bg:    #0d0d0d;
+  --color-nav-border:rgba(255,255,255,0.08);
+  --color-section-alt: #0d0d0d;
+}
+
+/* ── Light theme ────────────────────────────────────── */
+html.light {
+  --color-bg:        #f5f5f0;
+  --color-surface:   #ffffff;
+  --color-border:    rgba(0,0,0,0.09);
+  --color-text:      #111111;
+  --color-muted:     #555555;
+  --color-accent:    #16a34a;
+  --color-accent-dk: #15803d;
+  --color-nav-bg:    #ffffff;
+  --color-nav-border:rgba(0,0,0,0.09);
+  --color-section-alt: #eeede8;
 }
 
 @layer base {
@@ -25,31 +43,32 @@
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.7;
     font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s;
   }
 
   h1 {
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1.1;
-    color: #ffffff;
+    color: var(--color-text);
   }
 
   h2 {
     font-size: 1.75rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-text);
   }
 
   h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-text);
   }
 
   h4 {
     font-size: 1rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-text);
   }
 
   a {
@@ -102,6 +121,7 @@
 
   .btn-primary:hover {
     background: var(--color-accent-dk);
+    color: #fff;
   }
 
   .btn-secondary {
@@ -109,8 +129,8 @@
     align-items: center;
     gap: 0.5rem;
     background: transparent;
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
     transition: border-color 0.2s, background 0.2s;
@@ -118,8 +138,8 @@
   }
 
   .btn-secondary:hover {
-    border-color: rgba(255,255,255,0.6);
-    background: rgba(255,255,255,0.05);
+    border-color: var(--color-muted);
+    background: rgba(128,128,128,0.08);
   }
 
   .card {
@@ -127,6 +147,7 @@
     border: 1px solid var(--color-border);
     border-radius: 10px;
     overflow: hidden;
+    transition: background 0.2s, border-color 0.2s;
   }
 
   .pill {
@@ -143,7 +164,7 @@
   }
 
   .pill-outline {
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid var(--color-border);
     color: var(--color-muted);
   }
 
@@ -159,6 +180,26 @@
 
   .text-link:hover {
     opacity: 0.8;
+  }
+
+  /* Sidebar widget */
+  .sidebar-widget {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .sidebar-widget-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
   }
 }
 

@@ -22,6 +22,8 @@ const currentPath = Astro.url.pathname;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script is:inline>
+    // Apply saved theme immediately to avoid flash
+    if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light');
     // Redirect invite/recovery tokens to admin page where the CMS widget handles them
     var hash = window.location.hash;
     if (hash && (hash.includes('invite_token') || hash.includes('recovery_token'))) {
@@ -32,7 +34,7 @@ const currentPath = Astro.url.pathname;
 <body>
 
   <!-- NAVIGATION -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:#0d0d0d;border-bottom:1px solid rgba(255,255,255,0.08);">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:var(--color-nav-bg);border-bottom:1px solid var(--color-nav-border);">
     <div class="container">
       <div class="flex items-center justify-between h-16">
 
@@ -46,8 +48,8 @@ const currentPath = Astro.url.pathname;
             />
           )}
           <div class="flex flex-col leading-tight">
-            <span class="text-white font-bold text-[1.6875rem] tracking-tight group-hover:text-[#22c55e] transition-colors">{site.siteName}</span>
-            <span class="text-[#a3a3a3] text-xs tracking-wide">Academic · Activist · Author</span>
+            <span class="font-bold text-[1.6875rem] tracking-tight group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text)">{site.siteName}</span>
+            <span class="text-xs tracking-wide" style="color:var(--color-muted)">Academic · Activist · Author</span>
           </div>
         </a>
 
@@ -57,18 +59,20 @@ const currentPath = Astro.url.pathname;
           <div class="relative group">
             <a
               href="/about"
-              class={`px-3 py-2 text-sm rounded transition-colors ${currentPath.startsWith('/about') || currentPath === '/impact' ? 'text-white' : 'text-[#a3a3a3] hover:text-white'}`}
+              class="px-3 py-2 text-sm rounded transition-colors"
+              style={`color:${currentPath.startsWith('/about') || currentPath === '/impact' ? 'var(--color-text)' : 'var(--color-muted)'}`}
             >
               About ▾
             </a>
             <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
-              <div class="rounded-lg overflow-hidden shadow-xl" style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.08);min-width:220px;">
+              <div class="rounded-lg overflow-hidden shadow-xl" style="background:var(--color-surface);border:1px solid var(--color-border);min-width:220px;">
                 {site.aboutDropdownLinks.map(al => (
                   <a
                     href={al.href}
                     target={al.external ? '_blank' : undefined}
                     rel={al.external ? 'noopener noreferrer' : undefined}
-                    class="block px-4 py-3 text-sm text-[#a3a3a3] hover:text-white hover:bg-white/5 transition-colors"
+                    class="block px-4 py-3 text-sm hover:bg-black/5 transition-colors"
+                    style="color:var(--color-muted)"
                   >
                     {al.label}
                   </a>
@@ -80,12 +84,18 @@ const currentPath = Astro.url.pathname;
           {site.navLinks.filter(l => l.href !== '/').map(link => (
             link.href === '/collaborate'
               ? <a href={link.href} class="px-4 py-2 text-sm font-medium rounded-md bg-[#22c55e] text-black hover:bg-[#16a34a] transition-colors">{link.label}</a>
-              : <a href={link.href} class={`px-3 py-2 text-sm rounded transition-colors ${currentPath.startsWith(link.href) ? 'text-white' : 'text-[#a3a3a3] hover:text-white'}`}>{link.label}</a>
+              : <a href={link.href} class="px-3 py-2 text-sm rounded transition-colors" style={`color:${currentPath.startsWith(link.href) ? 'var(--color-text)' : 'var(--color-muted)'}`}>{link.label}</a>
           ))}
+
+          <!-- Theme toggle -->
+          <button id="theme-toggle" aria-label="Toggle theme" class="ml-2 p-2 rounded-md transition-colors" style="color:var(--color-muted);background:var(--color-surface);border:1px solid var(--color-border);">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
         </div>
 
         <!-- Mobile hamburger -->
-        <button id="menu-btn" class="md:hidden p-2 text-[#a3a3a3] hover:text-white transition-colors" aria-label="Toggle menu">
+        <button id="menu-btn" class="md:hidden p-2 transition-colors" style="color:var(--color-muted)" aria-label="Toggle menu">
           <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
           </svg>
@@ -180,17 +190,43 @@ const currentPath = Astro.url.pathname;
     </div>
   </footer>
 
-  <script>
+  <script is:inline>
+    // Mobile menu
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
     const iconOpen = document.getElementById('icon-open');
     const iconClose = document.getElementById('icon-close');
-
-    btn?.addEventListener('click', () => {
+    btn?.addEventListener('click', function() {
       const isOpen = !menu?.classList.contains('hidden');
       menu?.classList.toggle('hidden', isOpen);
       iconOpen?.classList.toggle('hidden', !isOpen);
       iconClose?.classList.toggle('hidden', isOpen);
+    });
+
+    // Theme toggle
+    var iconSun = document.getElementById('icon-sun');
+    var iconMoon = document.getElementById('icon-moon');
+    var html = document.documentElement;
+
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        html.classList.add('light');
+        iconSun && iconSun.classList.remove('hidden');
+        iconMoon && iconMoon.classList.add('hidden');
+      } else {
+        html.classList.remove('light');
+        iconSun && iconSun.classList.add('hidden');
+        iconMoon && iconMoon.classList.remove('hidden');
+      }
+    }
+
+    var saved = localStorage.getItem('theme') || 'dark';
+    applyTheme(saved);
+
+    document.getElementById('theme-toggle')?.addEventListener('click', function() {
+      var next = html.classList.contains('light') ? 'dark' : 'light';
+      localStorage.setItem('theme', next);
+      applyTheme(next);
     });
   </script>
 </body>
