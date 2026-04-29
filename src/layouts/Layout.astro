@@ -21,7 +21,7 @@ const currentPath = Astro.url.pathname;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -180,7 +180,7 @@ const currentPath = Astro.url.pathname;
       iconClose?.classList.toggle('hidden', isOpen);
     });
   </script>
-  <script>
+  <script is:inline>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on('init', function(user) {
         if (!user) {
@@ -190,7 +190,6 @@ const currentPath = Astro.url.pathname;
         }
       });
     }
-    // Auto-open widget when invite/recovery token is in the URL
     if (window.location.hash && (window.location.hash.includes('invite_token') || window.location.hash.includes('recovery_token'))) {
       window.netlifyIdentity && window.netlifyIdentity.open();
     }
