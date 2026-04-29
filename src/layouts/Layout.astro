@@ -21,7 +21,13 @@ const currentPath = Astro.url.pathname;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script is:inline>
+    // Redirect invite/recovery tokens to admin page where the CMS widget handles them
+    var hash = window.location.hash;
+    if (hash && (hash.includes('invite_token') || hash.includes('recovery_token'))) {
+      window.location.replace('/admin/index.html' + hash);
+    }
+  </script>
 </head>
 <body>
 
@@ -179,20 +185,6 @@ const currentPath = Astro.url.pathname;
       iconOpen?.classList.toggle('hidden', !isOpen);
       iconClose?.classList.toggle('hidden', isOpen);
     });
-  </script>
-  <script is:inline>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', function(user) {
-        if (!user) {
-          window.netlifyIdentity.on('login', function() {
-            document.location.href = '/admin/index.html';
-          });
-        }
-      });
-    }
-    if (window.location.hash && (window.location.hash.includes('invite_token') || window.location.hash.includes('recovery_token'))) {
-      window.netlifyIdentity && window.netlifyIdentity.open();
-    }
   </script>
 </body>
 </html>
