@@ -11,18 +11,17 @@ import site from '../data/site.json';
 
 <Layout title="Home">
 
-  <!-- HERO + STATS + SIDEBAR combined (sidebar spans both) -->
+  <!-- OUTER GRID: left content (hero → stats → projects) | right sidebar -->
   <section class="section" style="background:var(--color-bg);">
     <div class="container">
       <div class="grid lg:grid-cols-[3fr_1.5fr] gap-10 items-start">
 
-        <!-- Left: two-column hero (text | image) + stats below -->
+        <!-- LEFT: all stacked content -->
         <div>
 
-          <!-- Hero inner: text + image side by side -->
+          <!-- HERO: text column + image column -->
           <div class="grid lg:grid-cols-[3fr_2fr] gap-8 items-start">
 
-            <!-- Text + CTAs -->
             <div>
               <p class="label mb-4">{home.hero.label}</p>
               <h1 class="mb-6">{home.hero.title}</h1>
@@ -33,7 +32,6 @@ import site from '../data/site.json';
               </div>
             </div>
 
-            <!-- Paul's photo — full natural height -->
             <div class="rounded-xl overflow-hidden" style="border:1px solid var(--color-border);">
               <img
                 src={site.heroImage}
@@ -45,15 +43,34 @@ import site from '../data/site.json';
 
           </div>
 
-          <!-- Stats flush below the hero -->
+          <!-- STATS: flush below hero -->
           <StatCounter stats={home.stats} />
+
+          <!-- PROJECTS: below stats, sidebar still alongside -->
+          <div class="pt-16" style="border-top:1px solid var(--color-border);">
+            <SectionHeading label={home.projectsSectionLabel} heading="Transformative Projects" />
+            <div class="grid md:grid-cols-3 gap-6">
+              {home.featuredProjects.map(p => (
+                <Card
+                  title={p.title}
+                  role={p.role}
+                  description={p.description}
+                  impact={p.impact || undefined}
+                  href={p.href}
+                  image={p.image || undefined}
+                />
+              ))}
+            </div>
+            <div class="mt-8 text-center">
+              <a href="/projects" class="text-link font-medium">View All Projects →</a>
+            </div>
+          </div>
 
         </div>
 
-        <!-- Right: sidebar — original width, spans hero + stats -->
+        <!-- RIGHT: sticky sidebar spans hero + stats + projects -->
         <aside class="lg:sticky lg:top-24 space-y-6">
 
-          <!-- Featured Books -->
           <div class="sidebar-widget">
             <p class="sidebar-widget-title">Featured Books</p>
             <div class="space-y-4">
@@ -66,7 +83,6 @@ import site from '../data/site.json';
             </div>
           </div>
 
-          <!-- Upcoming Talks -->
           <div class="sidebar-widget">
             <p class="sidebar-widget-title">Upcoming Talks</p>
             <div class="space-y-3">
@@ -80,7 +96,6 @@ import site from '../data/site.json';
             <a href="/media" class="text-link text-xs font-medium mt-3 inline-block">View All Talks →</a>
           </div>
 
-          <!-- Most Read -->
           <div class="sidebar-widget">
             <p class="sidebar-widget-title">Most Read</p>
             <div>
@@ -98,29 +113,7 @@ import site from '../data/site.json';
     </div>
   </section>
 
-  <!-- FEATURED PROJECTS -->
-  <section class="section" style="border-top:1px solid var(--color-border);">
-    <div class="container">
-      <SectionHeading label={home.projectsSectionLabel} heading="Transformative Projects" />
-      <div class="grid md:grid-cols-3 gap-6">
-        {home.featuredProjects.map(p => (
-          <Card
-            title={p.title}
-            role={p.role}
-            description={p.description}
-            impact={p.impact || undefined}
-            href={p.href}
-            image={p.image || undefined}
-          />
-        ))}
-      </div>
-      <div class="mt-8 text-center">
-        <a href="/projects" class="text-link font-medium">View All Projects →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- LATEST PUBLICATIONS -->
+  <!-- LATEST PUBLICATIONS: full width -->
   <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container">
       <SectionHeading label={home.publicationsSectionLabel} heading="Latest Publications" />
@@ -135,7 +128,7 @@ import site from '../data/site.json';
     </div>
   </section>
 
-  <!-- MEDIA & TALKS -->
+  <!-- MEDIA & TALKS: full width -->
   <section class="section" style="background:var(--color-section-alt);border-top:1px solid var(--color-border);">
     <div class="container">
       <SectionHeading label={home.mediaSectionLabel} heading="Media & Talks" />
@@ -154,5 +147,7 @@ import site from '../data/site.json';
     </div>
   </section>
 
+  <!-- CTA: full width -->
   <CTABanner heading={home.ctaHeading} body={home.ctaBody} cta={home.ctaLabel} href={home.ctaHref} />
+
 </Layout>
