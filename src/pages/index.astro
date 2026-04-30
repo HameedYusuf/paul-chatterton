@@ -1,26 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTABanner from '../components/CTABanner.astro';
-import PublicationRow from '../components/PublicationRow.astro';
+import Card from '../components/Card.astro';
+import { getCollection } from 'astro:content';
 import home from '../data/home.json';
 import site from '../data/site.json';
 
-const typeColors: Record<string, string> = {
-  'Journal Article': 'rgba(34,197,94,0.12)',
-  'Book':            'rgba(59,130,246,0.12)',
-  'Report':          'rgba(168,85,247,0.12)',
-  'Comment Piece':   'rgba(251,146,60,0.12)',
-  'Book Chapter':    'rgba(59,130,246,0.08)',
-  'Preprint':        'rgba(100,116,139,0.2)',
-};
-const typeText: Record<string, string> = {
-  'Journal Article': '#22c55e',
-  'Book':            '#60a5fa',
-  'Report':          '#c084fc',
-  'Comment Piece':   '#fb923c',
-  'Book Chapter':    '#93c5fd',
-  'Preprint':        '#94a3b8',
-};
+const projects = (await getCollection('projects'))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+  .slice(0, 6);
 ---
 
 <Layout title="Home">
@@ -77,53 +65,23 @@ const typeText: Record<string, string> = {
 
         </div>
 
-        <!-- Latest Publications -->
-        <div class="mb-10">
-          <h3 class="text-sm font-bold uppercase tracking-widest pb-2 mb-0" style="color:var(--color-text);border-bottom:2px solid var(--color-text);">Latest Publications</h3>
-          {home.latestPublications.map(p => (
-            <div class="flex gap-4 py-4" style="border-bottom:1px solid var(--color-border);">
-              <div class="shrink-0 pt-0.5">
-                <span
-                  class="pill text-xs"
-                  style={`background:${typeColors[p.type] ?? 'rgba(128,128,128,0.15)'};color:${typeText[p.type] ?? 'var(--color-muted)'};`}
-                >
-                  {p.year}
-                </span>
-              </div>
-              <div class="min-w-0">
-                {p.url ? (
-                  <a href={p.url} target="_blank" rel="noopener noreferrer" class="text-sm leading-relaxed hover:text-[#22c55e] transition-colors" style="color:var(--color-text);">
-                    {p.citation}
-                  </a>
-                ) : (
-                  <p class="text-sm leading-relaxed" style="color:var(--color-text);">{p.citation}</p>
-                )}
-                <span class="text-xs mt-1 inline-block" style="color:var(--color-muted);">{p.type}</span>
-              </div>
-            </div>
-          ))}
-          <div class="mt-4">
-            <a href="/publications" class="text-sm text-link font-medium">View All Publications →</a>
-          </div>
-        </div>
-
-        <!-- Latest Media -->
+        <!-- Projects 3×2 grid -->
         <div>
-          <h3 class="text-sm font-bold uppercase tracking-widest pb-2 mb-0" style="color:var(--color-text);border-bottom:2px solid var(--color-text);">Media & Talks</h3>
-          {home.featuredMedia.map(m => (
-            <div class="flex gap-4 py-4" style="border-bottom:1px solid var(--color-border);">
-              <div class="shrink-0 pt-0.5">
-                <span class="pill pill-outline text-xs">{m.platform}</span>
-              </div>
-              <div>
-                <a href={m.url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium leading-snug hover:text-[#22c55e] transition-colors" style="color:var(--color-text);">
-                  {m.title}
-                </a>
-              </div>
-            </div>
-          ))}
-          <div class="mt-4">
-            <a href="/media" class="text-sm text-link font-medium">View All Media →</a>
+          <h3 class="text-sm font-bold uppercase tracking-widest pb-2 mb-6" style="color:var(--color-text);border-bottom:2px solid var(--color-text);">Projects</h3>
+          <div class="grid md:grid-cols-3 gap-5">
+            {projects.map(p => (
+              <Card
+                title={p.data.title}
+                role={p.data.role}
+                description={p.data.description}
+                impact={p.data.impact}
+                href={`/projects/${p.slug}`}
+                image={p.data.image}
+              />
+            ))}
+          </div>
+          <div class="mt-6">
+            <a href="/projects" class="text-sm text-link font-medium">View All Projects →</a>
           </div>
         </div>
 
