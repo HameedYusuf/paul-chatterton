@@ -19,7 +19,7 @@ const { title, description, role, impact, href, image, tag, external = false } =
     </div>
   )}
   {!image && (
-    <div class="flex items-center justify-center text-4xl" style="aspect-ratio:16/9;background:#111;">
+    <div class="flex items-center justify-center text-4xl" style="aspect-ratio:16/9;background:var(--color-section-alt);">
       🌱
     </div>
   )}
@@ -31,7 +31,7 @@ const { title, description, role, impact, href, image, tag, external = false } =
     {description && <p class="text-sm mb-4 flex-1">{description}</p>}
     {impact && (
       <p class="text-sm mb-4">
-        <span class="font-semibold text-white">Impact: </span>{impact}
+        <span class="font-semibold" style="color:var(--color-text)">Impact: </span>{impact}
       </p>
     )}
     {href && (

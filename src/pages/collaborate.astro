@@ -8,7 +8,7 @@ import site from '../data/site.json';
 
 <Layout title="Collaborate" description="Let's work together on research, community projects, or public engagement.">
 
-  <section class="section" style="background:#0d0d0d;">
+  <section class="section" style="background:var(--color-bg);">
     <div class="container max-w-3xl">
       <h1 class="mb-6">{collab.heroTitle}</h1>
       <p class="text-lg max-w-2xl">{collab.heroBody}</p>
@@ -16,7 +16,7 @@ import site from '../data/site.json';
   </section>
 
   <!-- Who Should Reach Out -->
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container">
       <SectionHeading heading="Who Should Reach Out?" />
       <div class="grid md:grid-cols-4 gap-5">
@@ -26,7 +26,7 @@ import site from '../data/site.json';
   </section>
 
   <!-- Current Interests -->
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container">
       <SectionHeading heading="Current Interests" />
       <div class="grid md:grid-cols-4 gap-5">
@@ -36,21 +36,21 @@ import site from '../data/site.json';
   </section>
 
   <!-- Get in Touch -->
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container max-w-3xl">
       <SectionHeading heading="Get in Touch" />
       <div class="space-y-6">
-        <div class="flex items-start gap-4 p-5 rounded-xl" style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.08);">
+        <div class="flex items-start gap-4 p-5 rounded-xl" style="background:var(--color-surface);border:1px solid var(--color-border);">
           <span class="text-2xl">✉</span>
           <div>
-            <p class="text-white font-semibold mb-1">Email</p>
+            <p class="font-semibold mb-1" style="color:var(--color-text);">Email</p>
             <a href={`mailto:${site.email}`} class="text-link text-sm">{site.email}</a>
           </div>
         </div>
-        <div class="flex items-start gap-4 p-5 rounded-xl" style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.08);">
+        <div class="flex items-start gap-4 p-5 rounded-xl" style="background:var(--color-surface);border:1px solid var(--color-border);">
           <span class="text-2xl">🎓</span>
           <div>
-            <p class="text-white font-semibold mb-1">University Profile</p>
+            <p class="font-semibold mb-1" style="color:var(--color-text);">University Profile</p>
             <a href={site.universityUrl} target="_blank" rel="noopener noreferrer" class="text-link text-sm">
               environment.leeds.ac.uk ↗
             </a>
@@ -59,8 +59,8 @@ import site from '../data/site.json';
       </div>
 
       <blockquote class="mt-16 border-l-4 pl-6 py-2" style="border-color:#22c55e;">
-        <p class="text-xl italic text-white leading-relaxed">"{collab.quote}"</p>
-        <footer class="mt-3 text-sm" style="color:#a3a3a3;">— {collab.quoteAttribution}</footer>
+        <p class="text-xl italic leading-relaxed" style="color:var(--color-text);">"{collab.quote}"</p>
+        <footer class="mt-3 text-sm" style="color:var(--color-muted);">— {collab.quoteAttribution}</footer>
       </blockquote>
     </div>
   </section>

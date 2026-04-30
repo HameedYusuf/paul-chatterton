@@ -22,7 +22,7 @@ const typeText: Record<string, string> = {
 
 <Layout title="Media & Talks" description="Podcasts, videos, talks, and press appearances.">
 
-  <section class="section" style="background:#0d0d0d;">
+  <section class="section" style="background:var(--color-bg);">
     <div class="container">
       <h1 class="mb-4">Media & Talks</h1>
       <p class="text-lg max-w-xl">Sharing ideas beyond the academy.</p>
@@ -41,7 +41,7 @@ const typeText: Record<string, string> = {
     </div>
   </section>
 
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container">
       <div class="grid md:grid-cols-3 gap-6" id="media-grid">
         {allMedia.map(m => (
@@ -49,20 +49,20 @@ const typeText: Record<string, string> = {
             <div class="flex items-center justify-between mb-4">
               <span
                 class="pill text-xs"
-                style={`background:${typeColors[m.type] ?? 'rgba(255,255,255,0.08)'};color:${typeText[m.type] ?? '#a3a3a3'};`}
+                style={`background:${typeColors[m.type] ?? 'rgba(128,128,128,0.15)'};color:${typeText[m.type] ?? '#a3a3a3'};`}
               >
                 {m.type}
               </span>
-              <span class="text-xs" style="color:#a3a3a3;">{m.date}</span>
+              <span class="text-xs" style="color:var(--color-muted);">{m.date}</span>
             </div>
             <p class="label mb-1">{m.platform}</p>
             <h3 class="text-base flex-1 mb-4">{m.title}</h3>
             {m.url ? (
-              <a href={m.url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium" style="color:#22c55e;">
+              <a href={m.url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium" style="color:var(--color-accent);">
                 Watch / Listen →
               </a>
             ) : (
-              <span class="text-sm" style="color:#a3a3a3;">Clip unavailable</span>
+              <span class="text-sm" style="color:var(--color-muted);">Clip unavailable</span>
             )}
           </div>
         ))}

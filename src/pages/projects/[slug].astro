@@ -18,13 +18,13 @@ const { title, role, description, impact, url } = entry.data;
 
 <Layout title={title} description={description}>
 
-  <section class="section" style="background:#0d0d0d;">
+  <section class="section" style="background:var(--color-bg);">
     <div class="container max-w-3xl">
       <p class="label mb-4">{role}</p>
       <h1 class="mb-6">{title}</h1>
       {impact && (
-        <div class="p-4 rounded-lg mb-6" style="background:#1a1a1a;border-left:3px solid #22c55e;">
-          <p class="text-white font-medium">{impact}</p>
+        <div class="p-4 rounded-lg mb-6" style="background:var(--color-surface);border-left:3px solid var(--color-accent);">
+          <p class="font-medium" style="color:var(--color-text);">{impact}</p>
         </div>
       )}
       <p class="text-lg">{description}</p>
@@ -38,7 +38,7 @@ const { title, role, description, impact, url } = entry.data;
     </div>
   </section>
 
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container max-w-3xl prose prose-invert prose-lg max-w-none">
       <Content />
     </div>

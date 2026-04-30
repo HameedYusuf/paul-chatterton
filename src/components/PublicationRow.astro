@@ -25,20 +25,20 @@ const typeText: Record<string, string> = {
 };
 ---
 
-<div class="flex items-start gap-4 py-4" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+<div class="flex items-start gap-4 py-4" style="border-bottom:1px solid var(--color-border);">
   <span class="pill pill-green shrink-0 mt-0.5">{year}</span>
   <div class="flex-1 min-w-0">
     {url ? (
-      <a href={url} target="_blank" rel="noopener noreferrer" class="text-sm text-white hover:text-[#22c55e] transition-colors leading-relaxed">
+      <a href={url} target="_blank" rel="noopener noreferrer" class="text-sm hover:text-[#22c55e] transition-colors leading-relaxed" style="color:var(--color-text)">
         {citation}
       </a>
     ) : (
-      <p class="text-sm text-white leading-relaxed">{citation}</p>
+      <p class="text-sm leading-relaxed" style="color:var(--color-text)">{citation}</p>
     )}
   </div>
   <span
     class="pill shrink-0 text-xs hidden sm:inline-block"
-    style={`background:${typeColors[type] ?? 'rgba(255,255,255,0.08)'};color:${typeText[type] ?? '#a3a3a3'};`}
+    style={`background:${typeColors[type] ?? 'rgba(128,128,128,0.15)'};color:${typeText[type] ?? 'var(--color-muted)'};`}
   >
     {type}
   </span>

@@ -16,7 +16,7 @@ const { post } = Astro.props;
 
 <Layout title={post.title} description={post.excerpt}>
 
-  <section class="section" style="background:#0d0d0d;">
+  <section class="section" style="background:var(--color-bg);">
     <div class="container max-w-3xl">
       <div class="flex items-center gap-3 mb-6">
         <span class="pill pill-green">{post.date}</span>
@@ -32,7 +32,7 @@ const { post } = Astro.props;
     </div>
   </section>
 
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container max-w-3xl">
       <div class="prose prose-invert prose-lg max-w-none" set:html={post.content} />
     </div>

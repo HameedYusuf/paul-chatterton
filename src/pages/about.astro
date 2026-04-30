@@ -17,12 +17,12 @@ import site from '../data/site.json';
       alt={`Professor ${site.siteName}`}
       class="w-full object-cover object-top"
       style="max-height:480px;"
-      onerror="this.parentElement.style.background='#1a1a1a';this.style.display='none';"
+      onerror="this.parentElement.style.background='var(--color-surface)';this.style.display='none';"
     />
   </div>
 
   <!-- Quick links -->
-  <div style="background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,0.08);">
+  <div style="background:var(--color-surface);border-bottom:1px solid var(--color-border);">
     <div class="container py-4 flex flex-wrap gap-3">
       {[
         { label: 'Impact',        href: '/impact' },
@@ -44,7 +44,7 @@ import site from '../data/site.json';
   <section class="section">
     <div class="container max-w-3xl">
       <h1 class="mb-4">{about.heroTitle}</h1>
-      <p class="text-lg mb-8" style="color:#d4d4d4;">{about.heroSubtitle}</p>
+      <p class="text-lg mb-8" style="color:var(--color-muted);">{about.heroSubtitle}</p>
 
       <h2 class="mb-6">{about.sectionTitle}</h2>
       <div class="space-y-5 text-base leading-relaxed">
@@ -56,7 +56,7 @@ import site from '../data/site.json';
   </section>
 
   <!-- Philosophy -->
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container">
       <SectionHeading heading="Philosophy" />
       <div class="grid md:grid-cols-3 gap-6">
@@ -68,14 +68,14 @@ import site from '../data/site.json';
   </section>
 
   <!-- Roles -->
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container max-w-3xl">
       <SectionHeading heading="Roles & Affiliations" />
       <ul class="space-y-3 mb-8">
         {about.roles.map((r: string) => (
-          <li class="flex items-start gap-3 py-3" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <li class="flex items-start gap-3 py-3" style="border-bottom:1px solid var(--color-border);">
             <span style="color:#22c55e;" class="mt-1">▸</span>
-            <span class="text-white">{r}</span>
+            <span style="color:var(--color-text);">{r}</span>
           </li>
         ))}
       </ul>
@@ -84,7 +84,7 @@ import site from '../data/site.json';
   </section>
 
   <!-- Academic Profiles -->
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container max-w-3xl">
       <SectionHeading heading="Academic Profiles" />
       <div class="flex flex-col sm:flex-row gap-4">

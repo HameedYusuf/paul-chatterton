@@ -207,3 +207,18 @@ html.light {
   h1 { font-size: 2.25rem; }
   h2 { font-size: 1.4rem; }
 }
+
+/* Prose typography: light mode override */
+html.light .prose {
+  --tw-prose-body: #111111;
+  --tw-prose-headings: #111111;
+  --tw-prose-links: #16a34a;
+  --tw-prose-bold: #111111;
+  --tw-prose-counters: #555555;
+  --tw-prose-bullets: #555555;
+  --tw-prose-quotes: #111111;
+  --tw-prose-code: #111111;
+  --tw-prose-pre-bg: #eeede8;
+  --tw-prose-th-borders: rgba(0,0,0,0.09);
+  --tw-prose-td-borders: rgba(0,0,0,0.09);
+}

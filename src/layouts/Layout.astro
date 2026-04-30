@@ -135,14 +135,14 @@ const currentPath = Astro.url.pathname;
   </main>
 
   <!-- FOOTER -->
-  <footer style="background:#0d0d0d;border-top:1px solid rgba(255,255,255,0.08);" class="pt-16 pb-8">
+  <footer style="background:var(--color-surface);border-top:1px solid var(--color-border);" class="pt-16 pb-8">
     <div class="container">
       <div class="grid md:grid-cols-3 gap-12 mb-12">
 
         <!-- Left: tagline -->
         <div class="md:col-span-1">
-          <p class="text-white font-semibold text-lg mb-3">{site.footerTagline}</p>
-          <p class="text-sm leading-relaxed" style="color:#a3a3a3;">{site.footerBody}</p>
+          <p class="font-semibold text-lg mb-3" style="color:var(--color-text)">{site.footerTagline}</p>
+          <p class="text-sm leading-relaxed" style="color:var(--color-muted)">{site.footerBody}</p>
         </div>
 
         <!-- Nav col -->
@@ -157,7 +157,7 @@ const currentPath = Astro.url.pathname;
               { label: 'Roles',         href: '/roles' },
               { label: 'Collaborate',   href: '/collaborate' },
             ].map(l => (
-              <li><a href={l.href} class="text-sm text-[#a3a3a3] hover:text-white transition-colors">{l.label}</a></li>
+              <li><a href={l.href} class="text-sm transition-colors" style="color:var(--color-muted)">{l.label}</a></li>
             ))}
           </ul>
         </div>
@@ -167,17 +167,17 @@ const currentPath = Astro.url.pathname;
           <p class="label mb-4">Connect</p>
           <ul class="space-y-2">
             <li>
-              <a href={site.googleScholarUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-[#a3a3a3] hover:text-white transition-colors">
+              <a href={site.googleScholarUrl} target="_blank" rel="noopener noreferrer" class="text-sm transition-colors" style="color:var(--color-muted)">
                 Google Scholar ↗
               </a>
             </li>
             <li>
-              <a href={site.universityUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-[#a3a3a3] hover:text-white transition-colors">
+              <a href={site.universityUrl} target="_blank" rel="noopener noreferrer" class="text-sm transition-colors" style="color:var(--color-muted)">
                 University of Leeds ↗
               </a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`} class="text-sm text-[#a3a3a3] hover:text-white transition-colors">
+              <a href={`mailto:${site.email}`} class="text-sm transition-colors" style="color:var(--color-muted)">
                 {site.email}
               </a>
             </li>
@@ -185,8 +185,8 @@ const currentPath = Astro.url.pathname;
         </div>
       </div>
 
-      <hr style="border-color:rgba(255,255,255,0.08);" class="mb-6" />
-      <p class="text-xs" style="color:#a3a3a3;">© 2026 {site.siteName}. Built with Astro.</p>
+      <hr style="border-color:var(--color-border);" class="mb-6" />
+      <p class="text-xs" style="color:var(--color-muted)">© 2026 {site.siteName}. Built with Astro.</p>
     </div>
   </footer>
 

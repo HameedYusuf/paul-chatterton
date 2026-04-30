@@ -8,38 +8,38 @@ import site from '../data/site.json';
 
 <Layout title="Roles & Affiliations" description={`${site.siteName}'s community and professional roles.`}>
 
-  <section class="section" style="background:#0d0d0d;">
+  <section class="section" style="background:var(--color-bg);">
     <div class="container">
       <h1 class="mb-4">{rolesData.heroTitle}</h1>
       <p class="max-w-xl text-lg">{rolesData.heroSubtitle}</p>
 
       <!-- Stat strip -->
-      <div class="flex flex-wrap gap-10 mt-8 pt-8" style="border-top:1px solid rgba(255,255,255,0.08);">
+      <div class="flex flex-wrap gap-10 mt-8 pt-8" style="border-top:1px solid var(--color-border);">
         <div>
-          <p class="text-4xl font-bold text-white">{rolesData.roles.length}</p>
+          <p class="text-4xl font-bold" style="color:var(--color-text);">{rolesData.roles.length}</p>
           <p class="text-sm mt-1">Total Roles</p>
         </div>
         <div>
-          <p class="text-4xl font-bold text-white">{rolesData.roles.length}</p>
+          <p class="text-4xl font-bold" style="color:var(--color-text);">{rolesData.roles.length}</p>
           <p class="text-sm mt-1">Community Roles</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="border-top:1px solid rgba(255,255,255,0.08);">
+  <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container max-w-3xl">
       <SectionHeading heading="Community" />
       <ul class="space-y-1">
         {rolesData.roles.map(r => (
-          <li class="py-4 flex items-center gap-4" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <li class="py-4 flex items-center gap-4" style="border-bottom:1px solid var(--color-border);">
             <span style="color:#22c55e;" class="text-lg shrink-0">▸</span>
             {r.url ? (
-              <a href={r.url} target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#22c55e] transition-colors font-medium">
+              <a href={r.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#22c55e] transition-colors font-medium" style="color:var(--color-text);">
                 {r.title} ↗
               </a>
             ) : (
-              <span class="text-white font-medium">{r.title}</span>
+              <span class="font-medium" style="color:var(--color-text);">{r.title}</span>
             )}
           </li>
         ))}
