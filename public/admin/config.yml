@@ -44,77 +44,62 @@ collections:
         label: "🏠 Home Page"
         file: "src/data/home.json"
         fields:
+
+          # ── Welcome paragraph ───────────────────────────────────────────────
           - name: hero
-            label: "Hero Section"
+            label: "Welcome Text"
             widget: object
             fields:
-              - { name: label,            label: "Label Text (above title)",  widget: string }
-              - { name: title,            label: "Title",                      widget: string }
-              - { name: body,             label: "Body Text",                  widget: text }
-              - { name: ctaPrimary,       label: "Primary Button Label",       widget: string }
-              - { name: ctaPrimaryHref,   label: "Primary Button URL",         widget: string }
-              - { name: ctaSecondary,     label: "Secondary Button Label",     widget: string }
-              - { name: ctaSecondaryHref, label: "Secondary Button URL",       widget: string }
+              - { name: body,             label: "Welcome Paragraph",    widget: text, hint: "Intro text shown at the very top of the homepage" }
+              - { name: label,            label: "label",                widget: hidden, default: "Academic · Activist · Author" }
+              - { name: title,            label: "title",                widget: hidden, default: "Demand the Impossible" }
+              - { name: ctaPrimary,       label: "ctaPrimary",           widget: hidden, default: "Let's Collaborate →" }
+              - { name: ctaPrimaryHref,   label: "ctaPrimaryHref",       widget: hidden, default: "/collaborate" }
+              - { name: ctaSecondary,     label: "ctaSecondary",         widget: hidden, default: "View My Work" }
+              - { name: ctaSecondaryHref, label: "ctaSecondaryHref",     widget: hidden, default: "/impact" }
+
+          # ── Feature row (portrait + 2 book panels) ──────────────────────────
+          - name: featuredBooks
+            label: "Featured Books (3-col row + sidebar)"
+            hint: "First two entries appear as coloured panels next to Paul's portrait, and also in the sidebar"
+            widget: list
+            fields:
+              - { name: title,       label: "Book Title",       widget: string }
+              - { name: description, label: "Short Description", widget: string }
+              - { name: url,         label: "Buy / Info URL",   widget: string }
+
+          # ── Sidebar widgets ──────────────────────────────────────────────────
+          - name: upcomingTalks
+            label: "Upcoming Talks (sidebar)"
+            widget: list
+            fields:
+              - { name: venue, label: "Event / Venue Name", widget: string }
+              - { name: date,  label: "Date",               widget: string }
+
+          - name: mostRead
+            label: "Most Popular Articles (sidebar)"
+            widget: list
+            fields:
+              - { name: title, label: "Article Title", widget: string }
+              - { name: url,   label: "URL",           widget: string }
+
           - name: stats
-            label: "Statistics"
+            label: "By the Numbers (sidebar)"
             widget: list
             fields:
               - { name: number, label: "Number (e.g. 30+)", widget: string }
               - { name: label,  label: "Label",              widget: string }
-          - { name: projectsSectionLabel, label: "Projects Section Subtitle", widget: string }
-          - name: featuredProjects
-            label: "Featured Projects (shown on home page)"
-            widget: list
-            fields:
-              - { name: title,       label: "Title",       widget: string }
-              - { name: role,        label: "Role",        widget: string }
-              - { name: description, label: "Description", widget: text }
-              - { name: impact,      label: "Impact",      widget: string, required: false }
-              - { name: href,        label: "Page Link",   widget: string }
-              - { name: image,       label: "Image",       widget: image,  required: false }
-          - { name: publicationsSectionLabel, label: "Publications Section Subtitle", widget: string }
-          - name: latestPublications
-            label: "Latest Publications (shown on home page)"
-            widget: list
-            fields:
-              - { name: year,     label: "Year",     widget: number }
-              - { name: citation, label: "Citation", widget: text }
-              - name: type
-                label: "Type"
-                widget: select
-                options: ["Journal Article", "Book", "Report", "Comment Piece", "Book Chapter", "Preprint"]
-              - { name: url, label: "URL", widget: string, required: false }
-          - name: featuredBooks
-            label: "Featured Books (sidebar)"
-            widget: list
-            fields:
-              - { name: title,       label: "Title",       widget: string }
-              - { name: description, label: "Description", widget: string }
-              - { name: url,         label: "URL",         widget: string }
-          - name: upcomingTalks
-            label: "Upcoming Talks"
-            widget: list
-            fields:
-              - { name: venue, label: "Venue", widget: string }
-              - { name: date,  label: "Date",  widget: string }
-          - name: mostRead
-            label: "Most Read Articles"
-            widget: list
-            fields:
-              - { name: title, label: "Title", widget: string }
-              - { name: url,   label: "URL",   widget: string }
-          - { name: mediaSectionLabel, label: "Media Section Subtitle", widget: string }
-          - name: featuredMedia
-            label: "Featured Media (shown on home page)"
-            widget: list
-            fields:
-              - { name: title,    label: "Title",    widget: string }
-              - { name: platform, label: "Platform", widget: string }
-              - { name: url,      label: "URL",      widget: string }
+
+          # ── CTA banner (bottom of page) ──────────────────────────────────────
           - { name: ctaHeading, label: "CTA Heading",      widget: string }
           - { name: ctaBody,    label: "CTA Body Text",    widget: text }
           - { name: ctaLabel,   label: "CTA Button Label", widget: string }
           - { name: ctaHref,    label: "CTA Button URL",   widget: string }
+
+          # ── Preserved (not on homepage, kept so JSON stays intact) ───────────
+          - { name: projectsSectionLabel,    label: "projectsSectionLabel",    widget: hidden, default: "Real-world initiatives demonstrating another way is possible" }
+          - { name: publicationsSectionLabel, label: "publicationsSectionLabel", widget: hidden, default: "Research that bridges academia and activism" }
+          - { name: mediaSectionLabel,       label: "mediaSectionLabel",       widget: hidden, default: "Sharing ideas beyond the academy" }
 
       - name: "about"
         label: "👤 About Page"
