@@ -186,20 +186,23 @@ html.light {
   .sidebar-widget {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 10px;
+    border-radius: 4px;
     padding: 1.25rem;
+    overflow: hidden;
     transition: background 0.2s, border-color 0.2s;
   }
 
   .sidebar-widget-title {
-    font-size: 0.7rem;
-    font-weight: 600;
+    display: block;
+    background: #1c1c1c;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-accent);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-border);
+    letter-spacing: 0.12em;
+    padding: 0.45rem 1.25rem;
+    margin: -1.25rem -1.25rem 1rem -1.25rem;
+    border-radius: 0;
   }
 }
 

@@ -1,151 +1,193 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTABanner from '../components/CTABanner.astro';
-import Card from '../components/Card.astro';
-import StatCounter from '../components/StatCounter.astro';
 import PublicationRow from '../components/PublicationRow.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import home from '../data/home.json';
 import site from '../data/site.json';
+
+const typeColors: Record<string, string> = {
+  'Journal Article': 'rgba(34,197,94,0.12)',
+  'Book':            'rgba(59,130,246,0.12)',
+  'Report':          'rgba(168,85,247,0.12)',
+  'Comment Piece':   'rgba(251,146,60,0.12)',
+  'Book Chapter':    'rgba(59,130,246,0.08)',
+  'Preprint':        'rgba(100,116,139,0.2)',
+};
+const typeText: Record<string, string> = {
+  'Journal Article': '#22c55e',
+  'Book':            '#60a5fa',
+  'Report':          '#c084fc',
+  'Comment Piece':   '#fb923c',
+  'Book Chapter':    '#93c5fd',
+  'Preprint':        '#94a3b8',
+};
 ---
 
 <Layout title="Home">
 
-  <!-- OUTER GRID: left content (hero → stats → projects) | right sidebar -->
-  <section class="section" style="background:var(--color-bg);">
-    <div class="container">
-      <div class="grid lg:grid-cols-[3fr_1.5fr] gap-10 items-start">
+  <!-- MAIN CONTENT + SIDEBAR (Tim Jackson layout) -->
+  <div class="container" style="padding-top:2.5rem;padding-bottom:4rem;">
+    <div class="grid lg:grid-cols-[3fr_1.2fr] gap-10 items-start">
 
-        <!-- LEFT: all stacked content -->
-        <div>
+      <!-- LEFT: main content -->
+      <div>
 
-          <!-- HERO: text column + image column -->
-          <div class="grid lg:grid-cols-[3fr_2fr] gap-8 items-start">
+        <!-- Welcome paragraph -->
+        <p class="text-base leading-relaxed mb-8" style="color:var(--color-muted);">
+          Welcome to Paul Chatterton's website. This site is a source of news and information about Paul's work as an academic, activist, and author working at the University of Leeds. It is updated regularly and offers links to his <a href="/publications" class="text-link">publications</a>, <a href="/projects" class="text-link">projects</a>, and <a href="/media" class="text-link">media</a>.
+        </p>
 
-            <div>
-              <p class="label mb-4">{home.hero.label}</p>
-              <h1 class="mb-6">{home.hero.title}</h1>
-              <p class="text-base mb-8" style="color:var(--color-muted)">{home.hero.body}</p>
-              <div class="flex flex-wrap gap-4">
-                <a href={home.hero.ctaPrimaryHref} class="btn-primary">{home.hero.ctaPrimary}</a>
-                <a href={home.hero.ctaSecondaryHref} class="btn-secondary">{home.hero.ctaSecondary}</a>
-              </div>
-            </div>
+        <!-- 3-column feature row: portrait + 2 books -->
+        <div class="grid grid-cols-3 gap-3 mb-10">
 
-            <div class="rounded-xl overflow-hidden" style="border:1px solid var(--color-border);">
-              <img
-                src={site.heroImage}
-                alt={`Professor ${site.siteName}`}
-                class="w-full object-cover object-top"
-                onerror="this.style.display='none';"
-              />
-            </div>
+          <!-- Portrait -->
+          <a href="/about" class="block overflow-hidden" style="aspect-ratio:3/4;">
+            <img
+              src={site.heroImage}
+              alt="Professor Paul Chatterton"
+              class="w-full h-full object-cover object-top transition-opacity hover:opacity-90"
+            />
+          </a>
 
-          </div>
+          <!-- Book 1 -->
+          <a
+            href="https://www.agendapubl.co.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-col items-center justify-center p-5 text-center hover:opacity-90 transition-opacity"
+            style="aspect-ratio:3/4;background:#1c1c2e;color:#ffffff;"
+          >
+            <p class="font-bold text-base leading-tight mb-3">How to Save the City</p>
+            <p class="text-xs leading-relaxed opacity-80">A Guide for Emergency Action</p>
+            <p class="text-xs mt-2 opacity-50">Agenda Publishing, 2023</p>
+          </a>
 
-          <!-- STATS: flush below hero -->
-          <StatCounter stats={home.stats} />
-
-          <!-- PROJECTS: below stats, sidebar still alongside -->
-          <div class="pt-16" style="border-top:1px solid var(--color-border);">
-            <SectionHeading label={home.projectsSectionLabel} heading="Transformative Projects" />
-            <div class="grid md:grid-cols-3 gap-6">
-              {home.featuredProjects.map(p => (
-                <Card
-                  title={p.title}
-                  role={p.role}
-                  description={p.description}
-                  impact={p.impact || undefined}
-                  href={p.href}
-                  image={p.image || undefined}
-                />
-              ))}
-            </div>
-            <div class="mt-8 text-center">
-              <a href="/projects" class="text-link font-medium">View All Projects →</a>
-            </div>
-          </div>
+          <!-- Book 2 -->
+          <a
+            href="https://unlockingsustainablecities.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-col items-center justify-center p-5 text-center hover:opacity-90 transition-opacity"
+            style="aspect-ratio:3/4;background:#1a3a2a;color:#ffffff;"
+          >
+            <p class="font-bold text-base leading-tight mb-3">Unlocking Sustainable Cities</p>
+            <p class="text-xs leading-relaxed opacity-80">A Manifesto for Real Change</p>
+            <p class="text-xs mt-2 opacity-50">Pluto Press, 2019</p>
+          </a>
 
         </div>
 
-        <!-- RIGHT: sticky sidebar spans hero + stats + projects -->
-        <aside class="lg:sticky lg:top-24 space-y-6">
+        <!-- Latest Publications -->
+        <div class="mb-10">
+          <h3 class="text-sm font-bold uppercase tracking-widest pb-2 mb-0" style="color:var(--color-text);border-bottom:2px solid var(--color-text);">Latest Publications</h3>
+          {home.latestPublications.map(p => (
+            <div class="flex gap-4 py-4" style="border-bottom:1px solid var(--color-border);">
+              <div class="shrink-0 pt-0.5">
+                <span
+                  class="pill text-xs"
+                  style={`background:${typeColors[p.type] ?? 'rgba(128,128,128,0.15)'};color:${typeText[p.type] ?? 'var(--color-muted)'};`}
+                >
+                  {p.year}
+                </span>
+              </div>
+              <div class="min-w-0">
+                {p.url ? (
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" class="text-sm leading-relaxed hover:text-[#22c55e] transition-colors" style="color:var(--color-text);">
+                    {p.citation}
+                  </a>
+                ) : (
+                  <p class="text-sm leading-relaxed" style="color:var(--color-text);">{p.citation}</p>
+                )}
+                <span class="text-xs mt-1 inline-block" style="color:var(--color-muted);">{p.type}</span>
+              </div>
+            </div>
+          ))}
+          <div class="mt-4">
+            <a href="/publications" class="text-sm text-link font-medium">View All Publications →</a>
+          </div>
+        </div>
 
-          <div class="sidebar-widget">
-            <p class="sidebar-widget-title">Featured Books</p>
-            <div class="space-y-4">
-              {home.featuredBooks.map(b => (
-                <a href={b.url} target="_blank" rel="noopener noreferrer" class="block group">
-                  <p class="text-sm font-semibold leading-snug mb-1 group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text)">{b.title}</p>
-                  <p class="text-xs" style="color:var(--color-muted)">{b.description}</p>
+        <!-- Latest Media -->
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest pb-2 mb-0" style="color:var(--color-text);border-bottom:2px solid var(--color-text);">Media & Talks</h3>
+          {home.featuredMedia.map(m => (
+            <div class="flex gap-4 py-4" style="border-bottom:1px solid var(--color-border);">
+              <div class="shrink-0 pt-0.5">
+                <span class="pill pill-outline text-xs">{m.platform}</span>
+              </div>
+              <div>
+                <a href={m.url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium leading-snug hover:text-[#22c55e] transition-colors" style="color:var(--color-text);">
+                  {m.title}
                 </a>
-              ))}
+              </div>
             </div>
+          ))}
+          <div class="mt-4">
+            <a href="/media" class="text-sm text-link font-medium">View All Media →</a>
           </div>
+        </div>
 
-          <div class="sidebar-widget">
-            <p class="sidebar-widget-title">Upcoming Talks</p>
-            <div class="space-y-3">
-              {home.upcomingTalks.map(t => (
-                <div class="pb-3" style="border-bottom:1px solid var(--color-border);">
-                  <p class="text-sm font-medium" style="color:var(--color-text)">{t.venue}</p>
-                  <p class="text-xs mt-0.5" style="color:var(--color-accent)">{t.date}</p>
-                </div>
-              ))}
-            </div>
-            <a href="/media" class="text-link text-xs font-medium mt-3 inline-block">View All Talks →</a>
+      </div>
+
+      <!-- RIGHT: sticky sidebar -->
+      <aside class="lg:sticky lg:top-24 space-y-5">
+
+        <!-- Featured Books -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">Featured Books</p>
+          <div class="space-y-4">
+            {home.featuredBooks.map(b => (
+              <a href={b.url} target="_blank" rel="noopener noreferrer" class="block group">
+                <p class="text-sm font-semibold leading-snug mb-1 group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text)">{b.title}</p>
+                <p class="text-xs" style="color:var(--color-muted)">{b.description}</p>
+              </a>
+            ))}
           </div>
+        </div>
 
-          <div class="sidebar-widget">
-            <p class="sidebar-widget-title">Most Read</p>
-            <div>
-              {home.mostRead.map((item, i) => (
-                <a href={item.url} target="_blank" rel="noopener noreferrer" class="flex gap-3 items-start py-2 group" style="border-bottom:1px solid var(--color-border);">
-                  <span class="text-xs font-bold mt-0.5 shrink-0" style="color:var(--color-accent)">{String(i + 1).padStart(2, '0')}</span>
-                  <span class="text-xs leading-snug group-hover:text-[#22c55e] transition-colors" style="color:var(--color-muted)">{item.title}</span>
-                </a>
-              ))}
-            </div>
+        <!-- Upcoming Talks -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">Upcoming Talks</p>
+          <div class="space-y-0">
+            {home.upcomingTalks.map(t => (
+              <div class="py-2" style="border-bottom:1px solid var(--color-border);">
+                <p class="text-sm font-medium" style="color:var(--color-text)">{t.venue}</p>
+                <p class="text-xs mt-0.5" style="color:var(--color-accent)">{t.date}</p>
+              </div>
+            ))}
           </div>
+          <a href="/media" class="text-link text-xs font-medium mt-3 inline-block">View All Talks →</a>
+        </div>
 
-        </aside>
-      </div>
-    </div>
-  </section>
+        <!-- Most Read -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">Most Popular</p>
+          <div>
+            {home.mostRead.map((item, i) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="flex gap-3 items-start py-2 group" style="border-bottom:1px solid var(--color-border);">
+                <span class="text-xs font-bold mt-0.5 shrink-0" style="color:var(--color-accent)">{String(i + 1).padStart(2, '0')}</span>
+                <span class="text-xs leading-snug group-hover:text-[#22c55e] transition-colors" style="color:var(--color-muted)">{item.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
 
-  <!-- LATEST PUBLICATIONS: full width -->
-  <section class="section" style="border-top:1px solid var(--color-border);">
-    <div class="container">
-      <SectionHeading label={home.publicationsSectionLabel} heading="Latest Publications" />
-      <div>
-        {home.latestPublications.map(p => (
-          <PublicationRow year={p.year} citation={p.citation} type={p.type} url={p.url || undefined} />
-        ))}
-      </div>
-      <div class="mt-8">
-        <a href="/publications" class="text-link font-medium">View All Publications →</a>
-      </div>
-    </div>
-  </section>
+        <!-- Stats -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">By the Numbers</p>
+          <div class="space-y-3">
+            {home.stats.map(s => (
+              <div class="flex items-center justify-between py-1" style="border-bottom:1px solid var(--color-border);">
+                <span class="text-xs" style="color:var(--color-muted)">{s.label}</span>
+                <span class="text-lg font-bold" style="color:var(--color-text)">{s.number}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-  <!-- MEDIA & TALKS: full width -->
-  <section class="section" style="background:var(--color-section-alt);border-top:1px solid var(--color-border);">
-    <div class="container">
-      <SectionHeading label={home.mediaSectionLabel} heading="Media & Talks" />
-      <div class="grid md:grid-cols-3 gap-6">
-        {home.featuredMedia.map(m => (
-          <a href={m.url} target="_blank" rel="noopener noreferrer" class="card p-6 hover:border-[#22c55e]/30 transition-colors block">
-            <p class="label mb-2">{m.platform}</p>
-            <h3 class="text-base">{m.title}</h3>
-            <p class="text-sm mt-3" style="color:var(--color-accent);">Listen / Watch →</p>
-          </a>
-        ))}
-      </div>
-      <div class="mt-8 text-center">
-        <a href="/media" class="text-link font-medium">View All Media →</a>
-      </div>
+      </aside>
     </div>
-  </section>
+  </div>
 
   <!-- CTA: full width -->
   <CTABanner heading={home.ctaHeading} body={home.ctaBody} cta={home.ctaLabel} href={home.ctaHref} />
