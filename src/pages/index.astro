@@ -11,36 +11,46 @@ import site from '../data/site.json';
 
 <Layout title="Home">
 
-  <!-- HERO + SIDEBAR (two-column from top) -->
-  <section class="section" style="background:var(--color-bg);border-bottom:1px solid var(--color-border);">
+  <!-- HERO + STATS + SIDEBAR combined (sidebar spans both) -->
+  <section class="section" style="background:var(--color-bg);">
     <div class="container">
-      <div class="grid lg:grid-cols-[2fr_1fr_1.5fr] gap-10 items-start">
+      <div class="grid lg:grid-cols-[1fr_1.5fr] gap-10 items-start">
 
-        <!-- Col 1: hero text + CTAs -->
-        <div>
-          <p class="label mb-4">{home.hero.label}</p>
-          <h1 class="mb-6">{home.hero.title}</h1>
-          <p class="text-base mb-8" style="color:var(--color-muted)">{home.hero.body}</p>
-          <div class="flex flex-wrap gap-4">
-            <a href={home.hero.ctaPrimaryHref} class="btn-primary">{home.hero.ctaPrimary}</a>
-            <a href={home.hero.ctaSecondaryHref} class="btn-secondary">{home.hero.ctaSecondary}</a>
+        <!-- Left: hero text+image stacked above stats, no gap -->
+        <div class="lg:col-span-1">
+
+          <!-- Hero: text + image side by side -->
+          <div class="grid lg:grid-cols-[3fr_2fr] gap-8 items-start mb-0">
+
+            <!-- Text + CTAs -->
+            <div>
+              <p class="label mb-4">{home.hero.label}</p>
+              <h1 class="mb-6">{home.hero.title}</h1>
+              <p class="text-base mb-8" style="color:var(--color-muted)">{home.hero.body}</p>
+              <div class="flex flex-wrap gap-4">
+                <a href={home.hero.ctaPrimaryHref} class="btn-primary">{home.hero.ctaPrimary}</a>
+                <a href={home.hero.ctaSecondaryHref} class="btn-secondary">{home.hero.ctaSecondary}</a>
+              </div>
+            </div>
+
+            <!-- Paul's photo — full height, no cap -->
+            <div class="rounded-xl overflow-hidden" style="border:1px solid var(--color-border);">
+              <img
+                src={site.heroImage}
+                alt={`Professor ${site.siteName}`}
+                class="w-full object-cover object-top"
+                onerror="this.style.display='none';"
+              />
+            </div>
+
           </div>
+
+          <!-- Stats immediately below, no extra spacing -->
+          <StatCounter stats={home.stats} />
+
         </div>
 
-        <!-- Col 2: Paul's photo (same row as buttons) -->
-        <div class="lg:self-start">
-          <div class="rounded-xl overflow-hidden" style="border:1px solid var(--color-border);">
-            <img
-              src={site.heroImage}
-              alt={`Professor ${site.siteName}`}
-              class="w-full object-cover object-top"
-              style="max-height:420px;"
-              onerror="this.style.display='none';"
-            />
-          </div>
-        </div>
-
-        <!-- Right: sticky sidebar -->
+        <!-- Right: sticky sidebar spanning hero + stats -->
         <aside class="lg:sticky lg:top-24 space-y-6">
 
           <!-- Featured Books -->
@@ -87,11 +97,6 @@ import site from '../data/site.json';
       </div>
     </div>
   </section>
-
-  <!-- STATS -->
-  <div class="container">
-    <StatCounter stats={home.stats} />
-  </div>
 
   <!-- FEATURED PROJECTS -->
   <section class="section" style="border-top:1px solid var(--color-border);">
