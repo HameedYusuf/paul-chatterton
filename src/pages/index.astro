@@ -14,24 +14,27 @@ import site from '../data/site.json';
   <!-- HERO + SIDEBAR (two-column from top) -->
   <section class="section" style="background:var(--color-bg);border-bottom:1px solid var(--color-border);">
     <div class="container">
-      <div class="grid lg:grid-cols-[3fr_2fr] gap-12 items-start">
+      <div class="grid lg:grid-cols-[2fr_1fr_1.5fr] gap-10 items-start">
 
-        <!-- Left: hero content -->
+        <!-- Col 1: hero text + CTAs -->
         <div>
           <p class="label mb-4">{home.hero.label}</p>
           <h1 class="mb-6">{home.hero.title}</h1>
-          <p class="text-base mb-8 max-w-lg" style="color:var(--color-muted)">{home.hero.body}</p>
-          <div class="flex flex-wrap gap-4 mb-10">
+          <p class="text-base mb-8" style="color:var(--color-muted)">{home.hero.body}</p>
+          <div class="flex flex-wrap gap-4">
             <a href={home.hero.ctaPrimaryHref} class="btn-primary">{home.hero.ctaPrimary}</a>
             <a href={home.hero.ctaSecondaryHref} class="btn-secondary">{home.hero.ctaSecondary}</a>
           </div>
-          <!-- Paul's photo sits below the CTAs -->
-          <div class="rounded-xl overflow-hidden max-w-sm" style="border:1px solid var(--color-border);">
+        </div>
+
+        <!-- Col 2: Paul's photo (same row as buttons) -->
+        <div class="lg:self-start">
+          <div class="rounded-xl overflow-hidden" style="border:1px solid var(--color-border);">
             <img
               src={site.heroImage}
               alt={`Professor ${site.siteName}`}
               class="w-full object-cover object-top"
-              style="max-height:360px;"
+              style="max-height:420px;"
               onerror="this.style.display='none';"
             />
           </div>
