@@ -38,30 +38,32 @@ const projects = (await getCollection('projects'))
           </a>
 
           <!-- Book 1 -->
-          <a
-            href="https://www.agendapubl.co.uk/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex flex-col items-center justify-center p-5 text-center hover:opacity-90 transition-opacity"
-            style="aspect-ratio:3/4;background:#1c1c2e;color:#ffffff;"
-          >
-            <p class="font-bold text-base leading-tight mb-3">How to Save the City</p>
-            <p class="text-xs leading-relaxed opacity-80">A Guide for Emergency Action</p>
-            <p class="text-xs mt-2 opacity-50">Agenda Publishing, 2023</p>
-          </a>
+          {home.featuredBooks[0] && (
+            home.featuredBooks[0].image ? (
+              <a href={home.featuredBooks[0].url} target="_blank" rel="noopener noreferrer" class="block overflow-hidden hover:opacity-90 transition-opacity" style="aspect-ratio:3/4;">
+                <img src={home.featuredBooks[0].image} alt={home.featuredBooks[0].title} class="w-full h-full object-cover" />
+              </a>
+            ) : (
+              <a href={home.featuredBooks[0].url} target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-5 text-center hover:opacity-90 transition-opacity" style="aspect-ratio:3/4;background:#1c1c2e;color:#ffffff;">
+                <p class="font-bold text-base leading-tight mb-3">{home.featuredBooks[0].title}</p>
+                <p class="text-xs leading-relaxed opacity-80">{home.featuredBooks[0].description}</p>
+              </a>
+            )
+          )}
 
           <!-- Book 2 -->
-          <a
-            href="https://unlockingsustainablecities.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex flex-col items-center justify-center p-5 text-center hover:opacity-90 transition-opacity"
-            style="aspect-ratio:3/4;background:#1a3a2a;color:#ffffff;"
-          >
-            <p class="font-bold text-base leading-tight mb-3">Unlocking Sustainable Cities</p>
-            <p class="text-xs leading-relaxed opacity-80">A Manifesto for Real Change</p>
-            <p class="text-xs mt-2 opacity-50">Pluto Press, 2019</p>
-          </a>
+          {home.featuredBooks[1] && (
+            home.featuredBooks[1].image ? (
+              <a href={home.featuredBooks[1].url} target="_blank" rel="noopener noreferrer" class="block overflow-hidden hover:opacity-90 transition-opacity" style="aspect-ratio:3/4;">
+                <img src={home.featuredBooks[1].image} alt={home.featuredBooks[1].title} class="w-full h-full object-cover" />
+              </a>
+            ) : (
+              <a href={home.featuredBooks[1].url} target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-5 text-center hover:opacity-90 transition-opacity" style="aspect-ratio:3/4;background:#1a3a2a;color:#ffffff;">
+                <p class="font-bold text-base leading-tight mb-3">{home.featuredBooks[1].title}</p>
+                <p class="text-xs leading-relaxed opacity-80">{home.featuredBooks[1].description}</p>
+              </a>
+            )
+          )}
 
         </div>
 
