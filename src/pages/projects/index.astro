@@ -4,16 +4,24 @@ import Layout from '../../layouts/Layout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import Card from '../../components/Card.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
+import pages from '../../data/pages.json';
 
 const projects = (await getCollection('projects')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const pg = pages.projects;
 ---
 
-<Layout title="Projects" description="Real-world initiatives demonstrating another way is possible.">
+<Layout title={pg.heroTitle} description={pg.heroSubtitle}>
+
+  {pg.heroImage && (
+    <div class="w-full" style="height:340px;overflow:hidden;">
+      <img src={pg.heroImage} alt={pg.heroTitle} class="w-full h-full object-cover" />
+    </div>
+  )}
 
   <section class="section" style="background:var(--color-bg);">
     <div class="container">
-      <h1 class="mb-4">Projects</h1>
-      <p class="max-w-xl text-lg">Real-world initiatives demonstrating another way is possible.</p>
+      <h1 class="mb-4">{pg.heroTitle}</h1>
+      <p class="max-w-xl text-lg">{pg.heroSubtitle}</p>
     </div>
   </section>
 

@@ -23,6 +23,12 @@ const allMedia = mediaData.items;
 
 <Layout title="Work & Impact" description={impactData.heroSubtitle}>
 
+  {impactData.heroImage && (
+    <div class="w-full" style="height:340px;overflow:hidden;">
+      <img src={impactData.heroImage} alt={impactData.heroTitle} class="w-full h-full object-cover" />
+    </div>
+  )}
+
   <!-- Hero -->
   <section class="section" style="background:var(--color-bg);">
     <div class="container">

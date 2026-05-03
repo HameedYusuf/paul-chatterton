@@ -2,16 +2,24 @@
 import Layout from '../../layouts/Layout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import { getSubstackPosts } from '../../lib/substack';
+import pages from '../../data/pages.json';
 
 const posts = await getSubstackPosts();
+const pg = pages.blog;
 ---
 
-<Layout title="Blog & Comment" description="Writing beyond the journal — comment pieces, essays, and opinion.">
+<Layout title={pg.heroTitle} description={pg.heroSubtitle}>
+
+  {pg.heroImage && (
+    <div class="w-full" style="height:340px;overflow:hidden;">
+      <img src={pg.heroImage} alt={pg.heroTitle} class="w-full h-full object-cover" />
+    </div>
+  )}
 
   <section class="section" style="background:var(--color-bg);">
     <div class="container">
-      <h1 class="mb-4">Blog & Comment</h1>
-      <p class="text-lg max-w-xl">Writing beyond the journal.</p>
+      <h1 class="mb-4">{pg.heroTitle}</h1>
+      <p class="text-lg max-w-xl">{pg.heroSubtitle}</p>
       <p class="mt-2 text-sm">{posts.length} pieces</p>
     </div>
   </section>

@@ -8,6 +8,12 @@ import site from '../data/site.json';
 
 <Layout title="Roles & Affiliations" description={`${site.siteName}'s community and professional roles.`}>
 
+  {rolesData.heroImage && (
+    <div class="w-full" style="height:340px;overflow:hidden;">
+      <img src={rolesData.heroImage} alt={rolesData.heroTitle} class="w-full h-full object-cover" />
+    </div>
+  )}
+
   <section class="section" style="background:var(--color-bg);">
     <div class="container">
       <h1 class="mb-4">{rolesData.heroTitle}</h1>

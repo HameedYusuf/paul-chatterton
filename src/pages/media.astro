@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import CTABanner from '../components/CTABanner.astro';
 import mediaData from '../data/media.json';
+import pages from '../data/pages.json';
 
 const allMedia = mediaData.items;
 
@@ -39,14 +40,21 @@ const typeIcon: Record<string, string> = {
   Talk:    '🎤',
   Press:   '📰',
 };
+const pg = pages.media;
 ---
 
-<Layout title="Media & Talks" description="Podcasts, videos, talks, and press appearances.">
+<Layout title={pg.heroTitle} description={pg.heroSubtitle}>
+
+  {pg.heroImage && (
+    <div class="w-full" style="height:340px;overflow:hidden;">
+      <img src={pg.heroImage} alt={pg.heroTitle} class="w-full h-full object-cover" />
+    </div>
+  )}
 
   <section class="section" style="background:var(--color-bg);">
     <div class="container">
-      <h1 class="mb-4">Media & Talks</h1>
-      <p class="text-lg max-w-xl" style="color:var(--color-muted);">Sharing ideas beyond the academy.</p>
+      <h1 class="mb-4">{pg.heroTitle}</h1>
+      <p class="text-lg max-w-xl" style="color:var(--color-muted);">{pg.heroSubtitle}</p>
       <p class="mt-2 text-sm" style="color:var(--color-muted);">{allMedia.length} items</p>
 
       <div class="flex flex-wrap gap-3 mt-6" id="filter-tabs">

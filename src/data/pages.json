@@ -1,0 +1,22 @@
+{
+  "publications": {
+    "heroTitle": "Publications",
+    "heroSubtitle": "124+ publications spanning journal articles, books, reports, and comment pieces.",
+    "heroImage": ""
+  },
+  "media": {
+    "heroTitle": "Media & Talks",
+    "heroSubtitle": "Sharing ideas beyond the academy through podcasts, videos, talks, and press.",
+    "heroImage": ""
+  },
+  "blog": {
+    "heroTitle": "Blog & Comment",
+    "heroSubtitle": "Writing beyond the journal — essays, comment pieces, and dispatches from the field.",
+    "heroImage": ""
+  },
+  "projects": {
+    "heroTitle": "Projects",
+    "heroSubtitle": "Real-world initiatives demonstrating another way is possible.",
+    "heroImage": ""
+  }
+}

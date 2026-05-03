@@ -13,6 +13,13 @@ const projects = (await getCollection('projects'))
 
 <Layout title="Home">
 
+  <!-- Optional hero banner image -->
+  {home.heroImage && (
+    <div class="w-full" style="height:340px;overflow:hidden;">
+      <img src={home.heroImage} alt="Hero" class="w-full h-full object-cover" />
+    </div>
+  )}
+
   <!-- MAIN CONTENT + SIDEBAR (Tim Jackson layout) -->
   <div class="container" style="padding-top:2.5rem;padding-bottom:4rem;">
     <div class="grid lg:grid-cols-[3fr_1.2fr] gap-10 items-start">
@@ -22,7 +29,7 @@ const projects = (await getCollection('projects'))
 
         <!-- Welcome paragraph -->
         <p class="text-base leading-relaxed mb-8" style="color:var(--color-muted);">
-          Welcome to Paul Chatterton's website. This site is a source of news and information about Paul's work as an academic, activist, and author working at the University of Leeds. It is updated regularly and offers links to his <a href="/publications" class="text-link">publications</a>, <a href="/projects" class="text-link">projects</a>, and <a href="/media" class="text-link">media</a>.
+          {home.welcomeText}
         </p>
 
         <!-- 3-column feature row: portrait + 2 books -->

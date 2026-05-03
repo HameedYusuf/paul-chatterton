@@ -18,11 +18,12 @@ collections:
         file: "src/data/site.json"
         fields:
           - { name: siteName,         label: "Site Name",              widget: string }
+          - { name: navSubtitle,      label: "Navbar Subtitle (under name)", widget: string, hint: "e.g. Academic · Activist · Author" }
           - { name: siteDescription,  label: "Site Description",       widget: text }
           - { name: email,            label: "Contact Email",          widget: string }
           - { name: googleScholarUrl, label: "Google Scholar URL",     widget: string }
           - { name: universityUrl,    label: "University Profile URL", widget: string }
-          - { name: heroImage,        label: "Hero Image (Home Page)", widget: image, required: false }
+          - { name: heroImage,        label: "Default Profile Image",  widget: image, required: false, hint: "Fallback portrait used across the site." }
           - { name: aboutImage,       label: "About Page Image",       widget: image, required: false }
           - { name: footerTagline,    label: "Footer Tagline",         widget: string }
           - { name: footerBody,       label: "Footer Body Text",       widget: text }
@@ -45,12 +46,16 @@ collections:
         file: "src/data/home.json"
         fields:
 
+          # ── Page banner image ───────────────────────────────────────────────
+          - { name: heroImage,  label: "Homepage Banner Image", widget: image, required: false, hint: "Optional full-width image shown at the very top of the homepage." }
+          - { name: welcomeText, label: "Welcome Paragraph",    widget: text,  hint: "Intro text shown below the banner on the homepage." }
+
           # ── Welcome paragraph ───────────────────────────────────────────────
           - name: hero
-            label: "Welcome Text"
+            label: "Hero Section (hidden fields — preserved)"
             widget: object
             fields:
-              - { name: body,             label: "Welcome Paragraph",    widget: text, hint: "Intro text shown at the very top of the homepage" }
+              - { name: body,             label: "Hero Body (unused — edit Welcome Paragraph above)", widget: text, required: false }
               - { name: label,            label: "label",                widget: hidden, default: "Academic · Activist · Author" }
               - { name: title,            label: "title",                widget: hidden, default: "Demand the Impossible" }
               - { name: ctaPrimary,       label: "ctaPrimary",           widget: hidden, default: "Let's Collaborate →" }
@@ -107,6 +112,7 @@ collections:
         file: "src/data/about.json"
         fields:
           - { name: portraitImage,  label: "Portrait Photo",  widget: image, required: false, hint: "Left-column portrait. Leave blank to use the Global Settings hero image." }
+          - { name: heroImage,      label: "Banner Image",    widget: image, required: false, hint: "Optional full-width banner at top of the About page." }
           - { name: heroTitle,    label: "Page Title",  widget: string }
           - { name: heroSubtitle, label: "Subtitle",    widget: text }
           - { name: sectionTitle, label: "Section Title (e.g. Demanding the Impossible)", widget: string }
@@ -152,6 +158,7 @@ collections:
         fields:
           - { name: heroTitle,        label: "Page Title",             widget: string }
           - { name: heroSubtitle,     label: "Subtitle",               widget: text }
+          - { name: heroImage,        label: "Banner Image",           widget: image, required: false, hint: "Full-width banner shown at top of the page." }
           - { name: projectCount,     label: "Project Count Display",  widget: string }
           - { name: publicationCount, label: "Publication Count Display", widget: string }
           - { name: mediaCount,       label: "Media Count Display",    widget: string }
@@ -160,8 +167,9 @@ collections:
         label: "🎭 Roles Page"
         file: "src/data/roles.json"
         fields:
-          - { name: heroTitle,    label: "Page Title", widget: string }
-          - { name: heroSubtitle, label: "Subtitle",   widget: text }
+          - { name: heroTitle,    label: "Page Title",   widget: string }
+          - { name: heroSubtitle, label: "Subtitle",     widget: text }
+          - { name: heroImage,    label: "Banner Image", widget: image, required: false, hint: "Full-width banner shown at top of the page." }
           - name: roles
             label: "Community Roles"
             widget: list
@@ -177,8 +185,9 @@ collections:
         label: "🤝 Collaborate Page"
         file: "src/data/collaborate.json"
         fields:
-          - { name: heroTitle, label: "Page Title",  widget: string }
-          - { name: heroBody,  label: "Intro Text",  widget: text }
+          - { name: heroTitle,  label: "Page Title",   widget: string }
+          - { name: heroBody,   label: "Intro Text",   widget: text }
+          - { name: heroImage,  label: "Banner Image", widget: image, required: false, hint: "Full-width banner shown at top of the page." }
           - name: whoShouldReach
             label: "Who Should Reach Out"
             widget: list
@@ -229,6 +238,39 @@ collections:
             fields:
               - { name: image,   label: "Photo",   widget: image }
               - { name: caption, label: "Caption (optional, e.g. photo credit)", widget: string, required: false }
+
+      - name: "pages"
+        label: "📄 List Pages (Projects / Publications / Media / Blog)"
+        file: "src/data/pages.json"
+        fields:
+          - name: projects
+            label: "Projects Page"
+            widget: object
+            fields:
+              - { name: heroTitle,    label: "Page Title",   widget: string }
+              - { name: heroSubtitle, label: "Subtitle",     widget: text }
+              - { name: heroImage,    label: "Banner Image", widget: image, required: false }
+          - name: publications
+            label: "Publications Page"
+            widget: object
+            fields:
+              - { name: heroTitle,    label: "Page Title",   widget: string }
+              - { name: heroSubtitle, label: "Subtitle",     widget: text }
+              - { name: heroImage,    label: "Banner Image", widget: image, required: false }
+          - name: media
+            label: "Media Page"
+            widget: object
+            fields:
+              - { name: heroTitle,    label: "Page Title",   widget: string }
+              - { name: heroSubtitle, label: "Subtitle",     widget: text }
+              - { name: heroImage,    label: "Banner Image", widget: image, required: false }
+          - name: blog
+            label: "Blog Page"
+            widget: object
+            fields:
+              - { name: heroTitle,    label: "Page Title",   widget: string }
+              - { name: heroSubtitle, label: "Subtitle",     widget: text }
+              - { name: heroImage,    label: "Banner Image", widget: image, required: false }
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CONTENT DATA (Publications & Media)

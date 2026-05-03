@@ -8,6 +8,12 @@ import home from '../data/home.json';
 
 <Layout title="About" description={`Professor ${site.siteName} — academic, activist and author working at the University of Leeds.`}>
 
+  {about.heroImage && (
+    <div class="w-full" style="height:340px;overflow:hidden;">
+      <img src={about.heroImage} alt={`Professor ${site.siteName}`} class="w-full h-full object-cover" />
+    </div>
+  )}
+
   <div class="container" style="padding-top:2.5rem;padding-bottom:4rem;">
     <div class="grid lg:grid-cols-[240px_1fr_260px] gap-10 items-start">
 

@@ -4,19 +4,25 @@ import CTABanner from '../components/CTABanner.astro';
 import PublicationRow from '../components/PublicationRow.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import pubs from '../data/publications.json';
+import pages from '../data/pages.json';
 
 const totalCount = pubs.books.length + pubs.journalArticles.length + pubs.reports.length + pubs.commentPieces.length;
+const pg = pages.publications;
 ---
 
-<Layout title="Publications" description={`${totalCount}+ publications spanning journal articles, books, reports, and comment pieces.`}>
+<Layout title={pg.heroTitle} description={pg.heroSubtitle}>
+
+  {pg.heroImage && (
+    <div class="w-full" style="height:340px;overflow:hidden;">
+      <img src={pg.heroImage} alt={pg.heroTitle} class="w-full h-full object-cover" />
+    </div>
+  )}
 
   <!-- Hero -->
   <section class="section" style="background:var(--color-bg);">
     <div class="container">
-      <h1 class="mb-4">Publications</h1>
-      <p class="max-w-2xl text-lg">
-        {totalCount}+ publications spanning journal articles, books, reports, and comment pieces.
-      </p>
+      <h1 class="mb-4">{pg.heroTitle}</h1>
+      <p class="max-w-2xl text-lg">{pg.heroSubtitle}</p>
       <div class="flex flex-wrap gap-6 mt-8">
         {[
           { label: 'Books',           href: '#books' },

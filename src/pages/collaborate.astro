@@ -8,6 +8,12 @@ import site from '../data/site.json';
 
 <Layout title="Collaborate" description="Let's work together on research, community projects, or public engagement.">
 
+  {collab.heroImage && (
+    <div class="w-full" style="height:340px;overflow:hidden;">
+      <img src={collab.heroImage} alt={collab.heroTitle} class="w-full h-full object-cover" />
+    </div>
+  )}
+
   <section class="section" style="background:var(--color-bg);">
     <div class="container max-w-3xl">
       <h1 class="mb-6">{collab.heroTitle}</h1>

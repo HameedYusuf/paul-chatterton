@@ -130,6 +130,8 @@
     "ctaSecondaryHref": "/impact"
   },
   "ctaHref": "/collaborate",
+  "heroImage": "",
+  "welcomeText": "Welcome to Paul Chatterton's website. This site is a source of news and information about Paul's work as an academic, activist, and author working at the University of Leeds. It is updated regularly and offers links to his publications, projects, and media.",
   "featuredBooks": [
     {
       "title": "How to Save the City",
