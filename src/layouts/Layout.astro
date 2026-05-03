@@ -48,7 +48,7 @@ const currentPath = Astro.url.pathname;
             />
           )}
           <div class="flex flex-col leading-tight">
-            <span class="font-bold text-[1.6875rem] tracking-tight group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text)">{site.siteName}</span>
+            <span class="font-bold text-[2rem] tracking-tight group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text)">{site.siteName}</span>
             <span class="text-xs tracking-wide" style="color:var(--color-muted)">Academic · Activist · Author</span>
           </div>
         </a>
@@ -59,7 +59,7 @@ const currentPath = Astro.url.pathname;
           <div class="relative group">
             <a
               href="/about"
-              class="px-3 py-2 text-sm rounded transition-colors"
+              class="px-3 py-2 text-sm font-bold rounded transition-colors"
               style={`color:${currentPath.startsWith('/about') || currentPath === '/impact' ? 'var(--color-text)' : 'var(--color-muted)'}`}
             >
               About ▾
@@ -83,8 +83,8 @@ const currentPath = Astro.url.pathname;
 
           {site.navLinks.filter(l => l.href !== '/').map(link => (
             link.href === '/collaborate'
-              ? <a href={link.href} class="px-4 py-2 text-sm font-medium rounded-md bg-[#22c55e] text-black hover:bg-[#16a34a] transition-colors">{link.label}</a>
-              : <a href={link.href} class="px-3 py-2 text-sm rounded transition-colors" style={`color:${currentPath.startsWith(link.href) ? 'var(--color-text)' : 'var(--color-muted)'}`}>{link.label}</a>
+              ? <a href={link.href} class="px-4 py-2 text-sm font-bold rounded-md bg-[#22c55e] text-black hover:bg-[#16a34a] transition-colors">{link.label}</a>
+              : <a href={link.href} class="px-3 py-2 text-sm font-bold rounded transition-colors" style={`color:${currentPath.startsWith(link.href) ? 'var(--color-text)' : 'var(--color-muted)'}`}>{link.label}</a>
           ))}
 
           <!-- Theme toggle -->
