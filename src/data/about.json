@@ -1,17 +1,13 @@
 {
-  "portraitImage": "",
-  "heroTitle": "About Paul",
-  "heroSubtitle": "Professor of Urban Futures at the University of Leeds, working at the intersection of academia and activism to help communities build sustainable, just, and resilient futures.",
-  "sectionTitle": "Demanding the Impossible",
+  "portraitImage": "/images/paul.jpg",
+  "ctaLabel": "Let's Collaborate →",
   "bio": [
     "Paul Chatterton is Professor of Urban Futures at the University of Leeds and one of the UK's leading voices on post-carbon cities, community-led housing, and grassroots climate action. Over more than three decades he has worked at the boundary between academic research and real-world change — producing knowledge through action and returning it to the communities who need it most.",
     "His books Unlocking Sustainable Cities (Pluto Press, 2019) and How to Save the City (Agenda, 2023) offer accessible guides for the transformations we urgently need, and have been widely adopted by practitioners, activists, and policymakers across the UK and beyond.",
     "Paul has worked with communities, local authorities, national governments, and international organisations to develop actionable pathways towards zero-carbon, socially just urban futures. He believes that another world is not only possible — it is necessary."
   ],
-  "researchSectionTitle": "Research",
   "researchText": "Paul's research centres on post-carbon urban transitions, community-led housing, co-production, and the political economy of sustainable cities. He has led major funded programmes including Climate Action Leeds — a city-wide climate mobilisation project backed by UKRI — and the Leeds Co-Production Lab, which developed alternatives to neoliberal urban governance. His earlier work pioneered the concept of autonomous geographies and post-capitalist urban commons. His publications span Nature Sustainability, Progress in Human Geography, Transactions of the Institute of British Geographers, Antipode, and many others. He has supervised over 20 PhD students and holds visiting positions at institutions across Europe.",
-  "communitySectionTitle": "Community & Activism",
-  "communityText": "Paul is as committed to activism as to scholarship. He co-founded LILAC (Low Impact Living Affordable Community), the UK's first affordable ecological co-housing project in Leeds, which pioneered the Mutual Home Ownership Society model. He co-founded Leeds Community Homes, a community land trust, and is Chair of Kirkstall Valley Development Trust. Through Climate Action Leeds he helped mobilise over 8,700 people around a shared goal of zero carbon by the 2030s and produced the Leeds Doughnut Economics Portrait. He is also a co-founder of the Remaking Places Interdisciplinary Research Network.",
+  "researchSectionTitle": "Research",
   "philosophy": [
     {
       "emoji": "🌱",
@@ -29,19 +25,32 @@
       "body": "Academia should serve society. I practise engaged scholarship that generates knowledge through action and returns findings to communities."
     }
   ],
+  "ctaHeading": "Let's Work Together",
+  "heroSubtitle": "Professor of Urban Futures at the University of Leeds, working at the intersection of academia and activism to help communities build sustainable, just, and resilient futures.",
+  "ctaBody": "Interested in research collaboration, media appearances, or community engagement? Get in touch.",
+  "sectionTitle": "Demanding the Impossible",
+  "communityText": "Paul is as committed to activism as to scholarship. He co-founded LILAC (Low Impact Living Affordable Community), the UK's first affordable ecological co-housing project in Leeds, which pioneered the Mutual Home Ownership Society model. He co-founded Leeds Community Homes, a community land trust, and is Chair of Kirkstall Valley Development Trust. Through Climate Action Leeds he helped mobilise over 8,700 people around a shared goal of zero carbon by the 2030s and produced the Leeds Doughnut Economics Portrait. He is also a co-founder of the Remaking Places Interdisciplinary Research Network.",
+  "ctaHref": "/collaborate",
+  "communitySectionTitle": "Community & Activism",
   "roles": [
     "Co-founder, LILAC Grove Housing",
     "Co-founder, Leeds Community Homes",
     "Chair, Kirkstall Valley Park",
     "Co-founder, Remaking Places Interdisciplinary Research Network"
   ],
+  "heroTitle": "About Paul",
   "stats": [
-    { "number": "30+", "label": "Years Research" },
-    { "number": "124+", "label": "Publications" },
-    { "number": "9", "label": "Major Projects" }
-  ],
-  "ctaHeading": "Let's Work Together",
-  "ctaBody": "Interested in research collaboration, media appearances, or community engagement? Get in touch.",
-  "ctaLabel": "Let's Collaborate →",
-  "ctaHref": "/collaborate"
+    {
+      "number": "30+",
+      "label": "Years Research"
+    },
+    {
+      "number": "124+",
+      "label": "Publications"
+    },
+    {
+      "number": "9",
+      "label": "Major Projects"
+    }
+  ]
 }
