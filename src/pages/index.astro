@@ -77,13 +77,12 @@ const projects = (await getCollection('projects'))
         <!-- Projects 3×2 grid -->
         <div>
           <h3 class="text-sm font-bold uppercase tracking-widest pb-2 mb-6" style="color:var(--color-text);border-bottom:2px solid var(--color-text);">Projects</h3>
-          <div class="grid md:grid-cols-3 gap-5">
+          <div class="grid md:grid-cols-2 gap-5">
             {projects.map(p => (
               <Card
                 title={p.data.title}
                 role={p.data.role}
                 description={p.data.description}
-                impact={p.data.impact}
                 href={`/projects/${p.slug}`}
                 image={p.data.image}
               />

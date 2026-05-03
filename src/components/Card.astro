@@ -14,17 +14,17 @@ const { title, description, role, impact, href, image, tag, external = false } =
 
 <div class="card flex flex-col">
   {image && (
-    <div class="relative overflow-hidden" style="aspect-ratio:16/9;">
+    <div class="relative overflow-hidden" style="height:180px;">
       <img src={image} alt={title} class="w-full h-full object-cover" loading="lazy" />
     </div>
   )}
   {!image && (
-    <div class="flex items-center justify-center text-4xl" style="aspect-ratio:16/9;background:var(--color-section-alt);">
+    <div class="flex items-center justify-center text-4xl" style="height:180px;background:var(--color-section-alt);">
       🌱
     </div>
   )}
 
-  <div class="p-6 flex flex-col flex-1">
+  <div class="p-4 flex flex-col flex-1">
     {role && <p class="label mb-2">{role}</p>}
     {tag && <span class="pill pill-outline mb-2 self-start">{tag}</span>}
     <h3 class="mb-3 text-lg leading-snug">{title}</h3>
