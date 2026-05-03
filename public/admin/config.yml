@@ -191,6 +191,39 @@ collections:
           - { name: quote,             label: "Quote",             widget: text }
           - { name: quoteAttribution,  label: "Quote Attribution", widget: string }
 
+      - name: "presskit"
+        label: "📋 Press Kit"
+        file: "src/data/presskit.json"
+        fields:
+          - { name: pageTitle,      label: "Page Title",        widget: string }
+          - { name: bio,            label: "Press Bio",         widget: text, hint: "Short bio for media use — keep to 2-3 sentences." }
+          - { name: contactName,    label: "Contact Name",      widget: string }
+          - { name: contactEmail,   label: "Contact Email",     widget: string }
+          - { name: contactOrg,     label: "Contact Organisation", widget: string }
+          - { name: contactAddress, label: "Contact Address",   widget: string }
+          - name: topics
+            label: "Topics & Expertise"
+            hint: "List of subjects Paul speaks or comments on for media."
+            widget: list
+            field:
+              name: topic
+              label: "Topic"
+              widget: string
+          - name: downloads
+            label: "Downloads"
+            hint: "Downloadable files (bio PDFs, CV, etc). Upload files via the Media Library first, then paste the URL."
+            widget: list
+            fields:
+              - { name: label, label: "Label (e.g. Short Bio PDF)", widget: string }
+              - { name: url,   label: "File URL",                   widget: string, required: false }
+          - name: photos
+            label: "Press Photos"
+            hint: "Upload high-resolution press photos. Displayed in a 4-column grid. Click opens full resolution."
+            widget: list
+            fields:
+              - { name: image,   label: "Photo",   widget: image }
+              - { name: caption, label: "Caption (optional, e.g. photo credit)", widget: string, required: false }
+
 # ─────────────────────────────────────────────────────────────────────────────
 # CONTENT DATA (Publications & Media)
 # ─────────────────────────────────────────────────────────────────────────────

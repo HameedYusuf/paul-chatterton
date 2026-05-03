@@ -39,6 +39,11 @@
       "external": false
     },
     {
+      "label": "Press Kit",
+      "href": "/press-kit",
+      "external": false
+    },
+    {
       "label": "How to Save the City",
       "href": "https://www.howtosavethecity.org/",
       "external": true

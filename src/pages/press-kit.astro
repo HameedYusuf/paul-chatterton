@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import presskit from '../data/presskit.json';
+import site from '../data/site.json';
+import home from '../data/home.json';
+---
+
+<Layout title="Press Kit" description={`Press kit for Professor ${site.siteName} — bio, photos, media contact and downloads.`}>
+
+  <div class="container" style="padding-top:2.5rem;padding-bottom:4rem;">
+    <div class="grid lg:grid-cols-[240px_1fr_260px] gap-10 items-start">
+
+      <!-- ── LEFT SIDEBAR ── -->
+      <aside class="lg:sticky lg:top-24">
+
+        <!-- Portrait -->
+        <div class="overflow-hidden" style="aspect-ratio:3/4;">
+          <img
+            src={site.aboutImage || site.heroImage}
+            alt={`Professor ${site.siteName}`}
+            class="w-full h-full object-cover object-top"
+          />
+        </div>
+
+        <!-- Nav links -->
+        <nav class="mt-1">
+          {[
+            { label: 'About Paul',    href: '/about' },
+            { label: 'Publications',  href: '/publications' },
+            { label: 'Projects',      href: '/projects' },
+            { label: 'Media',         href: '/media' },
+            { label: 'Collaborate',   href: '/collaborate' },
+          ].map(l => (
+            <a
+              href={l.href}
+              class="block px-3 py-2.5 text-sm font-medium transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+              style="color:var(--color-muted);border-bottom:1px solid var(--color-border);"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
+      </aside>
+
+      <!-- ── CENTRE: press kit content ── -->
+      <div>
+
+        <!-- Page heading -->
+        <h2
+          class="text-2xl font-bold uppercase tracking-widest mb-3"
+          style="color:var(--color-text);letter-spacing:0.15em;"
+        >
+          {presskit.pageTitle}
+        </h2>
+        <hr style="border-color:var(--color-border);margin-bottom:1.75rem;" />
+
+        <!-- Bio -->
+        <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Bio</h3>
+        <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+        <p class="text-base leading-relaxed mb-10" style="color:var(--color-muted);">
+          {presskit.bio}
+        </p>
+
+        <!-- Topics & Expertise -->
+        {presskit.topics && presskit.topics.length > 0 && (
+          <div class="mb-10">
+            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Topics & Expertise</h3>
+            <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+            <ul class="space-y-2">
+              {presskit.topics.map(t => (
+                <li class="flex items-start gap-3 text-sm" style="color:var(--color-muted);">
+                  <span style="color:var(--color-accent);margin-top:2px;">▸</span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Media contact -->
+        <div class="mb-10">
+          <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Media Contact</h3>
+          <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+          <div class="text-sm space-y-1" style="color:var(--color-muted);">
+            <p class="font-semibold" style="color:var(--color-text);">{presskit.contactName}</p>
+            <p>
+              <a
+                href={`mailto:${presskit.contactEmail}`}
+                class="text-link"
+              >
+                {presskit.contactEmail}
+              </a>
+            </p>
+            <p>{presskit.contactOrg}</p>
+            <p>{presskit.contactAddress}</p>
+          </div>
+        </div>
+
+        <!-- Downloads -->
+        {presskit.downloads && presskit.downloads.some(d => d.url) && (
+          <div class="mb-10">
+            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Downloads</h3>
+            <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+            <ul class="space-y-2">
+              {presskit.downloads.filter(d => d.url).map(d => (
+                <li class="flex items-center gap-2 text-sm">
+                  <span style="color:var(--color-muted);">•</span>
+                  <a
+                    href={d.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-link font-medium"
+                  >
+                    {d.label}
+                  </a>
+                  <span class="text-xs" style="color:var(--color-muted);">↓</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Press photos -->
+        {presskit.photos && presskit.photos.length > 0 && (
+          <div>
+            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Press Photos</h3>
+            <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+            <p class="text-sm mb-4" style="color:var(--color-muted);">
+              Click any photo to open full resolution. Free to use for press purposes with credit to the photographer where noted.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {presskit.photos.map((p: { image: string; caption?: string }) => (
+                <a
+                  href={p.image}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block overflow-hidden group"
+                  title={p.caption || `Press photo — ${site.siteName}`}
+                >
+                  <img
+                    src={p.image}
+                    alt={p.caption || `Press photo of ${site.siteName}`}
+                    class="w-full object-cover transition-opacity group-hover:opacity-85"
+                    style="aspect-ratio:1/1;"
+                    loading="lazy"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Placeholder when no photos uploaded yet -->
+        {(!presskit.photos || presskit.photos.length === 0) && (
+          <div>
+            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Press Photos</h3>
+            <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+            <p class="text-sm" style="color:var(--color-muted);">
+              Press photos can be requested by emailing{' '}
+              <a href={`mailto:${presskit.contactEmail}`} class="text-link">{presskit.contactEmail}</a>.
+            </p>
+          </div>
+        )}
+
+      </div>
+
+      <!-- ── RIGHT SIDEBAR ── -->
+      <aside class="lg:sticky lg:top-24 space-y-5">
+
+        <!-- Featured books -->
+        {home.featuredBooks.map(b => (
+          <div class="sidebar-widget">
+            <p class="sidebar-widget-title">{b.title.toUpperCase()}</p>
+            {b.image ? (
+              <a href={b.url} target="_blank" rel="noopener noreferrer" class="block group mt-1">
+                <img
+                  src={b.image}
+                  alt={b.title}
+                  class="w-full object-cover mb-3 group-hover:opacity-90 transition-opacity"
+                />
+                <p class="text-xs leading-snug" style="color:var(--color-muted);">{b.description}</p>
+              </a>
+            ) : (
+              <a href={b.url} target="_blank" rel="noopener noreferrer" class="block group">
+                <p class="text-sm font-semibold mb-1 group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text)">{b.title}</p>
+                <p class="text-xs" style="color:var(--color-muted)">{b.description}</p>
+              </a>
+            )}
+          </div>
+        ))}
+
+        <!-- Quick contact -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">Get in Touch</p>
+          <p class="text-xs mb-3" style="color:var(--color-muted);">For interviews, speaking requests, or media enquiries:</p>
+          <a href={`mailto:${site.email}`} class="text-link text-sm font-medium break-all">{site.email}</a>
+          <div class="mt-4">
+            <a href="/collaborate" class="btn-primary text-xs" style="padding:0.5rem 1rem;">Collaborate →</a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <CTABanner />
+
+</Layout>
