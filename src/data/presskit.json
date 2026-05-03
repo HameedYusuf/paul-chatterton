@@ -1,11 +1,6 @@
 {
-  "portraitImage": "",
-  "pageTitle": "Press Kit",
-  "bio": "Paul Chatterton is Professor of Urban Futures at the University of Leeds and one of the UK's leading voices on post-carbon cities, community-led housing, and grassroots climate action. He is the author of How to Save the City (Agenda, 2023) and Unlocking Sustainable Cities (Pluto Press, 2019). Over more than three decades he has worked at the boundary between academic research and real-world change, producing knowledge through action and returning it to the communities who need it most. Paul co-founded LILAC, the UK's first affordable ecological co-housing community, and has led major initiatives including Climate Action Leeds, which engaged over 8,700 people around a shared zero-carbon goal. His work has been featured in the BBC, The Guardian, The Conversation, and numerous international outlets.",
-  "contactName": "Professor Paul Chatterton",
-  "contactEmail": "p.chatterton@leeds.ac.uk",
-  "contactOrg": "School of Geography, University of Leeds",
-  "contactAddress": "Leeds, LS2 9JT, UK",
+  "portraitImage": "/images/paul.jpg",
+  "photos": [],
   "topics": [
     "Post-carbon cities and urban sustainability",
     "Community-led housing and co-housing",
@@ -16,9 +11,20 @@
     "Just transition and social justice",
     "Higher education and net-zero aviation"
   ],
+  "contactOrg": "School of Geography, University of Leeds",
+  "bio": "Paul Chatterton is Professor of Urban Futures at the University of Leeds and one of the UK's leading voices on post-carbon cities, community-led housing, and grassroots climate action. He is the author of How to Save the City (Agenda, 2023) and Unlocking Sustainable Cities (Pluto Press, 2019). Over more than three decades he has worked at the boundary between academic research and real-world change, producing knowledge through action and returning it to the communities who need it most. Paul co-founded LILAC, the UK's first affordable ecological co-housing community, and has led major initiatives including Climate Action Leeds, which engaged over 8,700 people around a shared zero-carbon goal. His work has been featured in the BBC, The Guardian, The Conversation, and numerous international outlets.",
+  "pageTitle": "Press Kit",
   "downloads": [
-    { "label": "Short Bio", "url": "" },
-    { "label": "Full CV", "url": "" }
+    {
+      "label": "Short Bio",
+      "url": ""
+    },
+    {
+      "label": "Full CV",
+      "url": ""
+    }
   ],
-  "photos": []
+  "contactName": "Professor Paul Chatterton",
+  "contactAddress": "Leeds, LS2 9JT, UK",
+  "contactEmail": "p.chatterton@leeds.ac.uk"
 }
