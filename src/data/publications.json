@@ -1,6 +1,6 @@
 {
   "books": [
-    { "year": 2023, "citation": "Chatterton, P 2023. How to Save the City: A Guide for Emergency Action. Agenda, London.", "type": "Book", "url": "" },
+    { "year": 2023, "citation": "Chatterton, P 2023. How to Save the City: A Guide for Emergency Action. Agenda, London.", "type": "Book", "url": "https://www.howtosavethecity.org/" },
     { "year": 2019, "citation": "Chatterton, P 2019. Unlocking Sustainable Cities: A Manifesto for Real Change. Pluto Press, London.", "type": "Book", "url": "https://unlockingsustainablecities.org" },
     { "year": 2015, "citation": "Chatterton P 2015. Low Impact Living: A Field Guide to Ecological Affordable Community Building. Routledge, London.", "type": "Book", "url": "" },
     { "year": 2012, "citation": "Castree N; Chatterton P; Heynen N; Larner W; Wright MW (2012) The Point is to Change it: Geographies of Hope and Survival in an Age of Crisis. Blackwell, London.", "type": "Book", "url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9781444397352" },

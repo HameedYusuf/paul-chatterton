@@ -1,98 +1,167 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTABanner from '../components/CTABanner.astro';
-import StatCounter from '../components/StatCounter.astro';
-import PhilosophyCard from '../components/PhilosophyCard.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import about from '../data/about.json';
 import site from '../data/site.json';
+import home from '../data/home.json';
 ---
 
 <Layout title="About" description={`Professor ${site.siteName} — academic, activist and author working at the University of Leeds.`}>
 
-  <!-- Full-width hero photo -->
-  <div class="w-full overflow-hidden" style="max-height:480px;">
-    <img
-      src={site.aboutImage}
-      alt={`Professor ${site.siteName}`}
-      class="w-full object-cover object-top"
-      style="max-height:480px;"
-      onerror="this.parentElement.style.background='var(--color-surface)';this.style.display='none';"
-    />
-  </div>
+  <div class="container" style="padding-top:2.5rem;padding-bottom:4rem;">
+    <div class="grid lg:grid-cols-[240px_1fr_260px] gap-10 items-start">
 
-  <!-- Quick links -->
-  <div style="background:var(--color-surface);border-bottom:1px solid var(--color-border);">
-    <div class="container py-4 flex flex-wrap gap-3">
-      {[
-        { label: 'Impact',        href: '/impact' },
-        { label: 'Publications',  href: '/publications' },
-        { label: 'Projects',      href: '/projects' },
-        { label: 'Collaborate',   href: '/collaborate' },
-      ].map(l => (
-        <a href={l.href} class="btn-secondary" style="padding:0.5rem 1rem;font-size:0.875rem;">{l.label}</a>
-      ))}
-    </div>
-  </div>
+      <!-- ── LEFT SIDEBAR ── -->
+      <aside class="lg:sticky lg:top-24">
 
-  <!-- Stats -->
-  <div class="container">
-    <StatCounter stats={about.stats} />
-  </div>
+        <!-- Portrait -->
+        <div class="overflow-hidden mb-0" style="aspect-ratio:3/4;">
+          <img
+            src={site.aboutImage || site.heroImage}
+            alt={`Professor ${site.siteName}`}
+            class="w-full h-full object-cover object-top"
+            onerror="this.parentElement.style.background='var(--color-surface)'"
+          />
+        </div>
 
-  <!-- About -->
-  <section class="section">
-    <div class="container max-w-3xl">
-      <h1 class="mb-4">{about.heroTitle}</h1>
-      <p class="text-lg mb-8" style="color:var(--color-muted);">{about.heroSubtitle}</p>
+        <!-- Quick nav links (Tim Jackson style) -->
+        <nav class="mt-1">
+          {[
+            { label: 'Publications',  href: '/publications' },
+            { label: 'Projects',      href: '/projects' },
+            { label: 'Media',         href: '/media' },
+            { label: 'Impact',        href: '/impact' },
+            { label: 'Collaborate',   href: '/collaborate' },
+          ].map(l => (
+            <a
+              href={l.href}
+              class="block px-3 py-2.5 text-sm font-medium transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+              style="color:var(--color-muted);border-bottom:1px solid var(--color-border);"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
 
-      <h2 class="mb-6">{about.sectionTitle}</h2>
-      <div class="space-y-5 text-base leading-relaxed">
-        {about.bio.map((para: string) => (
-          <p>{para}</p>
-        ))}
+      </aside>
+
+      <!-- ── CENTRE: main bio ── -->
+      <div>
+
+        <!-- RÉSUMÉ heading (Tim Jackson style) -->
+        <h2
+          class="text-2xl font-bold uppercase tracking-widest mb-3"
+          style="color:var(--color-text);letter-spacing:0.15em;"
+        >
+          Résumé
+        </h2>
+        <hr style="border-color:var(--color-border);margin-bottom:1.75rem;" />
+
+        <!-- Bio paragraphs -->
+        <div class="space-y-5 text-base leading-relaxed mb-10" style="color:var(--color-muted);">
+          {about.bio.map((para: string) => (
+            <p>{para}</p>
+          ))}
+        </div>
+
+        <!-- Research section -->
+        <h3
+          class="text-lg font-bold mb-3"
+          style="color:var(--color-text);"
+        >
+          {about.researchSectionTitle}
+        </h3>
+        <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+        <p class="text-base leading-relaxed mb-10" style="color:var(--color-muted);">
+          {about.researchText}
+        </p>
+
+        <!-- Community & Activism section -->
+        <h3
+          class="text-lg font-bold mb-3"
+          style="color:var(--color-text);"
+        >
+          {about.communitySectionTitle}
+        </h3>
+        <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+        <p class="text-base leading-relaxed mb-10" style="color:var(--color-muted);">
+          {about.communityText}
+        </p>
+
+        <!-- Academic Profile links -->
+        <h3
+          class="text-lg font-bold mb-3"
+          style="color:var(--color-text);"
+        >
+          Academic Profiles
+        </h3>
+        <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href={site.googleScholarUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size:0.875rem;padding:0.5rem 1.25rem;">
+            Google Scholar ↗
+          </a>
+          <a href={site.universityUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size:0.875rem;padding:0.5rem 1.25rem;">
+            University of Leeds Profile ↗
+          </a>
+        </div>
+
       </div>
-    </div>
-  </section>
 
-  <!-- Philosophy -->
-  <section class="section" style="border-top:1px solid var(--color-border);">
-    <div class="container">
-      <SectionHeading heading="Philosophy" />
-      <div class="grid md:grid-cols-3 gap-6">
-        {about.philosophy.map(p => (
-          <PhilosophyCard emoji={p.emoji} heading={p.heading} body={p.body} />
+      <!-- ── RIGHT SIDEBAR ── -->
+      <aside class="lg:sticky lg:top-24 space-y-5">
+
+        <!-- Featured Books -->
+        {home.featuredBooks.map(b => (
+          <div class="sidebar-widget">
+            <p class="sidebar-widget-title">{b.title.toUpperCase()}</p>
+            {b.image ? (
+              <a href={b.url} target="_blank" rel="noopener noreferrer" class="block group mt-1">
+                <img
+                  src={b.image}
+                  alt={b.title}
+                  class="w-full object-cover mb-3 group-hover:opacity-90 transition-opacity"
+                />
+                <p class="text-xs leading-snug" style="color:var(--color-muted);">{b.description}</p>
+              </a>
+            ) : (
+              <a href={b.url} target="_blank" rel="noopener noreferrer" class="block group">
+                <p class="text-sm font-semibold mb-1 group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text)">{b.title}</p>
+                <p class="text-xs" style="color:var(--color-muted)">{b.description}</p>
+              </a>
+            )}
+          </div>
         ))}
-      </div>
-    </div>
-  </section>
 
-  <!-- Roles -->
-  <section class="section" style="border-top:1px solid var(--color-border);">
-    <div class="container max-w-3xl">
-      <SectionHeading heading="Roles & Affiliations" />
-      <ul class="space-y-3 mb-8">
-        {about.roles.map((r: string) => (
-          <li class="flex items-start gap-3 py-3" style="border-bottom:1px solid var(--color-border);">
-            <span style="color:#22c55e;" class="mt-1">▸</span>
-            <span style="color:var(--color-text);">{r}</span>
-          </li>
-        ))}
-      </ul>
-      <a href="/roles" class="text-link font-medium">View All 7 Roles →</a>
-    </div>
-  </section>
+        <!-- By the Numbers -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">By the Numbers</p>
+          <div class="space-y-3">
+            {about.stats.map(s => (
+              <div class="flex items-center justify-between py-1" style="border-bottom:1px solid var(--color-border);">
+                <span class="text-xs" style="color:var(--color-muted)">{s.label}</span>
+                <span class="text-lg font-bold" style="color:var(--color-text)">{s.number}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-  <!-- Academic Profiles -->
-  <section class="section" style="border-top:1px solid var(--color-border);">
-    <div class="container max-w-3xl">
-      <SectionHeading heading="Academic Profiles" />
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href={site.googleScholarUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary">Google Scholar ↗</a>
-        <a href={site.universityUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary">University of Leeds Profile ↗</a>
-      </div>
+        <!-- Roles -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">Key Roles</p>
+          <div class="space-y-0">
+            {about.roles.map((r: string) => (
+              <div class="py-2" style="border-bottom:1px solid var(--color-border);">
+                <p class="text-xs leading-snug" style="color:var(--color-muted)">{r}</p>
+              </div>
+            ))}
+          </div>
+          <a href="/roles" class="text-link text-xs font-medium mt-3 inline-block">View All Roles →</a>
+        </div>
+
+      </aside>
+
     </div>
-  </section>
+  </div>
 
   <CTABanner
     heading={about.ctaHeading}
@@ -100,4 +169,5 @@ import site from '../data/site.json';
     cta={about.ctaLabel}
     href={about.ctaHref}
   />
+
 </Layout>
