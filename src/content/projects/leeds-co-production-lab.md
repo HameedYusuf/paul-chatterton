@@ -2,7 +2,7 @@
 title: "Leeds Co-Production Lab"
 role: "Lead"
 description: "A research and practice lab exploring new models of co-production between universities, communities, and public services in Leeds, generating knowledge through collaborative action."
-url: "https://leedscitylab.wordpress.com/"
+url: "https://environment.leeds.ac.uk/geography-research/dir-record/research-projects/604/leeds-city-lab"
 order: 7
 ---
 

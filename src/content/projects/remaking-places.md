@@ -2,6 +2,7 @@
 title: "Remaking Places Card Deck"
 role: "Co-founder"
 description: "A creative activist resource — a card deck designed to help communities and practitioners reimagine and transform urban spaces, used in workshops and community engagement sessions."
+url: "https://www.leeds.ac.uk/remakingplaces"
 order: 6
 ---
 
