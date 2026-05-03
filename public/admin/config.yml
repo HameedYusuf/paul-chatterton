@@ -106,31 +106,36 @@ collections:
         label: "👤 About Page"
         file: "src/data/about.json"
         fields:
+          - { name: portraitImage,  label: "Portrait Photo",  widget: image, required: false, hint: "Left-column portrait. Leave blank to use the Global Settings hero image." }
           - { name: heroTitle,    label: "Page Title",  widget: string }
           - { name: heroSubtitle, label: "Subtitle",    widget: text }
           - { name: sectionTitle, label: "Section Title (e.g. Demanding the Impossible)", widget: string }
           - name: bio
-            label: "Bio Paragraphs"
+            label: "Résumé Bio Paragraphs"
             widget: list
             field:
               name: paragraph
               label: "Paragraph"
               widget: text
+          - { name: researchSectionTitle, label: "Research Section Title", widget: string }
+          - { name: researchText,         label: "Research Section Text",  widget: text }
+          - { name: communitySectionTitle, label: "Community Section Title", widget: string }
+          - { name: communityText,         label: "Community Section Text",  widget: text }
           - name: stats
-            label: "Statistics"
+            label: "By the Numbers (sidebar)"
             widget: list
             fields:
               - { name: number, label: "Number (e.g. 30+)", widget: string }
               - { name: label,  label: "Label",              widget: string }
           - name: philosophy
-            label: "Philosophy Cards"
+            label: "Philosophy Cards (unused on current layout — preserved)"
             widget: list
             fields:
               - { name: emoji,   label: "Emoji",   widget: string }
               - { name: heading, label: "Heading", widget: string }
               - { name: body,    label: "Body",    widget: text }
           - name: roles
-            label: "Roles (summary list on About page)"
+            label: "Key Roles (sidebar)"
             widget: list
             field:
               name: role
@@ -195,6 +200,7 @@ collections:
         label: "📋 Press Kit"
         file: "src/data/presskit.json"
         fields:
+          - { name: portraitImage,  label: "Portrait Photo",    widget: image, required: false, hint: "Left-column portrait. Leave blank to use the Global Settings hero image." }
           - { name: pageTitle,      label: "Page Title",        widget: string }
           - { name: bio,            label: "Press Bio",         widget: text, hint: "Short bio for media use — keep to 2-3 sentences." }
           - { name: contactName,    label: "Contact Name",      widget: string }

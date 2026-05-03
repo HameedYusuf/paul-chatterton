@@ -28,7 +28,11 @@
       "href": "/blog"
     },
     {
-      "label": "Collaborate",
+      "label": "Press Kit",
+      "href": "/press-kit"
+    },
+    {
+      "label": "Let's Collaborate",
       "href": "/collaborate"
     }
   ],

@@ -17,7 +17,7 @@ import home from '../data/home.json';
         <!-- Portrait -->
         <div class="overflow-hidden mb-0" style="aspect-ratio:3/4;">
           <img
-            src={site.aboutImage || site.heroImage}
+            src={about.portraitImage || site.aboutImage || site.heroImage}
             alt={`Professor ${site.siteName}`}
             class="w-full h-full object-cover object-top"
             onerror="this.parentElement.style.background='var(--color-surface)'"
