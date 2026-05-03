@@ -1,10 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTABanner from '../components/CTABanner.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import mediaData from '../data/media.json';
 
 const allMedia = mediaData.items;
+
+function getYouTubeThumbnail(url: string): string | null {
+  const match = url?.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]{6,15})/);
+  return match ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` : null;
+}
+
+const processedMedia = allMedia.map(m => ({
+  ...m,
+  thumb: (m as any).thumbnail || getYouTubeThumbnail(m.url || '') || null,
+}));
 
 const typeColors: Record<string, string> = {
   Podcast: 'rgba(34,197,94,0.15)',
@@ -18,6 +27,18 @@ const typeText: Record<string, string> = {
   Talk:    '#c084fc',
   Press:   '#fb923c',
 };
+const typeGradient: Record<string, string> = {
+  Podcast: 'linear-gradient(135deg,#052e16,#166534)',
+  Video:   'linear-gradient(135deg,#0c1a3a,#1e3a6e)',
+  Talk:    'linear-gradient(135deg,#2e1065,#5b21b6)',
+  Press:   'linear-gradient(135deg,#431407,#9a3412)',
+};
+const typeIcon: Record<string, string> = {
+  Podcast: '🎙',
+  Video:   '▶',
+  Talk:    '🎤',
+  Press:   '📰',
+};
 ---
 
 <Layout title="Media & Talks" description="Podcasts, videos, talks, and press appearances.">
@@ -25,8 +46,8 @@ const typeText: Record<string, string> = {
   <section class="section" style="background:var(--color-bg);">
     <div class="container">
       <h1 class="mb-4">Media & Talks</h1>
-      <p class="text-lg max-w-xl">Sharing ideas beyond the academy.</p>
-      <p class="mt-2 text-sm">{allMedia.length} items</p>
+      <p class="text-lg max-w-xl" style="color:var(--color-muted);">Sharing ideas beyond the academy.</p>
+      <p class="mt-2 text-sm" style="color:var(--color-muted);">{allMedia.length} items</p>
 
       <div class="flex flex-wrap gap-3 mt-6" id="filter-tabs">
         {['All', 'Podcast', 'Video', 'Talk', 'Press'].map(f => (
@@ -41,29 +62,54 @@ const typeText: Record<string, string> = {
     </div>
   </section>
 
-  <section class="section" style="border-top:1px solid var(--color-border);">
+  <section class="section" style="border-top:1px solid var(--color-border);padding-top:2rem;">
     <div class="container">
       <div class="grid md:grid-cols-3 gap-6" id="media-grid">
-        {allMedia.map(m => (
-          <div class="card p-6 flex flex-col" data-type={m.type}>
-            <div class="flex items-center justify-between mb-4">
+        {processedMedia.map(m => (
+          <div class="card flex flex-col overflow-hidden" data-type={m.type}>
+
+            <!-- Thumbnail area -->
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9;">
+              {m.thumb ? (
+                <img
+                  src={m.thumb}
+                  alt={m.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div
+                  class="w-full h-full flex items-center justify-center"
+                  style={`background:${typeGradient[m.type] ?? 'linear-gradient(135deg,#1a1a1a,#2a2a2a)'};`}
+                >
+                  <span class="text-4xl opacity-60">{typeIcon[m.type] ?? '🔗'}</span>
+                </div>
+              )}
+              <!-- Type badge overlay -->
               <span
-                class="pill text-xs"
-                style={`background:${typeColors[m.type] ?? 'rgba(128,128,128,0.15)'};color:${typeText[m.type] ?? '#a3a3a3'};`}
+                class="absolute top-2 left-2 pill text-xs"
+                style={`background:${typeColors[m.type] ?? 'rgba(128,128,128,0.15)'};color:${typeText[m.type] ?? '#a3a3a3'};backdrop-filter:blur(4px);`}
               >
                 {m.type}
               </span>
-              <span class="text-xs" style="color:var(--color-muted);">{m.date}</span>
             </div>
-            <p class="label mb-1">{m.platform}</p>
-            <h3 class="text-base flex-1 mb-4">{m.title}</h3>
-            {m.url ? (
-              <a href={m.url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium" style="color:var(--color-accent);">
-                Watch / Listen →
-              </a>
-            ) : (
-              <span class="text-sm" style="color:var(--color-muted);">Clip unavailable</span>
-            )}
+
+            <!-- Card body -->
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center justify-between mb-2">
+                <p class="label">{m.platform}</p>
+                <span class="text-xs" style="color:var(--color-muted);">{m.date}</span>
+              </div>
+              <h3 class="text-base font-semibold flex-1 mb-4 leading-snug" style="color:var(--color-text);">{m.title}</h3>
+              {m.url ? (
+                <a href={m.url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium" style="color:var(--color-accent);">
+                  Watch / Listen →
+                </a>
+              ) : (
+                <span class="text-sm" style="color:var(--color-muted);">Clip unavailable</span>
+              )}
+            </div>
+
           </div>
         ))}
       </div>

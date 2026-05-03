@@ -252,9 +252,10 @@ collections:
                 label: "Type"
                 widget: select
                 options: ["Podcast", "Video", "Talk", "Press"]
-              - { name: platform, label: "Platform", widget: string, required: false }
-              - { name: url,      label: "URL",      widget: string, required: false }
-              - { name: date,     label: "Year",     widget: string, required: false }
+              - { name: platform,  label: "Platform", widget: string, required: false }
+              - { name: url,       label: "URL",      widget: string, required: false, hint: "YouTube links will have thumbnails fetched automatically" }
+              - { name: date,      label: "Year",     widget: string, required: false }
+              - { name: thumbnail, label: "Thumbnail Image", widget: image, required: false, hint: "Optional — upload a custom thumbnail. Leave blank for YouTube auto-thumbnails." }
 
 # ─────────────────────────────────────────────────────────────────────────────
 # BLOG POSTS
