@@ -135,34 +135,29 @@ const currentPath = Astro.url.pathname;
   </main>
 
   <!-- FOOTER -->
-  <!-- FOOTER (Tim Jackson minimal style) -->
-  <footer style="background:#f2f2ef;border-top:1px solid #ddd;color:#555;">
+  <!-- FOOTER (Tim Jackson minimal style — theme-aware) -->
+  <footer class="site-footer">
     <div class="container py-8">
 
       <div class="grid md:grid-cols-[1fr_auto_1fr] gap-8 items-start">
 
         <!-- Left: Search -->
         <form id="site-search">
-          <button
-            type="submit"
-            style="display:block;width:100%;background:#111111;color:#ffffff;text-align:left;padding:0.45rem 1rem;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;border:none;cursor:pointer;"
-          >
-            Search
-          </button>
+          <button type="submit" class="footer-search-btn">Search</button>
           <input
             id="search-input"
             type="text"
             placeholder="Type here and press enter..."
-            style="display:block;width:100%;border:1px solid #ccc;background:#ffffff;color:#111;padding:0.4rem 0.75rem;font-size:0.75rem;outline:none;margin-top:2px;"
+            class="footer-search-input"
           />
         </form>
 
         <!-- Centre: minimal links -->
         <div class="flex items-start justify-center pt-1">
-          <p style="font-size:0.7rem;color:#888;white-space:nowrap;">
-            <a href="/press-kit" style="color:#888;" class="hover:text-black transition-colors">Press Kit</a>
+          <p class="footer-links">
+            <a href="/press-kit" class="footer-link">Press Kit</a>
             {' | '}
-            <a href={`mailto:${site.email}`} style="color:#888;" class="hover:text-black transition-colors">Contact</a>
+            <a href={`mailto:${site.email}`} class="footer-link">Contact</a>
           </p>
         </div>
 
@@ -170,28 +165,28 @@ const currentPath = Astro.url.pathname;
         <div class="flex justify-end items-start gap-4 pt-1">
 
           <!-- Email -->
-          <a href={`mailto:${site.email}`} title="Email Paul" style="color:#444;" class="hover:text-black transition-colors">
+          <a href={`mailto:${site.email}`} title="Email Paul" class="footer-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
           </a>
 
           <!-- Google Scholar -->
-          <a href={site.googleScholarUrl} target="_blank" rel="noopener noreferrer" title="Google Scholar" style="color:#444;" class="hover:text-black transition-colors">
+          <a href={site.googleScholarUrl} target="_blank" rel="noopener noreferrer" title="Google Scholar" class="footer-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
             </svg>
           </a>
 
           <!-- University of Leeds -->
-          <a href={site.universityUrl} target="_blank" rel="noopener noreferrer" title="University of Leeds Profile" style="color:#444;" class="hover:text-black transition-colors">
+          <a href={site.universityUrl} target="_blank" rel="noopener noreferrer" title="University of Leeds Profile" class="footer-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
             </svg>
           </a>
 
-          <!-- Substack / Blog -->
-          <a href="/blog" title="Blog" style="color:#444;" class="hover:text-black transition-colors">
+          <!-- Blog -->
+          <a href="/blog" title="Blog" class="footer-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
             </svg>
@@ -202,7 +197,7 @@ const currentPath = Astro.url.pathname;
 
       <!-- Copyright -->
       <div class="mt-8 flex justify-end">
-        <p style="font-size:0.65rem;color:#999;">© 2026 {site.siteName}. Built with Astro.</p>
+        <p class="footer-copy">© 2026 {site.siteName}. Built with Astro.</p>
       </div>
 
     </div>

@@ -211,6 +211,85 @@ html.light {
   h2 { font-size: 1.4rem; }
 }
 
+/* ── Footer (theme-aware) ───────────────────────────── */
+.site-footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  transition: background 0.2s, color 0.2s;
+}
+
+.footer-search-btn {
+  display: block;
+  width: 100%;
+  background: var(--color-accent);
+  color: #000;
+  text-align: left;
+  padding: 0.45rem 1rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.footer-search-btn:hover {
+  background: var(--color-accent-dk);
+  color: #fff;
+}
+
+.footer-search-input {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  outline: none;
+  margin-top: 2px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.footer-search-input:focus {
+  border-color: var(--color-accent);
+}
+
+.footer-search-input::placeholder {
+  color: var(--color-muted);
+}
+
+.footer-links {
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.footer-link {
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--color-accent);
+}
+
+.footer-icon {
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+
+.footer-icon:hover {
+  color: var(--color-accent);
+}
+
+.footer-copy {
+  font-size: 0.65rem;
+  color: var(--color-muted);
+}
+
 /* Prose typography: light mode override */
 html.light .prose {
   --tw-prose-body: #111111;
