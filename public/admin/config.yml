@@ -60,14 +60,14 @@ collections:
 
           # ── Feature row (portrait + 2 book panels) ──────────────────────────
           - name: featuredBooks
-            label: "Featured Books (3-col row + sidebar)"
-            hint: "First two entries appear next to Paul's portrait and in the sidebar. Upload a cover image to show it in the feature row."
+            label: "Featured Books (hero row + sidebar)"
+            hint: "Each book appears as its own widget in the right sidebar with its cover image. The first two also appear next to Paul's portrait in the hero row."
             widget: list
             fields:
               - { name: title,       label: "Book Title",        widget: string }
               - { name: description, label: "Short Description",  widget: string }
               - { name: url,         label: "Buy / Info URL",     widget: string }
-              - { name: image,       label: "Book Cover Image",   widget: image, required: false, hint: "Upload a cover image — it will replace the coloured panel in the hero row" }
+              - { name: image,       label: "Book Cover Image",   widget: image, required: false, hint: "Upload a cover image — shown in the sidebar widget and in the hero row." }
 
           # ── Sidebar widgets ──────────────────────────────────────────────────
           - name: upcomingTalks

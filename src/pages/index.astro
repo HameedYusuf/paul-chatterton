@@ -93,17 +93,22 @@ const projects = (await getCollection('projects'))
       <aside class="lg:sticky lg:top-24 space-y-5">
 
         <!-- Featured Books -->
-        <div class="sidebar-widget">
-          <p class="sidebar-widget-title">Featured Books</p>
-          <div class="space-y-4">
-            {home.featuredBooks.map(b => (
-              <a href={b.url} target="_blank" rel="noopener noreferrer" class="block group">
-                <p class="text-sm font-semibold leading-snug mb-1 group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text)">{b.title}</p>
-                <p class="text-xs" style="color:var(--color-muted)">{b.description}</p>
-              </a>
-            ))}
+        {home.featuredBooks.map(b => (
+          <div class="sidebar-widget">
+            <p class="sidebar-widget-title">{b.title.toUpperCase()}</p>
+            <a href={b.url} target="_blank" rel="noopener noreferrer" class="block group mt-1">
+              {b.image ? (
+                <img
+                  src={b.image}
+                  alt={b.title}
+                  class="w-full object-cover mb-3 group-hover:opacity-90 transition-opacity"
+                  loading="lazy"
+                />
+              ) : null}
+              <p class="text-xs leading-snug group-hover:text-[#22c55e] transition-colors" style="color:var(--color-muted);">{b.description}</p>
+            </a>
           </div>
-        </div>
+        ))}
 
         <!-- Upcoming Talks -->
         <div class="sidebar-widget">
