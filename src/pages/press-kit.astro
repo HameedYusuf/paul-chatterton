@@ -6,7 +6,7 @@ import site from '../data/site.json';
 import home from '../data/home.json';
 ---
 
-<Layout title="Press Kit" description={`Press kit for Professor ${site.siteName} — bio, photos, media contact and downloads.`}>
+<Layout title="Press Kit" description={`Press kit for Professor ${site.siteName}: bio, photos, media contact and downloads.`}>
 
   <div class="container" style="padding-top:2.5rem;padding-bottom:4rem;">
     <div class="grid lg:grid-cols-[240px_1fr_260px] gap-10 items-start">
@@ -137,7 +137,7 @@ import home from '../data/home.json';
                   target="_blank"
                   rel="noopener noreferrer"
                   class="block overflow-hidden group"
-                  title={p.caption || `Press photo — ${site.siteName}`}
+                  title={p.caption || `Press photo, ${site.siteName}`}
                 >
                   <img
                     src={p.image}

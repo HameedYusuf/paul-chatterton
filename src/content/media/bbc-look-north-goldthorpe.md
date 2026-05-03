@@ -1,5 +1,5 @@
 ---
-title: "BBC Look North — Decline of Goldthorpe"
+title: "BBC Look North: Decline of Goldthorpe"
 type: "Press"
 platform: "BBC Look North"
 url: ""

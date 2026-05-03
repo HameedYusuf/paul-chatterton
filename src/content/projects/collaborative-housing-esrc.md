@@ -7,7 +7,7 @@ url: "https://environment.leeds.ac.uk/geography-research/dir-record/research-pro
 order: 11
 ---
 
-This ESRC-funded seminar series (2015–2016) brought together six UK universities — Lancaster, Leeds, LSE, Newcastle, Nottingham, and Sheffield — in partnership with the UK Cohousing Network to advance collaborative housing research and practice.
+This ESRC-funded seminar series (2015–2016) brought together six UK universities: Lancaster, Leeds, LSE, Newcastle, Nottingham, and Sheffield, in partnership with the UK Cohousing Network to advance collaborative housing research and practice.
 
 Across six seminars, the series examined themes including housing access and affordability, sharing economies, green technology, ecological citizenship, and community resilience. Each event combined academic presentations from international experts with practical visits to community-based housing schemes, open forums, and poster sessions.
 

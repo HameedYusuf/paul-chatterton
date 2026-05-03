@@ -7,7 +7,7 @@ url: "https://environment.leeds.ac.uk/geography-research/dir-record/research-pro
 order: 13
 ---
 
-Conducted in 2011 as part of the AHRC/ESRC Connected Communities programme, this scoping study examined how communities build capacity in the face of compounding crises — financial collapse, climate change, and resource depletion.
+Conducted in 2011 as part of the AHRC/ESRC Connected Communities programme, this scoping study examined how communities build capacity in the face of compounding crises: financial collapse, climate change, and resource depletion.
 
 The research centred on three interconnected concepts: resilience (the capacity of a system to absorb disturbance while retaining function), self-help and mutual aid (accessing resources within local networks), and participation and empowerment (direct, community-centred democratic engagement).
 
