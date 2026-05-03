@@ -21,6 +21,7 @@ const projects = defineCollection({
     impact:      z.string().optional(),
     url:         z.string().optional(),
     image:       z.string().optional(),
+    gallery:     z.array(z.string()).optional(),
     order:       z.number().default(99),
   }),
 });

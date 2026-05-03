@@ -13,40 +13,141 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-const { title, role, description, impact, url } = entry.data;
+const { title, role, description, impact, url, image, gallery } = entry.data;
+
+const allImages = [
+  ...(image ? [image] : []),
+  ...(gallery ?? []),
+];
 ---
 
 <Layout title={title} description={description}>
 
-  <section class="section" style="background:var(--color-bg);">
-    <div class="container max-w-3xl">
-      <p class="label mb-4">{role}</p>
-      <h1 class="mb-6">{title}</h1>
-      {impact && (
-        <div class="p-4 rounded-lg mb-6" style="background:var(--color-surface);border-left:3px solid var(--color-accent);">
-          <p class="font-medium" style="color:var(--color-text);">{impact}</p>
-        </div>
-      )}
-      <p class="text-lg">{description}</p>
-      {url && (
-        <div class="mt-8">
-          <a href={url} target="_blank" rel="noopener noreferrer" class="btn-primary">
-            Visit Project ↗
-          </a>
-        </div>
-      )}
+  <!-- Hero image -->
+  {image && (
+    <div class="w-full" style="height:420px;overflow:hidden;">
+      <img
+        src={image}
+        alt={title}
+        class="w-full h-full object-cover"
+        style="object-position:center;"
+      />
     </div>
-  </section>
+  )}
 
-  <section class="section" style="border-top:1px solid var(--color-border);">
-    <div class="container max-w-3xl prose prose-invert prose-lg max-w-none">
-      <Content />
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top:1.75rem;">
+    <a href="/projects" class="text-link text-sm font-medium">← Back to Projects</a>
+  </div>
+
+  <!-- Main layout: content + sidebar -->
+  <div class="container" style="padding-top:1.5rem;padding-bottom:4rem;">
+    <div class="grid lg:grid-cols-[1fr_280px] gap-12 items-start">
+
+      <!-- LEFT: main content -->
+      <div>
+
+        <!-- Role + Title -->
+        <p class="label mb-3">{role}</p>
+        <h1 class="mb-6">{title}</h1>
+
+        <!-- Description -->
+        <p class="text-base leading-relaxed mb-6" style="color:var(--color-muted);">{description}</p>
+
+        <!-- Impact callout -->
+        {impact && (
+          <div class="mb-8 p-5 rounded-lg" style="background:var(--color-surface);border-left:3px solid var(--color-accent);">
+            <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--color-accent);">Impact</p>
+            <p class="font-medium leading-relaxed" style="color:var(--color-text);">{impact}</p>
+          </div>
+        )}
+
+        <!-- Rich body content -->
+        <div class="prose prose-invert max-w-none" style="color:var(--color-muted);">
+          <Content />
+        </div>
+
+        <!-- Image gallery -->
+        {allImages.length > 1 && (
+          <div class="mt-10">
+            <h3 class="text-sm font-bold uppercase tracking-widest pb-2 mb-5" style="color:var(--color-text);border-bottom:2px solid var(--color-text);">Gallery</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {allImages.map((img, i) => (
+                <a href={img} target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-lg hover:opacity-90 transition-opacity" style="aspect-ratio:4/3;">
+                  <img
+                    src={img}
+                    alt={`${title} — image ${i + 1}`}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+      </div>
+
+      <!-- RIGHT: sticky sidebar -->
+      <aside class="lg:sticky lg:top-24 space-y-5">
+
+        <!-- Visit Project -->
+        {url && (
+          <div class="sidebar-widget">
+            <p class="sidebar-widget-title">Project Website</p>
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary w-full justify-center mt-1"
+              style="display:flex;"
+            >
+              Visit Project ↗
+            </a>
+          </div>
+        )}
+
+        <!-- Project Info -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">Project Info</p>
+          <div class="space-y-3 mt-1">
+            <div class="py-2" style="border-bottom:1px solid var(--color-border);">
+              <p class="text-xs uppercase tracking-widest mb-1" style="color:var(--color-accent);">Role</p>
+              <p class="text-sm font-medium" style="color:var(--color-text);">{role}</p>
+            </div>
+            <div class="py-2">
+              <p class="text-xs uppercase tracking-widest mb-1" style="color:var(--color-accent);">About</p>
+              <p class="text-xs leading-relaxed" style="color:var(--color-muted);">{description}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back link -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">Explore More</p>
+          <a href="/projects" class="text-link text-sm font-medium mt-1 inline-block">← All Projects</a>
+        </div>
+
+      </aside>
     </div>
-  </section>
-
-  <div class="container mb-8">
-    <a href="/projects" class="text-link font-medium">← Back to Projects</a>
   </div>
 
   <CTABanner />
+
 </Layout>
+
+<style>
+  /* Light-mode prose override */
+  html.light .prose {
+    color: var(--color-muted);
+  }
+  html.light .prose h1,
+  html.light .prose h2,
+  html.light .prose h3,
+  html.light .prose h4 {
+    color: var(--color-text);
+  }
+  html.light .prose a {
+    color: var(--color-accent);
+  }
+</style>
