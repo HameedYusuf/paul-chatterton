@@ -84,6 +84,7 @@ collections:
 
           - name: mostRead
             label: "Most Popular Articles (sidebar)"
+            hint: "Update this list manually based on your analytics. Paste the title and URL of your most visited articles, blog posts, or pages."
             widget: list
             fields:
               - { name: title, label: "Article Title", widget: string }
