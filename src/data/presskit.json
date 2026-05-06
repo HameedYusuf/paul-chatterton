@@ -1,6 +1,13 @@
 {
   "portraitImage": "/images/paul.jpg",
-  "photos": [],
+  "photos": [
+    {
+      "image": "/images/upscaled_paul123.jpg"
+    },
+    {
+      "image": "/images/upscaled_paul-chatterton-casual-hq.jpg"
+    }
+  ],
   "topics": [
     "Post-carbon cities and urban sustainability",
     "Community-led housing and co-housing",
