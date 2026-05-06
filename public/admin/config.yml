@@ -79,8 +79,9 @@ collections:
             label: "Upcoming Talks (sidebar)"
             widget: list
             fields:
-              - { name: venue, label: "Event / Venue Name", widget: string }
-              - { name: date,  label: "Date",               widget: string }
+              - { name: venue,    label: "Event / Venue Name", widget: string }
+              - { name: location, label: "Location (e.g. Leeds, UK)", widget: string, required: false }
+              - { name: date,     label: "Date (e.g. June 2026)",     widget: string }
 
           - name: mostRead
             label: "Most Popular Articles (sidebar)"

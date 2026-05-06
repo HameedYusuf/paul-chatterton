@@ -116,20 +116,6 @@ const projects = (await getCollection('projects'))
           </div>
         ))}
 
-        <!-- Upcoming Talks -->
-        <div class="sidebar-widget">
-          <p class="sidebar-widget-title">Upcoming Talks</p>
-          <div class="space-y-0">
-            {home.upcomingTalks.map(t => (
-              <div class="py-2" style="border-bottom:1px solid var(--color-border);">
-                <p class="text-sm font-medium" style="color:var(--color-text)">{t.venue}</p>
-                <p class="text-xs mt-0.5" style="color:var(--color-accent)">{t.date}</p>
-              </div>
-            ))}
-          </div>
-          <a href="/media" class="text-link text-xs font-medium mt-3 inline-block">View All Talks →</a>
-        </div>
-
         <!-- Most Read -->
         <div class="sidebar-widget">
           <p class="sidebar-widget-title">Most Popular</p>
@@ -141,6 +127,23 @@ const projects = (await getCollection('projects'))
               </a>
             ))}
           </div>
+        </div>
+
+        <!-- Upcoming Talks -->
+        <div class="sidebar-widget">
+          <p class="sidebar-widget-title">Upcoming Talks</p>
+          <div class="space-y-0">
+            {home.upcomingTalks.map(t => (
+              <div class="py-2" style="border-bottom:1px solid var(--color-border);">
+                <p class="text-sm font-medium" style="color:var(--color-text)">{t.venue}</p>
+                {t.location && (
+                  <p class="text-xs mt-0.5" style="color:var(--color-muted)">{t.location}</p>
+                )}
+                <p class="text-xs mt-0.5" style="color:var(--color-accent)">{t.date}</p>
+              </div>
+            ))}
+          </div>
+          <a href="/media" class="text-link text-xs font-medium mt-3 inline-block">View All Talks →</a>
         </div>
 
         <!-- Stats -->

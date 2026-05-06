@@ -30,18 +30,22 @@
   "upcomingTalks": [
     {
       "venue": "Reset Reconnect Leeds",
+      "location": "Leeds, UK",
       "date": "March 2026"
     },
     {
       "venue": "Horizons Home Event",
+      "location": "Leeds, UK",
       "date": "Feb 2026"
     },
     {
       "venue": "Amsterdam Post Growth",
+      "location": "Amsterdam, Netherlands",
       "date": "June 2026"
     },
     {
       "venue": "Ghent Ecological Economics",
+      "location": "Ghent, Belgium",
       "date": "June 2026"
     }
   ],
