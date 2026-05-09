@@ -39,6 +39,58 @@
     "Co-founder, Remaking Places Interdisciplinary Research Network"
   ],
   "heroTitle": "About Paul",
+  "timeline": [
+    {
+      "year": "1993",
+      "title": "Research Career Begins",
+      "body": "Began doctoral research exploring urban politics, social movements and the possibilities of post-capitalist city-making — laying the foundation for three decades of activist scholarship."
+    },
+    {
+      "year": "2001",
+      "title": "University of Leeds",
+      "body": "Joined the School of Geography at the University of Leeds, where he would go on to become Professor of Urban Futures and one of the UK's leading urban researchers."
+    },
+    {
+      "year": "2006",
+      "title": "Autonomous Geographies",
+      "body": "Pioneered the concept of autonomous geographies and post-capitalist urban commons, influencing a generation of radical geographers and urban scholars worldwide."
+    },
+    {
+      "year": "2013",
+      "title": "LILAC Co-Housing Opens",
+      "body": "Co-founded LILAC (Low Impact Living Affordable Community) in Leeds: the UK's first affordable ecological co-housing project, using innovative straw-bale construction and a Mutual Home Ownership Society model."
+    },
+    {
+      "year": "2018",
+      "title": "Leeds Community Homes",
+      "body": "Co-founded Leeds Community Homes, a community land trust working to create permanently affordable housing and challenge the extractive housing market."
+    },
+    {
+      "year": "2019",
+      "title": "Unlocking Sustainable Cities",
+      "body": "Published with Pluto Press — a manifesto for real change that became widely adopted by practitioners, activists, and policymakers across the UK and beyond."
+    },
+    {
+      "year": "2020",
+      "title": "Climate Action Leeds",
+      "body": "Led the UKRI-backed Climate Action Leeds city-wide mobilisation, engaging 8,700+ people around a shared zero-carbon goal and producing the Leeds Doughnut Economics Portrait."
+    },
+    {
+      "year": "2022",
+      "title": "Leeds Co-Production Lab",
+      "body": "Directed the Leeds Co-Production Lab, developing alternatives to neoliberal urban governance through deep community partnership and participatory action research."
+    },
+    {
+      "year": "2023",
+      "title": "How to Save the City",
+      "body": "Published with Agenda — a guide for emergency action bringing three decades of research into a handbook for communities, campaigners and local governments."
+    },
+    {
+      "year": "2026",
+      "title": "Degrowth and Decoloniality",
+      "body": "Current research explores doughnut economics, degrowth and decoloniality, published in Local Environment and leading international journals. Continuing to supervise the next generation of activist-scholars."
+    }
+  ],
   "stats": [
     {
       "number": "30+",

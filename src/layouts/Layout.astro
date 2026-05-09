@@ -320,6 +320,33 @@ const currentPath = Astro.url.pathname;
       el.style.transitionDelay = Math.min(i % 6, 5) * 0.07 + 's';
       observer.observe(el);
     });
+
+    // ── Animated stat counters ───────────────────────────
+    document.querySelectorAll('[data-count-to]').forEach(function(el) {
+      var target   = parseInt(el.getAttribute('data-count-to'), 10);
+      var suffix   = el.getAttribute('data-count-suffix') || '';
+      var started  = false;
+      var duration = 1500;
+
+      var cObs = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !started) {
+          started = true;
+          cObs.disconnect();
+          var startTime = null;
+          function step(ts) {
+            if (!startTime) startTime = ts;
+            var p = Math.min((ts - startTime) / duration, 1);
+            // easeOutCubic
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.floor(eased * target) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+      }, { threshold: 0.6 });
+
+      cObs.observe(el);
+    });
   </script>
 </body>
 </html>

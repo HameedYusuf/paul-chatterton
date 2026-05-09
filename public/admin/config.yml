@@ -21,6 +21,7 @@ collections:
           - { name: headerTagline,    label: "Header Tagline (italic, e.g. Demand the Impossible)", widget: string }
           - { name: navSubtitle,      label: "Header Descriptor (small caps below tagline)", widget: string, hint: "e.g. Professor of Urban Futures · Scholar-Activist · Radical Geographer" }
           - { name: siteDescription,  label: "Site Description",       widget: text }
+          - { name: substackUrl,      label: "Substack Newsletter URL", widget: string, hint: "e.g. https://urbanfuturesnow.substack.com — used for the newsletter widget." }
           - { name: email,            label: "Contact Email",          widget: string }
           - { name: googleScholarUrl, label: "Google Scholar URL",     widget: string }
           - { name: universityUrl,    label: "University Profile URL", widget: string }
@@ -128,6 +129,14 @@ collections:
               widget: text
           - { name: researchSectionTitle, label: "Research Section Title", widget: string }
           - { name: researchText,         label: "Research Section Text",  widget: text }
+          - name: timeline
+            label: "Career Timeline"
+            hint: "Milestones displayed as a vertical timeline on the About page. Add, reorder, or edit entries here."
+            widget: list
+            fields:
+              - { name: year,  label: "Year / Period (e.g. 2013 or 1990s)", widget: string }
+              - { name: title, label: "Milestone Title",                     widget: string }
+              - { name: body,  label: "Description",                         widget: text }
           - { name: communitySectionTitle, label: "Community Section Title", widget: string }
           - { name: communityText,         label: "Community Section Text",  widget: text }
           - name: stats

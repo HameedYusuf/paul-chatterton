@@ -10,10 +10,26 @@ function getYouTubeThumbnail(url: string): string | null {
   const match = url?.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]{6,15})/);
   return match ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` : null;
 }
+function getYouTubeEmbed(url: string): string | null {
+  const match = url?.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]{6,15})/);
+  return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0` : null;
+}
+function getSpotifyEmbed(url: string): string | null {
+  const match = url?.match(/open\.spotify\.com\/episode\/([^?/]+)/);
+  return match ? `https://open.spotify.com/embed/episode/${match[1]}?utm_source=generator` : null;
+}
+function getVimeoEmbed(url: string): string | null {
+  const match = url?.match(/vimeo\.com\/(\d+)/);
+  return match ? `https://player.vimeo.com/video/${match[1]}?autoplay=1` : null;
+}
+function getEmbedUrl(url: string): string | null {
+  return getYouTubeEmbed(url) || getSpotifyEmbed(url) || getVimeoEmbed(url) || null;
+}
 
 const processedMedia = allMedia.map(m => ({
   ...m,
-  thumb: (m as any).thumbnail || getYouTubeThumbnail(m.url || '') || null,
+  thumb:    (m as any).thumbnail || getYouTubeThumbnail(m.url || '') || null,
+  embedUrl: m.url ? getEmbedUrl(m.url) : null,
 }));
 
 const typeColors: Record<string, string> = {
@@ -76,27 +92,48 @@ const pg = pages.media;
         {processedMedia.map(m => (
           <div class="card flex flex-col overflow-hidden" data-type={m.type}>
 
-            <!-- Thumbnail area -->
-            <div class="relative overflow-hidden" style="aspect-ratio:16/9;">
+            <!-- Thumbnail / embed area -->
+            <div
+              class="relative overflow-hidden embed-wrapper"
+              style="aspect-ratio:16/9;"
+              data-embed={m.embedUrl || ''}
+            >
+              <!-- Thumbnail image or gradient placeholder -->
               {m.thumb ? (
                 <img
                   src={m.thumb}
                   alt={m.title}
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover embed-thumb"
                   loading="lazy"
                 />
               ) : (
                 <div
-                  class="w-full h-full flex items-center justify-center"
+                  class="embed-thumb w-full h-full flex items-center justify-center"
                   style={`background:${typeGradient[m.type] ?? 'linear-gradient(135deg,#1a1a1a,#2a2a2a)'};`}
                 >
                   <span class="text-4xl opacity-60">{typeIcon[m.type] ?? '🔗'}</span>
                 </div>
               )}
-              <!-- Type badge overlay -->
+
+              <!-- Play button (only shown when embed is available) -->
+              {m.embedUrl && (
+                <button
+                  class="embed-play absolute inset-0 w-full h-full flex items-center justify-center"
+                  style="background:rgba(0,0,0,0.25);cursor:pointer;border:none;"
+                  aria-label={`Play ${m.title}`}
+                >
+                  <span style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center;transition:transform 0.2s;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#000" style="margin-left:3px;">
+                      <polygon points="5,3 19,12 5,21"/>
+                    </svg>
+                  </span>
+                </button>
+              )}
+
+              <!-- Type badge -->
               <span
                 class="absolute top-2 left-2 pill text-xs"
-                style={`background:${typeColors[m.type] ?? 'rgba(128,128,128,0.15)'};color:${typeText[m.type] ?? '#a3a3a3'};backdrop-filter:blur(4px);`}
+                style={`background:${typeColors[m.type] ?? 'rgba(128,128,128,0.15)'};color:${typeText[m.type] ?? '#a3a3a3'};backdrop-filter:blur(4px);z-index:2;`}
               >
                 {m.type}
               </span>
@@ -111,7 +148,7 @@ const pg = pages.media;
               <h3 class="text-base font-semibold flex-1 mb-4 leading-snug" style="color:var(--color-text);">{m.title}</h3>
               {m.url ? (
                 <a href={m.url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium" style="color:var(--color-accent);">
-                  Watch / Listen →
+                  {m.embedUrl ? 'Open on ' + m.platform + ' ↗' : 'Watch / Listen →'}
                 </a>
               ) : (
                 <span class="text-sm" style="color:var(--color-muted);">Clip unavailable</span>
@@ -128,28 +165,55 @@ const pg = pages.media;
 </Layout>
 
 <script>
-  const tabs = document.querySelectorAll('#filter-tabs button');
+  // ── Type filter tabs ─────────────────────────────────────────────────────────
+  const tabs  = document.querySelectorAll('#filter-tabs button');
   const cards = document.querySelectorAll('#media-grid [data-type]');
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const filter = (tab as HTMLElement).dataset.filter;
-
-      tabs.forEach(t => {
-        t.classList.remove('pill-green');
-        t.classList.add('pill-outline');
-      });
+      tabs.forEach(t => { t.classList.remove('pill-green'); t.classList.add('pill-outline'); });
       tab.classList.add('pill-green');
       tab.classList.remove('pill-outline');
-
       cards.forEach(card => {
         const el = card as HTMLElement;
-        if (filter === 'All' || el.dataset.type === filter) {
-          el.style.display = '';
-        } else {
-          el.style.display = 'none';
-        }
+        el.style.display = (filter === 'All' || el.dataset.type === filter) ? '' : 'none';
       });
+    });
+  });
+
+  // ── Click-to-embed play buttons ──────────────────────────────────────────────
+  document.querySelectorAll<HTMLButtonElement>('.embed-play').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const wrapper = btn.closest<HTMLElement>('.embed-wrapper');
+      if (!wrapper) return;
+      const embedUrl = wrapper.dataset.embed;
+      if (!embedUrl) return;
+
+      // Determine height: Spotify needs more vertical space
+      const isSpotify = embedUrl.includes('spotify');
+      const h = isSpotify ? '152px' : '100%';
+
+      const iframe = document.createElement('iframe');
+      iframe.src        = embedUrl;
+      iframe.allow      = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = `position:absolute;top:0;left:0;width:100%;height:${h};border:0;`;
+
+      // Replace all children with iframe
+      wrapper.innerHTML = '';
+      wrapper.style.background = '#000';
+      wrapper.appendChild(iframe);
+    });
+
+    // Hover effect on play button circle
+    btn.addEventListener('mouseenter', () => {
+      const circle = btn.querySelector('span');
+      if (circle) circle.style.transform = 'scale(1.1)';
+    });
+    btn.addEventListener('mouseleave', () => {
+      const circle = btn.querySelector('span');
+      if (circle) circle.style.transform = '';
     });
   });
 </script>

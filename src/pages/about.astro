@@ -4,6 +4,11 @@ import CTABanner from '../components/CTABanner.astro';
 import about from '../data/about.json';
 import site from '../data/site.json';
 import home from '../data/home.json';
+
+function parseStat(numStr: string) {
+  const m = numStr.match(/^([\d,]+)(\D*)$/);
+  return { value: m ? parseInt(m[1].replace(/,/g, ''), 10) : 0, suffix: m ? m[2] : '' };
+}
 ---
 
 <Layout title="About" description={`Professor ${site.siteName}: academic, activist and author working at the University of Leeds.`}>
@@ -83,6 +88,42 @@ import home from '../data/home.json';
           {about.researchText}
         </p>
 
+        <!-- Timeline -->
+        {about.timeline && about.timeline.length > 0 && (
+          <div class="mb-10">
+            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Career Timeline</h3>
+            <hr style="border-color:var(--color-border);margin-bottom:1.5rem;" />
+            <div class="relative">
+              <!-- Vertical spine -->
+              <div class="absolute top-0 bottom-0 left-[52px] w-px" style="background:var(--color-border);"></div>
+
+              <div class="space-y-0">
+                {about.timeline.map((entry: any, i: number) => (
+                  <div class="relative flex gap-5 pb-8 timeline-entry fade-in">
+                    <!-- Year pill -->
+                    <div class="shrink-0 w-[52px] flex justify-start pt-0.5">
+                      <span
+                        class="pill pill-green text-xs font-bold"
+                        style="white-space:nowrap;font-size:0.65rem;padding:0.2rem 0.5rem;"
+                      >{entry.year}</span>
+                    </div>
+                    <!-- Dot on spine -->
+                    <div
+                      class="absolute shrink-0"
+                      style="left:48px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--color-accent);border:2px solid var(--color-bg);z-index:1;"
+                    ></div>
+                    <!-- Content -->
+                    <div class="flex-1 pl-4 pb-2">
+                      <p class="text-sm font-semibold mb-1" style="color:var(--color-text);">{entry.title}</p>
+                      <p class="text-sm leading-relaxed" style="color:var(--color-muted);">{entry.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         <!-- Community & Activism section -->
         <h3
           class="text-lg font-bold mb-3"
@@ -143,12 +184,20 @@ import home from '../data/home.json';
         <div class="sidebar-widget">
           <p class="sidebar-widget-title">By the Numbers</p>
           <div class="space-y-3">
-            {about.stats.map(s => (
-              <div class="flex items-center justify-between py-1" style="border-bottom:1px solid var(--color-border);">
-                <span class="text-xs" style="color:var(--color-muted)">{s.label}</span>
-                <span class="text-lg font-bold" style="color:var(--color-text)">{s.number}</span>
-              </div>
-            ))}
+            {about.stats.map(s => {
+              const { value, suffix } = parseStat(s.number);
+              return (
+                <div class="flex items-center justify-between py-1" style="border-bottom:1px solid var(--color-border);">
+                  <span class="text-xs" style="color:var(--color-muted)">{s.label}</span>
+                  <span
+                    class="text-lg font-bold"
+                    style="color:var(--color-text)"
+                    data-count-to={value}
+                    data-count-suffix={suffix}
+                  >{s.number}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
 

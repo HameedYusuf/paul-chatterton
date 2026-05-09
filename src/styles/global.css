@@ -290,6 +290,23 @@ html.light {
   color: var(--color-muted);
 }
 
+/* ── Substack newsletter embed ──────────────────────── */
+/* Dark mode: invert the white iframe to match dark bg  */
+html:not(.light) .substack-embed-wrap iframe {
+  filter: invert(0.93) hue-rotate(180deg);
+  border-radius: 4px;
+}
+/* Light mode: just a subtle border */
+html.light .substack-embed-wrap iframe {
+  border-radius: 4px;
+}
+
+/* ── Timeline entries ───────────────────────────────── */
+/* Allow timeline entries to start visible (no delay stagger from card observer) */
+.timeline-entry.fade-in {
+  transition-delay: 0s !important;
+}
+
 /* ── Collaborate form inputs ────────────────────────── */
 .collab-input {
   display: block;
