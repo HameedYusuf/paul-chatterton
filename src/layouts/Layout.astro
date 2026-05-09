@@ -33,38 +33,71 @@ const currentPath = Astro.url.pathname;
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:var(--color-nav-bg);border-bottom:1px solid var(--color-nav-border);">
-    <div class="container">
-      <div class="flex items-center justify-between h-16">
+  <!-- HEADER BANNER (scrolls with page) -->
+  <header style="background:var(--color-nav-bg);border-bottom:1px solid var(--color-nav-border);">
+    <div class="container py-6 text-center">
 
-        <!-- Logo / name -->
-        <a href="/" class="flex items-center gap-3 group whitespace-nowrap">
-          {site.heroImage && (
-            <img
-              src={site.heroImage}
-              alt={site.siteName}
-              class="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white/10 group-hover:ring-[#22c55e] transition-all"
-            />
-          )}
-          <div class="flex flex-col leading-tight">
-            <span class="font-bold text-[2rem] tracking-tight group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text)">{site.siteName}</span>
-            <span class="text-xs tracking-wide" style="color:var(--color-muted)">{site.navSubtitle}</span>
-          </div>
+      <!-- Mobile: name + hamburger row -->
+      <div class="flex items-center justify-between md:hidden">
+        <a href="/" class="font-bold text-xl uppercase tracking-widest hover:text-[#22c55e] transition-colors" style="color:var(--color-text);">
+          {site.siteName}
         </a>
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle-mobile" aria-label="Toggle theme" class="p-2 rounded-md transition-colors" style="color:var(--color-muted);background:var(--color-surface);border:1px solid var(--color-border);">
+            <svg id="icon-sun-m" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg id="icon-moon-m" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button id="menu-btn" class="p-2 transition-colors" style="color:var(--color-muted)" aria-label="Toggle menu">
+            <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+            <svg id="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
 
-        <!-- Desktop nav -->
-        <div class="hidden md:flex items-center gap-1">
+      <!-- Desktop: full centred banner -->
+      <div class="hidden md:block">
+        <a href="/" class="inline-block group">
+          <h1 class="font-bold uppercase tracking-[0.18em] leading-none group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text);font-size:2.75rem;">
+            {site.siteName}
+          </h1>
+        </a>
+        <!-- Decorative rule -->
+        <div class="mx-auto mt-3 mb-3" style="width:56px;border-top:1px solid var(--color-border);"></div>
+        <!-- Tagline -->
+        <p class="italic mb-2" style="color:var(--color-text);font-size:1.1rem;">{site.headerTagline}</p>
+        <!-- Descriptor -->
+        <p class="uppercase tracking-[0.18em] text-xs" style="color:var(--color-muted);">{site.navSubtitle}</p>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- STICKY NAV STRIP -->
+  <nav id="navbar" class="sticky top-0 z-50" style="background:var(--color-nav-bg);border-bottom:1px solid var(--color-nav-border);">
+    <div class="container">
+
+      <!-- Desktop nav strip -->
+      <div class="hidden md:flex items-center justify-center h-10 relative">
+
+        <!-- Centred links -->
+        <div class="flex items-center gap-0">
+          <a href="/" class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-colors hover:text-[#22c55e]"
+            style={`color:${currentPath === '/' ? 'var(--color-text)' : 'var(--color-muted)'};${currentPath === '/' ? 'border-bottom:2px solid var(--color-accent);' : ''}`}>
+            Home
+          </a>
+
           <!-- About dropdown -->
           <div class="relative group">
-            <a
-              href="/about"
-              class="px-3 py-2 text-sm font-bold rounded transition-colors"
-              style={`color:${currentPath.startsWith('/about') || currentPath === '/impact' ? 'var(--color-text)' : 'var(--color-muted)'}`}
-            >
+            <a href="/about"
+              class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-colors hover:text-[#22c55e] inline-block"
+              style={`color:${currentPath.startsWith('/about') || currentPath === '/press-kit' ? 'var(--color-text)' : 'var(--color-muted)'};${currentPath.startsWith('/about') || currentPath === '/press-kit' ? 'border-bottom:2px solid var(--color-accent);' : ''}`}>
               About ▾
             </a>
-            <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
+            <div class="absolute top-full left-0 pt-1 hidden group-hover:block z-50">
               <div class="rounded-lg overflow-hidden shadow-xl" style="background:var(--color-surface);border:1px solid var(--color-border);min-width:220px;">
                 {site.aboutDropdownLinks.map(al => (
                   <a
@@ -81,56 +114,52 @@ const currentPath = Astro.url.pathname;
             </div>
           </div>
 
-          {site.navLinks.filter(l => l.href !== '/').map(link => (
-            link.href === '/collaborate'
-              ? <a href={link.href} class="px-4 py-2 text-sm font-bold rounded-md bg-[#22c55e] text-black hover:bg-[#16a34a] transition-colors">{link.label}</a>
-              : <a href={link.href} class="px-3 py-2 text-sm font-bold rounded transition-colors" style={`color:${currentPath.startsWith(link.href) ? 'var(--color-text)' : 'var(--color-muted)'}`}>{link.label}</a>
+          {site.navLinks.filter(l => l.href !== '/' && l.href !== '/collaborate').map(link => (
+            <a
+              href={link.href}
+              class="px-3 py-2 text-xs font-bold uppercase tracking-widest transition-colors hover:text-[#22c55e]"
+              style={`color:${currentPath.startsWith(link.href) ? 'var(--color-text)' : 'var(--color-muted)'};${currentPath.startsWith(link.href) ? 'border-bottom:2px solid var(--color-accent);' : ''}`}
+            >
+              {link.label}
+            </a>
           ))}
 
-          <!-- Theme toggle -->
-          <button id="theme-toggle" aria-label="Toggle theme" class="ml-2 p-2 rounded-md transition-colors" style="color:var(--color-muted);background:var(--color-surface);border:1px solid var(--color-border);">
-            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <a href="/collaborate" class="ml-2 px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-md bg-[#22c55e] text-black hover:bg-[#16a34a] transition-colors">
+            Let's Collaborate
+          </a>
+        </div>
+
+        <!-- Theme toggle (absolute right) -->
+        <div class="absolute right-0">
+          <button id="theme-toggle" aria-label="Toggle theme" class="p-2 rounded-md transition-colors" style="color:var(--color-muted);background:var(--color-surface);border:1px solid var(--color-border);">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
         </div>
 
-        <!-- Mobile hamburger -->
-        <button id="menu-btn" class="md:hidden p-2 transition-colors" style="color:var(--color-muted)" aria-label="Toggle menu">
-          <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
-          <svg id="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
       </div>
 
       <!-- Mobile menu -->
-      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-white/5 mt-0">
-        <a href="/" class="block px-2 py-3 text-sm text-[#a3a3a3] hover:text-white transition-colors border-b border-white/5">Home</a>
-        {site.navLinks.filter(l => l.href !== '/').map(link => (
-          link.href === '/collaborate'
-            ? <a href={link.href} class="block mx-2 my-2 px-4 py-2 text-sm font-medium text-center rounded-md bg-[#22c55e] text-black hover:bg-[#16a34a] transition-colors">{link.label}</a>
-            : <a href={link.href} class="block px-2 py-3 text-sm text-[#a3a3a3] hover:text-white transition-colors border-b border-white/5">{link.label}</a>
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t mt-0" style="border-color:var(--color-nav-border);">
+        <a href="/" class="block px-2 py-3 text-sm font-bold uppercase tracking-widest transition-colors hover:text-[#22c55e]" style="color:var(--color-muted);border-bottom:1px solid var(--color-border);">Home</a>
+        <a href="/about" class="block px-2 py-3 text-sm font-bold uppercase tracking-widest transition-colors hover:text-[#22c55e]" style="color:var(--color-muted);border-bottom:1px solid var(--color-border);">About</a>
+        {site.navLinks.filter(l => l.href !== '/' && l.href !== '/collaborate').map(link => (
+          <a href={link.href} class="block px-2 py-3 text-sm font-bold uppercase tracking-widest transition-colors hover:text-[#22c55e]" style="color:var(--color-muted);border-bottom:1px solid var(--color-border);">{link.label}</a>
         ))}
-        <div class="pt-2">
-          <p class="px-2 py-1 text-xs text-white/40 uppercase tracking-widest">About</p>
+        <a href="/collaborate" class="block mx-2 my-3 px-4 py-2 text-sm font-bold uppercase tracking-widest text-center rounded-md bg-[#22c55e] text-black hover:bg-[#16a34a] transition-colors">Let's Collaborate</a>
+        <div class="pt-1 px-2">
+          <p class="py-1 text-xs uppercase tracking-widest" style="color:var(--color-muted);opacity:0.5;">About links</p>
           {site.aboutDropdownLinks.map(al => (
-            <a
-              href={al.href}
-              target={al.external ? '_blank' : undefined}
-              class="block px-4 py-2 text-sm text-[#a3a3a3] hover:text-white transition-colors"
-            >
-              {al.label}
-            </a>
+            <a href={al.href} target={al.external ? '_blank' : undefined} class="block py-2 text-sm transition-colors hover:text-[#22c55e]" style="color:var(--color-muted);border-bottom:1px solid var(--color-border);">{al.label}</a>
           ))}
         </div>
       </div>
+
     </div>
   </nav>
 
-  <!-- PAGE CONTENT (offset for fixed nav) -->
-  <main class="pt-16">
+  <!-- PAGE CONTENT -->
+  <main>
     <slot />
   </main>
 
@@ -224,31 +253,33 @@ const currentPath = Astro.url.pathname;
       iconClose?.classList.toggle('hidden', isOpen);
     });
 
-    // Theme toggle
-    var iconSun = document.getElementById('icon-sun');
-    var iconMoon = document.getElementById('icon-moon');
+    // Theme toggle (desktop + mobile)
     var html = document.documentElement;
 
     function applyTheme(theme) {
+      var suns  = [document.getElementById('icon-sun'),  document.getElementById('icon-sun-m')];
+      var moons = [document.getElementById('icon-moon'), document.getElementById('icon-moon-m')];
       if (theme === 'light') {
         html.classList.add('light');
-        iconSun && iconSun.classList.remove('hidden');
-        iconMoon && iconMoon.classList.add('hidden');
+        suns.forEach(function(el)  { el && el.classList.remove('hidden'); });
+        moons.forEach(function(el) { el && el.classList.add('hidden'); });
       } else {
         html.classList.remove('light');
-        iconSun && iconSun.classList.add('hidden');
-        iconMoon && iconMoon.classList.remove('hidden');
+        suns.forEach(function(el)  { el && el.classList.add('hidden'); });
+        moons.forEach(function(el) { el && el.classList.remove('hidden'); });
       }
     }
 
     var saved = localStorage.getItem('theme') || 'dark';
     applyTheme(saved);
 
-    document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    function toggleTheme() {
       var next = html.classList.contains('light') ? 'dark' : 'light';
       localStorage.setItem('theme', next);
       applyTheme(next);
-    });
+    }
+    document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
   </script>
 </body>
 </html>

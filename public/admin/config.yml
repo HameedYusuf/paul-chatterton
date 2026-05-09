@@ -18,7 +18,8 @@ collections:
         file: "src/data/site.json"
         fields:
           - { name: siteName,         label: "Site Name",              widget: string }
-          - { name: navSubtitle,      label: "Navbar Subtitle (under name)", widget: string, hint: "e.g. Academic · Activist · Author" }
+          - { name: headerTagline,    label: "Header Tagline (italic, e.g. Demand the Impossible)", widget: string }
+          - { name: navSubtitle,      label: "Header Descriptor (small caps below tagline)", widget: string, hint: "e.g. Professor of Urban Futures · Scholar-Activist · Radical Geographer" }
           - { name: siteDescription,  label: "Site Description",       widget: text }
           - { name: email,            label: "Contact Email",          widget: string }
           - { name: googleScholarUrl, label: "Google Scholar URL",     widget: string }
