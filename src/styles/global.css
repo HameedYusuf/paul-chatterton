@@ -290,6 +290,33 @@ html.light {
   color: var(--color-muted);
 }
 
+/* ── Collaborate form inputs ────────────────────────── */
+.collab-input {
+  display: block;
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.6rem 0.85rem;
+  font-size: 0.875rem;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+}
+.collab-input::placeholder {
+  color: var(--color-muted);
+  opacity: 0.7;
+}
+.collab-input:focus {
+  border-color: var(--color-accent);
+}
+.collab-input option {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
 /* ── Scroll animations ──────────────────────────────── */
 .fade-in {
   opacity: 0;

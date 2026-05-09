@@ -6,6 +6,20 @@ import pages from '../../data/pages.json';
 
 const posts = await getSubstackPosts();
 const pg = pages.blog;
+
+// Colour map for category pills
+const catColour: Record<string, string> = {
+  Housing: 'rgba(59,130,246,0.15)',
+  Climate:  'rgba(34,197,94,0.15)',
+  Urban:    'rgba(168,85,247,0.15)',
+  Essay:    'rgba(251,146,60,0.15)',
+};
+const catText: Record<string, string> = {
+  Housing: '#60a5fa',
+  Climate:  '#22c55e',
+  Urban:    '#c084fc',
+  Essay:    '#fb923c',
+};
 ---
 
 <Layout title={pg.heroTitle} description={pg.heroSubtitle}>
@@ -16,36 +30,73 @@ const pg = pages.blog;
     </div>
   )}
 
+  <!-- Hero -->
   <section class="section" style="background:var(--color-bg);">
     <div class="container">
+      <p class="label mb-3">Urban Futures Now</p>
       <h1 class="mb-4">{pg.heroTitle}</h1>
       <p class="text-lg max-w-xl">{pg.heroSubtitle}</p>
-      <p class="mt-2 text-sm">{posts.length} pieces</p>
+      <p class="mt-2 text-sm" style="color:var(--color-muted);">{posts.length} pieces</p>
     </div>
   </section>
 
+  <!-- Grid -->
   <section class="section" style="border-top:1px solid var(--color-border);">
     <div class="container">
-      <div class="grid md:grid-cols-2 gap-6">
-        {posts.map(post => (
-          <div class="card p-6 flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="pill pill-green">{post.date}</span>
-              <span class="text-xs" style="color:var(--color-muted);">Urban Futures Now</span>
-            </div>
-            <h3 class="text-base mb-3 flex-1">{post.title}</h3>
-            <p class="text-sm mb-4" style="color:var(--color-muted);">{post.excerpt}</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post, i) => {
+          const colour = catColour[post.category] ?? catColour['Essay'];
+          const text   = catText[post.category]   ?? catText['Essay'];
+          return (
             <a
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-sm font-medium"
-              style="color:var(--color-accent);"
+              class="card flex flex-col group"
+              style="text-decoration:none;"
             >
-              Read on Substack →
+              <!-- Thumbnail -->
+              <div class="overflow-hidden" style="height:180px;background:var(--color-surface);flex-shrink:0;">
+                {post.image ? (
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    loading={i < 6 ? 'eager' : 'lazy'}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <!-- Fallback: coloured gradient placeholder -->
+                  <div class="w-full h-full flex items-end p-4" style={`background:linear-gradient(135deg,var(--color-surface) 0%,${colour.replace('0.15','0.35')} 100%);`}>
+                    <span class="text-3xl">✍</span>
+                  </div>
+                )}
+              </div>
+
+              <!-- Body -->
+              <div class="p-5 flex flex-col flex-1">
+                <!-- Category + date row -->
+                <div class="flex items-center gap-2 mb-3">
+                  <span
+                    class="pill text-xs font-semibold"
+                    style={`background:${colour};color:${text};`}
+                  >{post.category}</span>
+                  <span class="text-xs" style="color:var(--color-muted);">{post.fullDate}</span>
+                </div>
+
+                <h3 class="text-sm font-semibold leading-snug mb-2 group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text);">
+                  {post.title}
+                </h3>
+                <p class="text-xs leading-relaxed flex-1" style="color:var(--color-muted);">
+                  {post.excerpt}
+                </p>
+
+                <span class="mt-4 text-xs font-medium" style="color:var(--color-accent);">
+                  Read on Substack →
+                </span>
+              </div>
             </a>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>

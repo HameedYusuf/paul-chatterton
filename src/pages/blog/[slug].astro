@@ -16,11 +16,19 @@ const { post } = Astro.props;
 
 <Layout title={post.title} description={post.excerpt}>
 
+  <!-- Hero image if available -->
+  {post.image && (
+    <div class="w-full" style="height:380px;overflow:hidden;">
+      <img src={post.image} alt={post.title} class="w-full h-full object-cover" />
+    </div>
+  )}
+
   <section class="section" style="background:var(--color-bg);">
     <div class="container max-w-3xl">
+      <a href="/blog" class="text-xs font-medium uppercase tracking-widest mb-6 inline-block" style="color:var(--color-muted);">← Blog</a>
       <div class="flex items-center gap-3 mb-6">
-        <span class="pill pill-green">{post.date}</span>
-        <span class="pill pill-outline">Urban Futures Now</span>
+        <span class="pill pill-green">{post.category}</span>
+        <span class="text-sm" style="color:var(--color-muted);">{post.fullDate}</span>
       </div>
       <h1 class="mb-6">{post.title}</h1>
       <p class="text-lg">{post.excerpt}</p>
@@ -37,10 +45,6 @@ const { post } = Astro.props;
       <div class="prose prose-invert prose-lg max-w-none" set:html={post.content} />
     </div>
   </section>
-
-  <div class="container mb-8">
-    <a href="/blog" class="text-link font-medium">← Back to Blog</a>
-  </div>
 
   <CTABanner />
 </Layout>
