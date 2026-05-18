@@ -1,12 +1,14 @@
 {
   "portraitImage": "/images/paul.jpg",
-  "photos": [
-    {
-      "image": "/images/upscaled_paul123.jpg"
-    },
-    {
-      "image": "/images/upscaled_paul-chatterton-casual-hq.jpg"
-    }
+  "pageTitle": "Press Kit",
+  "bio": "Paul Chatterton is Professor of Urban Futures at the University of Leeds and one of the UK's leading voices on post-carbon cities, community-led housing, and grassroots climate action. He is the author of How to Save the City (Agenda, 2023) and Unlocking Sustainable Cities (Pluto Press, 2019). Over more than three decades he has worked at the boundary between academic research and real-world change, producing knowledge through action and returning it to the communities who need it most. Paul co-founded LILAC, the UK's first affordable ecological co-housing community, and has led major initiatives including Climate Action Leeds, which engaged over 8,700 people around a shared zero-carbon goal. His work has been featured in the BBC, The Guardian, The Conversation, and numerous international outlets.",
+  "availableFor": [
+    "Broadcast and print interviews",
+    "Keynote lectures and panel discussions",
+    "Expert comment on housing, climate and urban policy",
+    "Documentary and long-form journalism",
+    "Podcast appearances",
+    "Community and public events"
   ],
   "topics": [
     "Post-carbon cities and urban sustainability",
@@ -18,20 +20,65 @@
     "Just transition and social justice",
     "Higher education and net-zero aviation"
   ],
-  "contactOrg": "School of Geography, University of Leeds",
-  "bio": "Paul Chatterton is Professor of Urban Futures at the University of Leeds and one of the UK's leading voices on post-carbon cities, community-led housing, and grassroots climate action. He is the author of How to Save the City (Agenda, 2023) and Unlocking Sustainable Cities (Pluto Press, 2019). Over more than three decades he has worked at the boundary between academic research and real-world change, producing knowledge through action and returning it to the communities who need it most. Paul co-founded LILAC, the UK's first affordable ecological co-housing community, and has led major initiatives including Climate Action Leeds, which engaged over 8,700 people around a shared zero-carbon goal. His work has been featured in the BBC, The Guardian, The Conversation, and numerous international outlets.",
-  "pageTitle": "Press Kit",
+  "recentCoverage": [
+    {
+      "outlet": "BBC Look North",
+      "title": "Decline of Goldthorpe",
+      "url": "",
+      "year": "2025"
+    },
+    {
+      "outlet": "Child Friendly Leeds",
+      "title": "What Will Leeds Look Like in 2030?",
+      "url": "https://wearechildfriendlyleeds.com/2025/05/19/what-will-leeds-look-like-in-2030/",
+      "year": "2025"
+    },
+    {
+      "outlet": "The Conversation",
+      "title": "Coronavirus: We're in a Real-Time Laboratory of a More Sustainable Urban Future",
+      "url": "https://theconversation.com/coronavirus-were-in-a-real-time-laboratory-of-a-more-sustainable-urban-future-135712",
+      "year": "2020"
+    },
+    {
+      "outlet": "Low Impact",
+      "title": "Mutual Home Ownership: the LILAC model",
+      "url": "https://www.lowimpact.org/posts/mutual-home-ownership-lilac/",
+      "year": "2020"
+    },
+    {
+      "outlet": "University of Leeds Spotlight",
+      "title": "Eyesore Flourishes as Self-Sufficiency Garden",
+      "url": "https://spotlight.leeds.ac.uk/eyesore-flourishes-as-self-sufficiency-garden/",
+      "year": "2024"
+    }
+  ],
   "downloads": [
     {
-      "label": "Short Bio",
+      "label": "Short Bio (PDF)",
       "url": ""
     },
     {
-      "label": "Full CV",
+      "label": "Full CV (PDF)",
       "url": ""
+    },
+    {
+      "label": "High-Res Headshot",
+      "url": "/images/upscaled_paul123.jpg"
     }
   ],
   "contactName": "Professor Paul Chatterton",
+  "contactEmail": "p.chatterton@leeds.ac.uk",
+  "contactOrg": "School of Geography, University of Leeds",
   "contactAddress": "Leeds, LS2 9JT, UK",
-  "contactEmail": "p.chatterton@leeds.ac.uk"
+  "contactNote": "Paul typically responds to media enquiries within 2 working days.",
+  "photos": [
+    {
+      "image": "/images/upscaled_paul123.jpg",
+      "caption": ""
+    },
+    {
+      "image": "/images/upscaled_paul-chatterton-casual-hq.jpg",
+      "caption": ""
+    }
+  ]
 }

@@ -6,15 +6,13 @@ import site from '../data/site.json';
 import home from '../data/home.json';
 ---
 
-<Layout title="Press Kit" description={`Press kit for Professor ${site.siteName}: bio, photos, media contact and downloads.`}>
+<Layout title="Press Kit" description={`Press kit for Professor ${site.siteName}: bio, photos, topics, recent coverage and media contact.`}>
 
   <div class="container" style="padding-top:2.5rem;padding-bottom:4rem;">
     <div class="grid lg:grid-cols-[240px_1fr_260px] gap-10 items-start">
 
       <!-- ── LEFT SIDEBAR ── -->
       <aside class="lg:sticky lg:top-24">
-
-        <!-- Portrait -->
         <div class="overflow-hidden" style="aspect-ratio:3/4;">
           <img
             src={presskit.portraitImage || site.aboutImage || site.heroImage}
@@ -22,46 +20,66 @@ import home from '../data/home.json';
             class="w-full h-full object-cover object-top"
           />
         </div>
-
-        <!-- Nav links -->
         <nav class="mt-1">
           {[
-            { label: 'About Paul',    href: '/about' },
-            { label: 'Publications',  href: '/publications' },
-            { label: 'Projects',      href: '/projects' },
-            { label: 'Media',         href: '/media' },
-            { label: 'Collaborate',   href: '/collaborate' },
+            { label: 'About Paul',   href: '/about' },
+            { label: 'Publications', href: '/publications' },
+            { label: 'Projects',     href: '/projects' },
+            { label: 'Media',        href: '/media' },
+            { label: 'Collaborate',  href: '/collaborate' },
           ].map(l => (
-            <a
-              href={l.href}
-              class="block px-3 py-2.5 text-sm font-medium transition-colors hover:bg-black/5 dark:hover:bg-white/5"
-              style="color:var(--color-muted);border-bottom:1px solid var(--color-border);"
-            >
+            <a href={l.href} class="block px-3 py-2.5 text-sm font-medium transition-colors hover:bg-black/5" style="color:var(--color-muted);border-bottom:1px solid var(--color-border);">
               {l.label}
             </a>
           ))}
         </nav>
-
       </aside>
 
-      <!-- ── CENTRE: press kit content ── -->
+      <!-- ── CENTRE ── -->
       <div>
 
-        <!-- Page heading -->
-        <h2
-          class="text-2xl font-bold uppercase tracking-widest mb-3"
-          style="color:var(--color-text);letter-spacing:0.15em;"
-        >
+        <h2 class="text-2xl font-bold uppercase tracking-widest mb-3" style="color:var(--color-text);letter-spacing:0.15em;">
           {presskit.pageTitle}
         </h2>
         <hr style="border-color:var(--color-border);margin-bottom:1.75rem;" />
 
-        <!-- Bio -->
-        <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Bio</h3>
-        <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
-        <p class="text-base leading-relaxed mb-10" style="color:var(--color-muted);">
-          {presskit.bio}
-        </p>
+        <!-- Bio with copy button -->
+        <div class="mb-10">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-bold" style="color:var(--color-text);">Press Bio</h3>
+            <button
+              id="copy-bio-btn"
+              class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded transition-colors"
+              style="background:var(--color-surface);border:1px solid var(--color-border);color:var(--color-muted);"
+              aria-label="Copy bio to clipboard"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              <span id="copy-bio-label">Copy Bio</span>
+            </button>
+          </div>
+          <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+          <p id="press-bio" class="text-base leading-relaxed" style="color:var(--color-muted);">
+            {presskit.bio}
+          </p>
+        </div>
+
+        <!-- Available For -->
+        {presskit.availableFor && presskit.availableFor.length > 0 && (
+          <div class="mb-10">
+            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Available For</h3>
+            <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+            <div class="grid sm:grid-cols-2 gap-2">
+              {presskit.availableFor.map((item: string) => (
+                <div class="flex items-center gap-3 px-4 py-2.5 rounded" style="background:var(--color-surface);border:1px solid var(--color-border);">
+                  <span style="color:var(--color-accent);font-size:0.7rem;">●</span>
+                  <span class="text-sm" style="color:var(--color-muted);">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <!-- Topics & Expertise -->
         {presskit.topics && presskit.topics.length > 0 && (
@@ -69,9 +87,9 @@ import home from '../data/home.json';
             <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Topics & Expertise</h3>
             <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
             <ul class="space-y-2">
-              {presskit.topics.map(t => (
+              {presskit.topics.map((t: string) => (
                 <li class="flex items-start gap-3 text-sm" style="color:var(--color-muted);">
-                  <span style="color:var(--color-accent);margin-top:2px;">▸</span>
+                  <span style="color:var(--color-accent);margin-top:3px;flex-shrink:0;">▸</span>
                   <span>{t}</span>
                 </li>
               ))}
@@ -79,107 +97,134 @@ import home from '../data/home.json';
           </div>
         )}
 
-        <!-- Media contact -->
-        <div class="mb-10">
-          <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Media Contact</h3>
-          <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
-          <div class="text-sm space-y-1" style="color:var(--color-muted);">
-            <p class="font-semibold" style="color:var(--color-text);">{presskit.contactName}</p>
-            <p>
-              <a
-                href={`mailto:${presskit.contactEmail}`}
-                class="text-link"
-              >
-                {presskit.contactEmail}
-              </a>
-            </p>
-            <p>{presskit.contactOrg}</p>
-            <p>{presskit.contactAddress}</p>
-          </div>
-        </div>
-
-        <!-- Downloads -->
-        {presskit.downloads && presskit.downloads.some(d => d.url) && (
+        <!-- Recent Coverage -->
+        {presskit.recentCoverage && presskit.recentCoverage.length > 0 && (
           <div class="mb-10">
-            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Downloads</h3>
+            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Recent Coverage</h3>
             <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
-            <ul class="space-y-2">
-              {presskit.downloads.filter(d => d.url).map(d => (
-                <li class="flex items-center gap-2 text-sm">
-                  <span style="color:var(--color-muted);">•</span>
-                  <a
-                    href={d.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-link font-medium"
-                  >
-                    {d.label}
-                  </a>
-                  <span class="text-xs" style="color:var(--color-muted);">↓</span>
-                </li>
+            <div class="space-y-0">
+              {presskit.recentCoverage.map((item: any) => (
+                <div class="flex items-start gap-4 py-3" style="border-bottom:1px solid var(--color-border);">
+                  <span class="pill pill-outline text-xs shrink-0 mt-0.5" style="font-size:0.65rem;">{item.year}</span>
+                  <div class="flex-1 min-w-0">
+                    {item.url ? (
+                      <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium hover:text-[#22c55e] transition-colors" style="color:var(--color-text);">
+                        {item.title}
+                      </a>
+                    ) : (
+                      <p class="text-sm font-medium" style="color:var(--color-text);">{item.title}</p>
+                    )}
+                    <p class="text-xs mt-0.5" style="color:var(--color-muted);">{item.outlet}</p>
+                  </div>
+                  {item.url && (
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-xs shrink-0 mt-0.5" style="color:var(--color-accent);">↗</a>
+                  )}
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         )}
 
-        <!-- Press photos -->
-        {presskit.photos && presskit.photos.length > 0 && (
-          <div>
-            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Press Photos</h3>
-            <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
-            <p class="text-sm mb-4" style="color:var(--color-muted);">
-              Click any photo to open full resolution. Free to use for press purposes with credit to the photographer where noted.
+        <!-- Press Photos -->
+        <div class="mb-10">
+          <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Press Photos</h3>
+          <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+          {presskit.photos && presskit.photos.length > 0 ? (
+            <>
+              <p class="text-sm mb-4" style="color:var(--color-muted);">
+                Free to use for press purposes with credit. Click the download button beneath each photo.
+              </p>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {presskit.photos.map((p: any, i: number) => (
+                  <div>
+                    <div class="overflow-hidden group" style="aspect-ratio:3/4;">
+                      <img
+                        src={p.image}
+                        alt={p.caption || `Press photo of ${site.siteName}`}
+                        class="w-full h-full object-cover object-top transition-opacity group-hover:opacity-90"
+                        loading={i < 2 ? 'eager' : 'lazy'}
+                      />
+                    </div>
+                    <div class="flex items-center justify-between mt-2">
+                      {p.caption && <p class="text-xs truncate mr-2" style="color:var(--color-muted);">{p.caption}</p>}
+                      <a
+                        href={p.image}
+                        download
+                        class="flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded ml-auto transition-colors"
+                        style="background:var(--color-surface);border:1px solid var(--color-border);color:var(--color-muted);white-space:nowrap;"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <p class="text-sm" style="color:var(--color-muted);">
+              Press photos available on request —{' '}
+              <a href={`mailto:${presskit.contactEmail}`} class="text-link">{presskit.contactEmail}</a>.
             </p>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {presskit.photos.map((p: { image: string; caption?: string }) => (
+          )}
+        </div>
+
+        <!-- Downloads -->
+        {presskit.downloads && presskit.downloads.some((d: any) => d.url) && (
+          <div class="mb-10">
+            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Downloads</h3>
+            <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+            <div class="flex flex-wrap gap-3">
+              {presskit.downloads.filter((d: any) => d.url).map((d: any) => (
                 <a
-                  href={p.image}
+                  href={d.url}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="block overflow-hidden group"
-                  title={p.caption || `Press photo, ${site.siteName}`}
+                  class="flex items-center gap-2 text-sm font-semibold px-4 py-2.5 rounded transition-colors"
+                  style="background:var(--color-surface);border:1px solid var(--color-border);color:var(--color-text);"
                 >
-                  <img
-                    src={p.image}
-                    alt={p.caption || `Press photo of ${site.siteName}`}
-                    class="w-full object-cover transition-opacity group-hover:opacity-85"
-                    style="aspect-ratio:1/1;"
-                    loading="lazy"
-                  />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  {d.label}
                 </a>
               ))}
             </div>
           </div>
         )}
 
-        <!-- Placeholder when no photos uploaded yet -->
-        {(!presskit.photos || presskit.photos.length === 0) && (
-          <div>
-            <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Press Photos</h3>
-            <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
-            <p class="text-sm" style="color:var(--color-muted);">
-              Press photos can be requested by emailing{' '}
-              <a href={`mailto:${presskit.contactEmail}`} class="text-link">{presskit.contactEmail}</a>.
-            </p>
+        <!-- Media Contact -->
+        <div>
+          <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Media Contact</h3>
+          <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
+          <div class="p-5 rounded-xl" style="background:var(--color-surface);border:1px solid var(--color-border);">
+            <p class="font-semibold mb-1" style="color:var(--color-text);">{presskit.contactName}</p>
+            <p class="text-sm mb-0.5" style="color:var(--color-muted);">{presskit.contactOrg}</p>
+            <p class="text-sm mb-3" style="color:var(--color-muted);">{presskit.contactAddress}</p>
+            <a href={`mailto:${presskit.contactEmail}`} class="text-link text-sm font-medium">{presskit.contactEmail}</a>
+            {presskit.contactNote && (
+              <p class="text-xs mt-3 pt-3" style="color:var(--color-muted);border-top:1px solid var(--color-border);">
+                {presskit.contactNote}
+              </p>
+            )}
           </div>
-        )}
+        </div>
 
       </div>
 
       <!-- ── RIGHT SIDEBAR ── -->
       <aside class="lg:sticky lg:top-24 space-y-5">
 
-        <!-- Featured books -->
+        <!-- Books -->
         {home.featuredBooks.map(b => (
           <div class="sidebar-widget">
             <p class="sidebar-widget-title">{b.title.toUpperCase()}</p>
             {b.image ? (
               <a href={b.url} target="_blank" rel="noopener noreferrer" class="block group mt-1">
-                <img
-                  src={b.image}
-                  alt={b.title}
-                  class="w-full object-cover mb-3 group-hover:opacity-90 transition-opacity"
-                />
+                <img src={b.image} alt={b.title} class="w-full object-cover mb-3 group-hover:opacity-90 transition-opacity" />
                 <p class="text-xs leading-snug" style="color:var(--color-muted);">{b.description}</p>
               </a>
             ) : (
@@ -207,5 +252,23 @@ import home from '../data/home.json';
   </div>
 
   <CTABanner />
+
+  <script is:inline>
+    var btn   = document.getElementById('copy-bio-btn');
+    var label = document.getElementById('copy-bio-label');
+    var bio   = document.getElementById('press-bio');
+
+    btn && btn.addEventListener('click', function() {
+      var text = bio ? bio.textContent.trim() : '';
+      navigator.clipboard.writeText(text).then(function() {
+        if (label) label.textContent = 'Copied!';
+        if (btn)   btn.style.color = 'var(--color-accent)';
+        setTimeout(function() {
+          if (label) label.textContent = 'Copy Bio';
+          if (btn)   btn.style.color   = '';
+        }, 2000);
+      });
+    });
+  </script>
 
 </Layout>

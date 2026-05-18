@@ -223,33 +223,51 @@ collections:
         fields:
           - { name: portraitImage,  label: "Portrait Photo",    widget: image, required: false, hint: "Left-column portrait. Leave blank to use the Global Settings hero image." }
           - { name: pageTitle,      label: "Page Title",        widget: string }
-          - { name: bio,            label: "Press Bio",         widget: text, hint: "Short bio for media use — keep to 2-3 sentences." }
-          - { name: contactName,    label: "Contact Name",      widget: string }
-          - { name: contactEmail,   label: "Contact Email",     widget: string }
-          - { name: contactOrg,     label: "Contact Organisation", widget: string }
-          - { name: contactAddress, label: "Contact Address",   widget: string }
+          - { name: bio,            label: "Press Bio",         widget: text, hint: "2-3 sentence bio for media use. Appears with a one-click Copy button for journalists." }
+          - name: availableFor
+            label: "Available For"
+            hint: "Types of media/events Paul is available for. Shown as a grid of tags."
+            widget: list
+            field:
+              name: item
+              label: "Item"
+              widget: string
           - name: topics
             label: "Topics & Expertise"
-            hint: "List of subjects Paul speaks or comments on for media."
+            hint: "Subjects Paul can speak or comment on for media."
             widget: list
             field:
               name: topic
               label: "Topic"
               widget: string
+          - name: recentCoverage
+            label: "Recent Coverage"
+            hint: "Press mentions and media appearances. Leave URL blank for items without a link."
+            widget: list
+            fields:
+              - { name: outlet, label: "Outlet (e.g. BBC Look North)",  widget: string }
+              - { name: title,  label: "Piece Title",                   widget: string }
+              - { name: year,   label: "Year",                          widget: string }
+              - { name: url,    label: "URL (leave blank if unavailable)", widget: string, required: false }
           - name: downloads
             label: "Downloads"
-            hint: "Downloadable files (bio PDFs, CV, etc). Upload files via the Media Library first, then paste the URL."
+            hint: "Downloadable files (bio PDFs, CV, headshots). Upload via Media Library then paste the URL."
             widget: list
             fields:
               - { name: label, label: "Label (e.g. Short Bio PDF)", widget: string }
               - { name: url,   label: "File URL",                   widget: string, required: false }
           - name: photos
             label: "Press Photos"
-            hint: "Upload high-resolution press photos. Displayed in a 4-column grid. Click opens full resolution."
+            hint: "High-resolution press photos shown with a download button. Use portrait-format images where possible."
             widget: list
             fields:
               - { name: image,   label: "Photo",   widget: image }
-              - { name: caption, label: "Caption (optional, e.g. photo credit)", widget: string, required: false }
+              - { name: caption, label: "Caption / Photo Credit (optional)", widget: string, required: false }
+          - { name: contactName,    label: "Contact Name",        widget: string }
+          - { name: contactEmail,   label: "Contact Email",       widget: string }
+          - { name: contactOrg,     label: "Contact Organisation", widget: string }
+          - { name: contactAddress, label: "Contact Address",     widget: string }
+          - { name: contactNote,    label: "Contact Note (e.g. response time)", widget: string, required: false }
 
       - name: "pages"
         label: "📄 List Pages (Projects / Publications / Media / Blog)"
