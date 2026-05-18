@@ -39,7 +39,7 @@ const currentPath = Astro.url.pathname;
     <div class="container py-6 text-center">
 
       <!-- Mobile: name + hamburger row -->
-      <div class="flex items-center justify-between md:hidden">
+      <div class="flex items-center justify-between lg:hidden">
         <a href="/" class="font-bold text-xl uppercase tracking-widest hover:text-[#22c55e] transition-colors" style="color:var(--color-text);">
           {site.siteName}
         </a>
@@ -60,7 +60,7 @@ const currentPath = Astro.url.pathname;
       </div>
 
       <!-- Desktop: full centred banner -->
-      <div class="hidden md:block">
+      <div class="hidden lg:block">
         <a href="/" class="inline-block group">
           <h1 class="font-bold uppercase tracking-[0.18em] leading-none group-hover:text-[#22c55e] transition-colors" style="color:var(--color-text);font-size:2.75rem;">
             {site.siteName}
@@ -82,7 +82,7 @@ const currentPath = Astro.url.pathname;
     <div class="container">
 
       <!-- Desktop nav strip -->
-      <div class="hidden md:flex items-center justify-center h-10 relative">
+      <div class="hidden lg:flex items-center justify-center h-10 relative">
 
         <!-- Centred links -->
         <div class="flex items-center gap-0">
@@ -141,7 +141,7 @@ const currentPath = Astro.url.pathname;
       </div>
 
       <!-- Mobile menu -->
-      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t mt-0" style="border-color:var(--color-nav-border);">
+      <div id="mobile-menu" class="hidden lg:hidden pb-4 border-t mt-0" style="border-color:var(--color-nav-border);">
         <a href="/" class="block px-2 py-3 text-sm font-bold uppercase tracking-widest transition-colors hover:text-[#22c55e]" style="color:var(--color-muted);border-bottom:1px solid var(--color-border);">Home</a>
         <a href="/about" class="block px-2 py-3 text-sm font-bold uppercase tracking-widest transition-colors hover:text-[#22c55e]" style="color:var(--color-muted);border-bottom:1px solid var(--color-border);">About</a>
         {site.navLinks.filter(l => l.href !== '/' && l.href !== '/collaborate').map(link => (
@@ -317,8 +317,12 @@ const currentPath = Astro.url.pathname;
     // Target cards, sidebar widgets, and publication rows
     document.querySelectorAll('.card, .sidebar-widget, .pub-row').forEach(function(el, i) {
       el.classList.add('fade-in');
-      // Stagger delay for grid items (max 5 items × 80ms)
       el.style.transitionDelay = Math.min(i % 6, 5) * 0.07 + 's';
+      observer.observe(el);
+    });
+
+    // Timeline entries already have fade-in class — just observe them
+    document.querySelectorAll('.timeline-entry').forEach(function(el) {
       observer.observe(el);
     });
 
