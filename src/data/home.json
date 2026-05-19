@@ -1,4 +1,5 @@
 {
+  "heroImage": "",
   "ctaLabel": "Let's Collaborate ",
   "featuredProjects": [
     {
@@ -81,6 +82,7 @@
       "url": ""
     }
   ],
+  "welcomeText": "Welcome to my website! This site is offers insights into my work and the project's that I have supported - across 25 years as as an academic, activist, and author working at the University of Leeds. It is updated regularly and offers links to my publications, projects, and media work. I want to hear from academics, policy makers, campaigners and social entrepreneurs who want to collaborate to make big changes happen right now. Get in touch, and demand the impossible!",
   "ctaHeading": "Ready to Make Change?",
   "ctaBody": "Let's collaborate on research, community projects, or public engagement..",
   "mediaSectionLabel": "Sharing ideas beyond the academy",
@@ -134,8 +136,6 @@
     "ctaSecondaryHref": "/impact"
   },
   "ctaHref": "/collaborate",
-  "heroImage": "",
-  "welcomeText": "Welcome to Paul Chatterton's website. This site is a source of news and information about Paul's work as an academic, activist, and author working at the University of Leeds. It is updated regularly and offers links to his publications, projects, and media.",
   "featuredBooks": [
     {
       "title": "How to Save the City",
