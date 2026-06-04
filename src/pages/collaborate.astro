@@ -95,12 +95,9 @@ import site from '../data/site.json';
               </label>
               <select id="cf-type" name="type" class="collab-input">
                 <option value="">Select one…</option>
-                <option>Research partnership</option>
-                <option>Policy consultation</option>
-                <option>Media / journalism</option>
-                <option>Speaking engagement</option>
-                <option>Community project</option>
-                <option>Other</option>
+                {(collab.contactFormTypes || []).map((t: string) => (
+                  <option>{t}</option>
+                ))}
               </select>
             </div>
 

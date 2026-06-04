@@ -33,7 +33,7 @@ const catText: Record<string, string> = {
   <!-- Hero -->
   <section class="section" style="background:var(--color-bg);">
     <div class="container">
-      <p class="label mb-3">Urban Futures Now</p>
+      <p class="label mb-3">{pg.blogSourceLabel || 'Urban Futures Now'}</p>
       <h1 class="mb-4">{pg.heroTitle}</h1>
       <p class="text-lg max-w-xl">{pg.heroSubtitle}</p>
       <p class="mt-2 text-sm" style="color:var(--color-muted);">{posts.length} pieces</p>

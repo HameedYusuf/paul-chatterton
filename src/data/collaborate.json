@@ -15,5 +15,13 @@
     { "emoji": "🌍", "heading": "Global Solidarity",  "body": "International connections particularly Africa, Asia and South America." }
   ],
   "quote": "Be realistic: demand the impossible.",
-  "quoteAttribution": "Graffiti, Paris, May 1968"
+  "quoteAttribution": "Graffiti, Paris, May 1968",
+  "contactFormTypes": [
+    "Research partnership",
+    "Policy consultation",
+    "Media / journalism",
+    "Speaking engagement",
+    "Community project",
+    "Other"
+  ]
 }

@@ -148,7 +148,7 @@ import home from '../data/home.json';
                     <div class="flex items-center justify-between mt-2">
                       {p.caption && <p class="text-xs truncate mr-2" style="color:var(--color-muted);">{p.caption}</p>}
                       <a
-                        href={p.image}
+                        href={p.downloadUrl || p.image}
                         download
                         class="flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded ml-auto transition-colors"
                         style="background:var(--color-surface);border:1px solid var(--color-border);color:var(--color-muted);white-space:nowrap;"
@@ -156,7 +156,7 @@ import home from '../data/home.json';
                         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
                         </svg>
-                        Download
+                        {p.downloadUrl ? 'Download Hi-Res' : 'Download'}
                       </a>
                     </div>
                   </div>
@@ -172,14 +172,14 @@ import home from '../data/home.json';
         </div>
 
         <!-- Downloads -->
-        {presskit.downloads && presskit.downloads.some((d: any) => d.url) && (
+        {presskit.downloads && presskit.downloads.some((d: any) => d.image || d.url) && (
           <div class="mb-10">
             <h3 class="text-lg font-bold mb-3" style="color:var(--color-text);">Downloads</h3>
             <hr style="border-color:var(--color-border);margin-bottom:1.25rem;" />
             <div class="flex flex-wrap gap-3">
-              {presskit.downloads.filter((d: any) => d.url).map((d: any) => (
+              {presskit.downloads.filter((d: any) => d.image || d.url).map((d: any) => (
                 <a
-                  href={d.url}
+                  href={d.image || d.url}
                   download
                   target="_blank"
                   rel="noopener noreferrer"

@@ -21,7 +21,8 @@ collections:
           - { name: headerTagline,    label: "Header Tagline (italic, e.g. Demand the Impossible)", widget: string }
           - { name: navSubtitle,      label: "Header Descriptor (small caps below tagline)", widget: string, hint: "e.g. Professor of Urban Futures · Scholar-Activist · Radical Geographer" }
           - { name: siteDescription,  label: "Site Description",       widget: text }
-          - { name: substackUrl,      label: "Substack Newsletter URL", widget: string, hint: "e.g. https://urbanfuturesnow.substack.com — used for the newsletter widget." }
+          - { name: substackUrl,        label: "Substack Newsletter URL", widget: string, hint: "e.g. https://urbanfuturesnow.substack.com — used for the newsletter widget." }
+          - { name: footerCopyrightYear, label: "Footer Copyright Year", widget: string, hint: "e.g. 2026 — the year shown in the © footer line." }
           - { name: email,            label: "Contact Email",          widget: string }
           - { name: googleScholarUrl, label: "Google Scholar URL",     widget: string }
           - { name: universityUrl,    label: "University Profile URL", widget: string }
@@ -216,6 +217,14 @@ collections:
               - { name: body,    label: "Body",    widget: text }
           - { name: quote,             label: "Quote",             widget: text }
           - { name: quoteAttribution,  label: "Quote Attribution", widget: string }
+          - name: contactFormTypes
+            label: "Contact Form — Enquiry Types"
+            hint: "Options shown in the 'Type of Collaboration' dropdown on the contact form."
+            widget: list
+            field:
+              name: item
+              label: "Option"
+              widget: string
 
       - name: "presskit"
         label: "📋 Press Kit"
@@ -251,17 +260,19 @@ collections:
               - { name: url,    label: "URL (leave blank if unavailable)", widget: string, required: false }
           - name: downloads
             label: "Downloads"
-            hint: "Downloadable files (bio PDFs, CV, headshots). Upload via Media Library then paste the URL."
+            hint: "Downloadable files for media use — PDFs, CVs, headshots. Upload images directly with the 'Photo Upload' field, or paste an external URL in 'File URL' for PDFs and other documents."
             widget: list
             fields:
-              - { name: label, label: "Label (e.g. Short Bio PDF)", widget: string }
-              - { name: url,   label: "File URL",                   widget: string, required: false }
+              - { name: label, label: "Label (e.g. High-Res Headshot)", widget: string }
+              - { name: image, label: "Photo Upload (images only — uploads directly)", widget: image, required: false, hint: "Upload a photo or image file directly. Takes priority over the URL field below." }
+              - { name: url,   label: "File URL (PDFs / external links — paste path here)", widget: string, required: false, hint: "Use this for PDFs or files already on an external server. Leave blank if you uploaded a photo above." }
           - name: photos
             label: "Press Photos"
-            hint: "High-resolution press photos shown with a download button. Use portrait-format images where possible."
+            hint: "Press photos displayed on the page with a download button. Use portrait-format images where possible."
             widget: list
             fields:
-              - { name: image,   label: "Photo",   widget: image }
+              - { name: image,       label: "Display Photo",   widget: image, hint: "The image shown on the press kit page." }
+              - { name: downloadUrl, label: "High-Res Download (optional)", widget: image, required: false, hint: "Upload a separate high-resolution version for journalists to download. If left blank, the display photo above is used as the download." }
               - { name: caption, label: "Caption / Photo Credit (optional)", widget: string, required: false }
           - { name: contactName,    label: "Contact Name",        widget: string }
           - { name: contactEmail,   label: "Contact Email",       widget: string }
@@ -298,9 +309,10 @@ collections:
             label: "Blog Page"
             widget: object
             fields:
-              - { name: heroTitle,    label: "Page Title",   widget: string }
-              - { name: heroSubtitle, label: "Subtitle",     widget: text }
-              - { name: heroImage,    label: "Banner Image", widget: image, required: false }
+              - { name: heroTitle,       label: "Page Title",   widget: string }
+              - { name: heroSubtitle,    label: "Subtitle",     widget: text }
+              - { name: heroImage,       label: "Banner Image", widget: image, required: false }
+              - { name: blogSourceLabel, label: "Blog Source Label", widget: string, hint: "Label shown above the blog title, e.g. 'Urban Futures Now'. Edit this if your Substack publication name changes." }
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CONTENT DATA (Publications & Media)

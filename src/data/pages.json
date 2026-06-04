@@ -12,7 +12,8 @@
   "blog": {
     "heroTitle": "Blog & Comment",
     "heroSubtitle": "Writing beyond the journal: essays, comment pieces, and dispatches from the field.",
-    "heroImage": ""
+    "heroImage": "",
+    "blogSourceLabel": "Urban Futures Now"
   },
   "projects": {
     "heroTitle": "Projects",

@@ -227,7 +227,7 @@ const currentPath = Astro.url.pathname;
 
       <!-- Copyright -->
       <div class="mt-8 flex justify-end">
-        <p class="footer-copy">© 2026 {site.siteName}. Built with Astro.</p>
+        <p class="footer-copy">© {site.footerCopyrightYear || new Date().getFullYear()} {site.siteName}. Built with Astro.</p>
       </div>
 
     </div>
