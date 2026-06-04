@@ -1,9 +1,15 @@
 ---
 title: "Autonomous Geographies: Activism and Everyday Life in the City"
-role: "Principal Investigator"
-description: "A two-year ESRC-funded study examining autonomous geographies: spaces where people create non-capitalist, collective forms of politics, identity, and citizenship, through case studies of eco-communities, radical social centres, and anti-privatisation networks."
-impact: "Generated foundational thinking on prefigurative politics and urban autonomy, disseminated through a public website, accessible report, and video documentation reaching academic and activist audiences."
-url: "https://environment.leeds.ac.uk/geography-research/dir-record/research-projects/618/autonomous-geographies-activism-and-everyday-life-in-the-city"
+role: Principal Investigator
+description: "A two-year ESRC-funded study examining autonomous geographies:
+  spaces where people create non-capitalist, collective forms of politics,
+  identity, and citizenship, through case studies of eco-communities, radical
+  social centres, and anti-privatisation networks."
+impact: Generated foundational thinking on prefigurative politics and urban
+  autonomy, disseminated through a public website, accessible report, and video
+  documentation reaching academic and activist audiences.
+url: https://environment.leeds.ac.uk/geography-research/dir-record/research-projects/618/autonomous-geographies-activism-and-everyday-life-in-the-city
+image: /images/images.jpeg
 order: 14
 ---
 
