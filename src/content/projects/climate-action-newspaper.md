@@ -1,7 +1,10 @@
 ---
-title: "Climate Action Leeds Newspaper"
-role: "Creator"
-description: "A community newspaper produced as a creative activist resource to support grassroots climate action in Leeds, distributing accessible information and mobilising community engagement."
+title: Climate Action Leeds Newspaper
+role: Creator
+description: A community newspaper produced as a creative activist resource to
+  support grassroots climate action in Leeds, distributing accessible
+  information and mobilising community engagement.
+image: /images/screenshot-2026-06-04-at-13.53.32.png
 order: 9
 ---
 
