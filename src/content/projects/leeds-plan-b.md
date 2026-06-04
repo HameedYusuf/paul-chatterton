@@ -1,7 +1,10 @@
 ---
-title: "Leeds Plan B Manifesto"
-role: "Creator"
-description: "A creative and activist resource offering an alternative vision for Leeds: a plan B for the city that centres ecological sustainability, social justice, and community power."
+title: Leeds Plan B Manifesto
+role: Creator
+description: "A creative and activist resource offering an alternative vision
+  for Leeds: a plan B for the city that centres ecological sustainability,
+  social justice, and community power."
+image: /images/screenshot-2026-06-04-at-12.27.25.png
 order: 4
 ---
 
