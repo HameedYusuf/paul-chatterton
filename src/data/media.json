@@ -1,6 +1,20 @@
 {
   "items": [
     {
+      "title": "BBC Radio 4 Rethink Regeneration",
+      "url": "https://www.bbc.co.uk/programmes/m002pqp6",
+      "date": "2026",
+      "thumbnail": "/images/screenshot-2026-06-04-at-20.53.50.png",
+      "type": "Podcast"
+    },
+    {
+      "title": "4x4 Lecture",
+      "type": "Video",
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/watch?v=zo0Rvgh1RNI",
+      "date": "2022"
+    },
+    {
       "title": "The Social City",
       "type": "Podcast",
       "platform": "Spotify",
@@ -99,13 +113,6 @@
       "date": "2022"
     },
     {
-      "title": "4x4 Lecture",
-      "type": "Video",
-      "platform": "YouTube",
-      "url": "https://www.youtube.com/watch?v=zo0Rvgh1RNI",
-      "date": "2022"
-    },
-    {
       "title": "Everyday Action Matters",
       "type": "Video",
       "platform": "YouTube",
@@ -125,13 +132,6 @@
       "platform": "University of Leeds Spotlight",
       "url": "https://spotlight.leeds.ac.uk/eyesore-flourishes-as-self-sufficiency-garden/",
       "date": "2024"
-    },
-    {
-      "title": "BBC Radio 4 Rethink Regeneration",
-      "url": "https://www.bbc.co.uk/programmes/m002pqp6",
-      "date": "2026",
-      "thumbnail": "/images/screenshot-2026-06-04-at-20.53.50.png",
-      "type": "Podcast"
     }
   ]
 }
