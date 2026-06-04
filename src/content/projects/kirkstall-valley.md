@@ -5,7 +5,7 @@ description: A community development trust working to protect and enhance the
   Kirkstall Valley area of Leeds, including managing Kirkstall Valley Park as a
   community green space.
 url: https://www.kvdt.org.uk/
-image: /images/kirkstall-valley.png
+image: /images/screenshot-2026-06-04-at-12.20.13.png
 order: 3
 ---
 
