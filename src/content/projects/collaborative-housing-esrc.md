@@ -1,9 +1,14 @@
 ---
 title: "ESRC Seminar Series: Collaborative Housing and Community Resilience"
-role: "Co-Investigator"
-description: "A six-seminar series bringing together six UK universities and the UK Cohousing Network to examine housing access, affordability, sharing economies, green technology, ecological citizenship, and community resilience."
-impact: "Established a shared frame of reference for cohousing research terminology and concepts across UK academia, combining international expert presentations with visits to community housing schemes."
-url: "https://environment.leeds.ac.uk/geography-research/dir-record/research-projects/603/esrc-seminar-series-collaborative-housing-and-community-resilience"
+role: Co-Investigator
+description: A six-seminar series bringing together six UK universities and the
+  UK Cohousing Network to examine housing access, affordability, sharing
+  economies, green technology, ecological citizenship, and community resilience.
+impact: Established a shared frame of reference for cohousing research
+  terminology and concepts across UK academia, combining international expert
+  presentations with visits to community housing schemes.
+url: https://environment.leeds.ac.uk/geography-research/dir-record/research-projects/603/esrc-seminar-series-collaborative-housing-and-community-resilience
+image: /images/cropped-rca_8264-edit-final-648x432.jpg
 order: 11
 ---
 
