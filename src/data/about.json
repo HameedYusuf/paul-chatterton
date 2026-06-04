@@ -2,12 +2,22 @@
   "portraitImage": "/images/paul.jpg",
   "timeline": [
     {
-      "year": "1993",
+      "year": "1994",
       "title": "Research Career Begins",
-      "body": "Began doctoral research exploring urban politics, social movements and the possibilities of post-capitalist city-making — laying the foundation for three decades of activist scholarship."
+      "body": "Began doctoral research in Bristol exploring urban politics, social movements and the possibilities of post-capitalist city-making — laying the foundation for three decades of activist scholarship."
+    },
+    {
+      "year": "1998",
+      "title": "Urban and Regional Development",
+      "body": "First job at the University of Newcastle in the centre for Urban and Regional Development Studies, exploring critical approaches to cities, regions and sustainability."
     },
     {
       "year": "2001",
+      "title": "Volunteer work in Mexico",
+      "body": "spends time in the Chiapas state of Mexico, volunteering with the Zapatista base communities of the EZLN building water systems in rural farming communities."
+    },
+    {
+      "year": "2002",
       "title": "University of Leeds",
       "body": "Joined the School of Geography at the University of Leeds, where he would go on to become Professor of Urban Futures and one of the UK's leading urban researchers."
     },
@@ -58,7 +68,7 @@
     "His books Unlocking Sustainable Cities (Pluto Press, 2019) and How to Save the City (Agenda, 2023) offer accessible guides for the transformations we urgently need, and have been widely adopted by practitioners, activists, and policymakers across the UK and beyond.",
     "Paul has worked with communities, local authorities, national governments, and international organisations to develop actionable pathways towards zero-carbon, socially just urban futures. He believes that another world is not only possible; it is necessary."
   ],
-  "researchText": "Paul's research centres on post-carbon urban transitions, community-led housing, co-production, and the political economy of sustainable cities. He has led major funded programmes including Climate Action Leeds, a city-wide climate mobilisation project backed by UKRI, and the Leeds Co-Production Lab, which developed alternatives to neoliberal urban governance. His earlier work pioneered the concept of autonomous geographies and post-capitalist urban commons. His publications span Nature Sustainability, Progress in Human Geography, Transactions of the Institute of British Geographers, Antipode, and many others. He has supervised over 20 PhD students and holds visiting positions at institutions across Europe.",
+  "researchText": "Paul's research centres on post-carbon urban transitions, community-led housing, co-production, and the political economy of sustainable cities. He has led major funded projects through the ESRC, AHRC, the Leverhulme Trust and the European Union, as well as programmes including Climate Action Leeds, a city-wide climate mobilisation project funded by the National Lottery, and the Leeds Co-Production Lab, which developed alternatives to neoliberal urban governance. His earlier work pioneered the concept of autonomous geographies and post-capitalist urban commons. His publications span Nature Sustainability, Progress in Human Geography, Transactions of the Institute of British Geographers, Antipode, and many others. He has supervised over 20 PhD students.",
   "researchSectionTitle": "Research",
   "philosophy": [
     {
