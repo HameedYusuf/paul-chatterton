@@ -1,9 +1,15 @@
 ---
-title: "Communities in Crisis"
-role: "Principal Investigator"
-description: "A Connected Communities scoping study examining how communities develop self-reliance, resilience, and empowerment in times of crisis, situated within the 'triple crunch' of financial collapse, climate change, and resource depletion."
-impact: "Mapped innovative community responses to UK austerity cuts, identifying how crisis simultaneously intensifies pressures and spurs alternative models of resource management and mutual aid."
-url: "https://environment.leeds.ac.uk/geography-research/dir-record/research-projects/609/communities-in-crisis-connected-communities-scoping-studies-and-reviews"
+title: Communities in Crisis
+role: Principal Investigator
+description: A Connected Communities scoping study examining how communities
+  develop self-reliance, resilience, and empowerment in times of crisis,
+  situated within the 'triple crunch' of financial collapse, climate change, and
+  resource depletion.
+impact: Mapped innovative community responses to UK austerity cuts, identifying
+  how crisis simultaneously intensifies pressures and spurs alternative models
+  of resource management and mutual aid.
+url: https://environment.leeds.ac.uk/geography-research/dir-record/research-projects/609/communities-in-crisis-connected-communities-scoping-studies-and-reviews
+image: /images/screenshot-2026-06-04-at-19.57.47.png
 order: 13
 ---
 
