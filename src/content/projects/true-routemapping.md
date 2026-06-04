@@ -1,9 +1,15 @@
 ---
-title: "Transformational Routemapping for Urban Environments (TRUE)"
-role: "Principal Investigator"
-description: "A multi-sector EPSRC-funded initiative developing a diagnostic platform to help UK cities tackle interconnected challenges: inequality, housing shortages, carbon dependency, and infrastructure congestion, through a socio-technical systems approach."
-impact: "Produced an open-licence digital platform and training guidance, piloted with Leeds City Council Breakthrough Projects and designed for adoption across UK and international cities."
-url: "https://environment.leeds.ac.uk/geography-research/dir-record/research-projects/631/transformational-routemapping-for-urban-environments-true"
+title: Transformational Routemapping for Urban Environments (TRUE)
+role: Principal Investigator
+description: "A multi-sector EPSRC-funded initiative developing a diagnostic
+  platform to help UK cities tackle interconnected challenges: inequality,
+  housing shortages, carbon dependency, and infrastructure congestion, through a
+  socio-technical systems approach."
+impact: Produced an open-licence digital platform and training guidance, piloted
+  with Leeds City Council Breakthrough Projects and designed for adoption across
+  UK and international cities.
+url: https://environment.leeds.ac.uk/geography-research/dir-record/research-projects/631/transformational-routemapping-for-urban-environments-true
+image: /images/screenshot-2026-06-04-at-13.55.08.png
 order: 10
 ---
 
