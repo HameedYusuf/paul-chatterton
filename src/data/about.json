@@ -19,12 +19,22 @@
     {
       "year": "2002",
       "title": "University of Leeds",
-      "body": "Joined the School of Geography at the University of Leeds, where he would go on to become Professor of Urban Futures and one of the UK's leading urban researchers."
+      "body": "Joined the School of Geography at the University of Leeds as a lecturer, where he is now Professor of Urban Futures and one of the UK's leading critical urban researchers."
+    },
+    {
+      "year": "2005",
+      "title": "Autonomous activism",
+      "body": "Helps set up the Common Place social centre, one of several cutting edge radical autonomous social centres around the UK that organised for a transformative local and global change. "
     },
     {
       "year": "2006",
       "title": "Autonomous Geographies",
       "body": "Pioneered the concept of autonomous geographies and post-capitalist urban commons, influencing a generation of radical geographers and urban scholars worldwide."
+    },
+    {
+      "year": "2010",
+      "title": "Anti-coal activism",
+      "body": "Led the trial of the Drax 29, who stopped a coal train going to Drax power station - the UK's largest source of greenhouse gases. Ultimately, this action slows down and eventually stops coal burning for electricity in the UK."
     },
     {
       "year": "2013",
@@ -33,11 +43,11 @@
     },
     {
       "year": "2015",
-      "title": "Leeds Co-Production Lab",
+      "title": "Leeds City Lab",
       "body": "Directed the Leeds Co-Production Lab, developing alternatives to neoliberal urban governance through deep community partnership and participatory action research."
     },
     {
-      "year": "2018",
+      "year": "2016",
       "title": "Leeds Community Homes",
       "body": "Co-founded Leeds Community Homes, a community land trust working to create permanently affordable housing and challenge the extractive housing market."
     },
@@ -49,17 +59,22 @@
     {
       "year": "2020",
       "title": "Climate Action Leeds",
-      "body": "Led the National Lottery funded Climate Action Leeds city-wide mobilisation, engaging 8,700+ people around a shared zero-carbon goal and producing the Leeds Doughnut Economics Portrait."
+      "body": "Strategy Lead for the National Lottery funded Climate Action Leeds city-wide mobilisation, engaging 8,700+ people around a shared zero-carbon goal and producing the Leeds Doughnut Economics Portrait, and supporting the Imagine Leeds climate action hub."
     },
     {
       "year": "2023",
       "title": "How to Save the City",
-      "body": "Published with Agenda — a guide for emergency action bringing three decades of research into a handbook for communities, campaigners and local governments."
+      "body": "Published with Agenda — a guide for action on ther trip climate, social and ecological emergencies bringing three decades of research into a handbook for communities, campaigners and local governments."
+    },
+    {
+      "year": "2025",
+      "title": "Degrowth and Decoloniality",
+      "body": "Current research explores doughnut economics, degrowth and decoloniality, published in Local Environment and leading international journals. Continuing to supervise the next generation of activist-scholars. Developing international links in Indonesia and Ghana on decolonisation and planet repairs"
     },
     {
       "year": "2026",
-      "title": "Degrowth and Decoloniality",
-      "body": "Current research explores doughnut economics, degrowth and decoloniality, published in Local Environment and leading international journals. Continuing to supervise the next generation of activist-scholars. Developing international links in Indonesia and Ghana on decolonisation and planet repairs"
+      "title": "Civic Engagement",
+      "body": "Appointed as a Civic Exchange Fellow by the Vice Chancellor of the University of Leeds in recognition of his civic role in the city and region."
     }
   ],
   "ctaLabel": "Let's Collaborate →",
@@ -91,7 +106,7 @@
   "heroSubtitle": "Professor of Urban Futures at the University of Leeds, working at the intersection of academia and activism to help communities build sustainable, just, and resilient futures.",
   "ctaBody": "Interested in research collaboration, media appearances, or community engagement? Get in touch.",
   "sectionTitle": "Demanding the Impossible",
-  "communityText": "Paul is as committed to activism as to scholarship. He co-founded LILAC (Low Impact Living Affordable Community), the UK's first affordable ecological co-housing project in Leeds, which pioneered the Mutual Home Ownership Society model. He co-founded Leeds Community Homes, a community land trust, and is Chair of Kirkstall Valley Park Charity. Through Climate Action Leeds he helped mobilise over 8,700 people around a shared goal of zero carbon by the 2030s and produced the Leeds Doughnut Economics Portrait. He is also a co-founder of the Remaking Places Interdisciplinary Research Network, and is currently Chair of Kirkstall Valley Park, Director Clean Energy Leeds and People Powered Homes.",
+  "communityText": "Paul is as committed to activism as to scholarship. He co-founded LILAC (Low Impact Living Affordable Community), the UK's first affordable ecological co-housing project in Leeds, which pioneered the Mutual Home Ownership Society model. He co-founded Leeds Community Homes, a community land trust, as well as the Antipode charitable Foundation and Leeds Love it Share It Community Interest Company. As strategy lead for Climate Action Leeds he helped mobilise over 8,700 people around a shared goal of zero carbon by the 2030s and produced the Leeds Doughnut Economics Portrait. He is also a co-founder of the Remaking Places Interdisciplinary Research Network, and is currently Chair of Kirkstall Valley Park, Director of Clean Energy Leeds and People Powered Homes. In 2026 he was appointed as an Inaugural Civic Exchange Fellow of the University of Leeds.",
   "ctaHref": "/collaborate",
   "communitySectionTitle": "Community & Activism",
   "roles": [
@@ -103,7 +118,7 @@
   "heroTitle": "About Paul",
   "stats": [
     {
-      "number": "30+",
+      "number": "25+",
       "label": "Years Research"
     },
     {
@@ -112,7 +127,7 @@
     },
     {
       "number": "9",
-      "label": "Major Projects"
+      "label": "Major Civic Roles"
     }
   ]
 }
