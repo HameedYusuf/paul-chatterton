@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
+---
+
+<Layout title="Page Not Found" description="The page you're looking for doesn't exist.">
+
+  <section class="section" style="background:var(--color-bg);min-height:60vh;display:flex;align-items:center;">
+    <div class="container text-center" style="max-width:540px;">
+
+      <p class="font-bold uppercase tracking-widest mb-4" style="color:var(--color-accent);font-size:0.85rem;">404</p>
+
+      <h1 class="text-3xl font-bold mb-4" style="color:var(--color-text);">Page Not Found</h1>
+
+      <p class="text-base leading-relaxed mb-8" style="color:var(--color-muted);">
+        The page you're looking for doesn't exist or has been moved. Try heading back to the homepage or use the links below.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/" class="btn-primary">Back to Homepage</a>
+        <a href="/collaborate" class="text-sm font-semibold transition-colors hover:text-[#22c55e]" style="color:var(--color-muted);">
+          Get in Touch →
+        </a>
+      </div>
+
+      <div class="mt-12 pt-8" style="border-top:1px solid var(--color-border);">
+        <p class="text-xs mb-3" style="color:var(--color-muted);">Or try one of these:</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          {[
+            { label: 'About', href: '/about' },
+            { label: 'Projects', href: '/projects' },
+            { label: 'Publications', href: '/publications' },
+            { label: 'Media', href: '/media' },
+            { label: 'Blog', href: '/blog' },
+            { label: 'Press Kit', href: '/press-kit' },
+          ].map(link => (
+            <a href={link.href} class="text-sm font-medium transition-colors hover:text-[#22c55e]" style="color:var(--color-muted);">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
