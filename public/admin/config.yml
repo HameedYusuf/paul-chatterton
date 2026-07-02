@@ -23,6 +23,7 @@ collections:
           - { name: siteDescription,  label: "Site Description",       widget: text }
           - { name: substackUrl,        label: "Substack Newsletter URL", widget: string, hint: "e.g. https://urbanfuturesnow.substack.com — used for the newsletter widget." }
           - { name: footerCopyrightYear, label: "Footer Copyright Year", widget: string, hint: "e.g. 2026 — the year shown in the © footer line." }
+          - { name: googleAnalyticsId, label: "Google Analytics ID", widget: string, required: false, hint: "e.g. G-XXXXXXXXXX — paste your GA4 measurement ID here to enable analytics." }
           - { name: email,            label: "Contact Email",          widget: string }
           - { name: googleScholarUrl, label: "Google Scholar URL",     widget: string }
           - { name: universityUrl,    label: "University Profile URL", widget: string }

@@ -18,7 +18,38 @@ const currentPath = Astro.url.pathname;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} · {site.siteName}</title>
   <meta name="description" content={description} />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.svg" />
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={site.siteName} />
+  <meta property="og:title" content={`${title} · ${site.siteName}`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={`https://paulchatterton.org.uk${Astro.url.pathname}`} />
+  <meta property="og:image" content={`https://paulchatterton.org.uk${site.heroImage}`} />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${title} · ${site.siteName}`} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`https://paulchatterton.org.uk${site.heroImage}`} />
+
+  <!-- Google Analytics -->
+  {site.googleAnalyticsId && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.googleAnalyticsId}`}></script>
+      <script is:inline define:vars={{ gaId: site.googleAnalyticsId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    </>
+  )}
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
