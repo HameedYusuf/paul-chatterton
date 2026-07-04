@@ -32,6 +32,9 @@ const projects = (await getCollection('projects'))
       <!-- LEFT: main content -->
       <div>
 
+        <!-- Hidden H1 for SEO — visible header is in Layout.astro -->
+        <h1 class="sr-only">Paul Chatterton — Professor of Urban Futures, University of Leeds</h1>
+
         <!-- Welcome paragraph -->
         <p class="text-base leading-relaxed mb-8" style="color:var(--color-muted);">
           {home.welcomeText}

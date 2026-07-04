@@ -18,6 +18,28 @@ const currentPath = Astro.url.pathname;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} · {site.siteName}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={`https://paulchatterton.org.uk${Astro.url.pathname}`} />
+
+  <!-- JSON-LD Person schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Paul Chatterton",
+    "jobTitle": "Professor of Urban Futures",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "University of Leeds",
+      "url": "https://www.leeds.ac.uk"
+    },
+    "url": "https://paulchatterton.org.uk",
+    "image": `https://paulchatterton.org.uk${site.heroImage}`,
+    "email": site.email,
+    "sameAs": [
+      site.googleScholarUrl,
+      site.universityUrl
+    ],
+    "description": site.siteDescription
+  })} />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
