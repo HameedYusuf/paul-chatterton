@@ -41,6 +41,13 @@ const currentPath = Astro.url.pathname;
     "description": site.siteDescription
   })} />
 
+  <!-- PWA manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0d0d0d" />
+
+  <!-- Preload hero image for LCP -->
+  <link rel="preload" as="image" href={site.heroImage} />
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.svg" />
@@ -75,6 +82,8 @@ const currentPath = Astro.url.pathname;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <slot name="head" />
+
   <script is:inline>
     // Apply saved theme immediately to avoid flash
     if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light');

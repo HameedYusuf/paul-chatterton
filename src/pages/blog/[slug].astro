@@ -15,6 +15,18 @@ const { post } = Astro.props;
 ---
 
 <Layout title={post.title} description={post.excerpt}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "author": { "@type": "Person", "name": "Paul Chatterton", "url": "https://paulchatterton.org.uk" },
+    "publisher": { "@type": "Person", "name": "Paul Chatterton" },
+    "image": post.image || "https://paulchatterton.org.uk/paul_chatteron.jpg",
+    "datePublished": post.fullDate,
+    "url": `https://paulchatterton.org.uk/blog/${post.slug}`,
+    "mainEntityOfPage": `https://paulchatterton.org.uk/blog/${post.slug}`
+  })} slot="head" />
 
   <!-- Hero image if available -->
   {post.image && (

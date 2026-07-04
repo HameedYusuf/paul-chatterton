@@ -22,6 +22,15 @@ const allImages = [
 ---
 
 <Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": title,
+    "description": description,
+    "author": { "@type": "Person", "name": "Paul Chatterton", "url": "https://paulchatterton.org.uk" },
+    "image": image ? `https://paulchatterton.org.uk${image}` : "https://paulchatterton.org.uk/paul_chatteron.jpg",
+    "url": `https://paulchatterton.org.uk/projects/${entry.slug}`
+  })} slot="head" />
 
   <!-- Hero image -->
   {image && (
